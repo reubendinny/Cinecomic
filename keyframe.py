@@ -5,7 +5,7 @@ import numpy as np
 
 def _get_features(frames, gpu=True, batch_size=1):
     # Load pre-trained GoogLeNet model
-    googlenet = torch.hub.load('pytorch/vision:v0.10.0', 'googlenet', pretrained=True)
+    googlenet = torch.hub.load('pytorch/vision:v0.10.0', 'googlenet', weights='GoogLeNet_Weights.DEFAULT')
     
     # Remove the classification layer (last layer) to obtain features
     googlenet = torch.nn.Sequential(*(list(googlenet.children())[:-1]))
