@@ -4,6 +4,73 @@ from PIL import Image
 import numpy as np
 from model import DSN
 import torch.nn as nn
+import cv2
+import time
+
+
+
+import cv2
+import time
+import os
+
+# Function to extract frames at a specified frame rate and append paths to a list
+def extract_frames(video_path, output_folder, frame_rate=2):
+    cap = cv2.VideoCapture(video_path)
+    
+    if not cap.isOpened():
+        print("Error: Could not open video file.")
+        return
+    
+    frame_width = int(cap.get(3))  # Get the width of the frames
+    frame_height = int(cap.get(4))  # Get the height of the frames
+    
+    # Define the codec and create a VideoWriter object
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # You can change the codec as needed
+    output_path = os.path.join(output_folder, "output_video.mp4")
+    out = cv2.VideoWriter(output_path, fourcc, frame_rate, (frame_width, frame_height))
+    
+    start_time = time.time()
+    frame_count = 0
+    frames = []  # List to store frame paths
+    
+    while cap.isOpened():
+        ret, frame = cap.read()
+        
+        if not ret:
+            break
+        
+        elapsed_time = time.time() - start_time
+        if elapsed_time >= 1.0 / frame_rate:
+            out.write(frame)
+            frame_count += 1
+            start_time = time.time()
+
+            # Save the frame as an image file
+            frame_filename = f"frame_{frame_count:04d}.png"
+            frame_path = os.path.join(output_folder, frame_filename)
+            cv2.imwrite(frame_path, frame)
+            frames.append(frame_path)
+
+    cap.release()
+    out.release()
+    cv2.destroyAllWindows()
+    
+    print(f"Frames extracted: {frame_count}")
+    print(f"Frames per second: {frame_rate}")
+    print(f"Output video saved to: {output_path}")
+
+    return frames
+
+# Example usage
+video_path = "./video/IronMan.mp4"
+output_folder = "./frames"
+frames = extract_frames(video_path, output_folder, frame_rate=2)
+
+# Now 'extracted_frame_paths' contains a list of file paths for the extracted frames
+print("Extracted frame paths:", frames)
+
+
+
 
 def _get_features(frames, gpu=True, batch_size=1):
     # Load pre-trained GoogLeNet model
@@ -80,6 +147,10 @@ def _get_probs(features, gpu=True, mode=0):
         return probs
 
 
-frames = ["video/ironman.jpg"]
 # print(_get_features(frames))
-print(_get_probs(_get_features(frames)))
+#print(_get_probs(_get_features(frames)))
+
+features = _get_features(frames)
+print(features.shape)
+print(features[0].shape)
+print(_get_probs(features).shape)
