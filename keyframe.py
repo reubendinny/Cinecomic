@@ -2,6 +2,8 @@ import torch
 from torchvision import transforms
 from PIL import Image
 import numpy as np
+from model import DSN
+import torch.nn as nn
 
 def _get_features(frames, gpu=True, batch_size=1):
     # Load pre-trained GoogLeNet model
@@ -49,5 +51,35 @@ def _get_features(frames, gpu=True, batch_size=1):
     return features.astype(np.float32)
 
 
+
+
+def _get_probs(features, gpu=True, mode=0):
+        model_cache_key = "keyframes_rl_model_cache_" + str(mode)
+        # model = cache.get(model_cache_key)  # get model from cache
+
+        # if model is None:
+        if mode == 1:
+            model_path = "pretrained_model/model_1.pth.tar"
+        else:
+            model_path = "pretrained_model/model_0.pth.tar"
+        model = DSN(in_dim=1024, hid_dim=256, num_layers=1, cell="lstm")
+        if gpu:
+            checkpoint = torch.load(model_path)
+        else:
+            checkpoint = torch.load(model_path, map_location='cpu')
+        model.load_state_dict(checkpoint)
+        if gpu:
+            model = nn.DataParallel(model).cuda()
+        model.eval()
+        # cache.set(model_cache_key, model, None)
+
+        seq = torch.from_numpy(features).unsqueeze(0)
+        if gpu: seq = seq.cuda()
+        probs = model(seq)
+        probs = probs.data.cpu().squeeze().numpy()
+        return probs
+
+
 frames = ["video/ironman.jpg"]
-print(_get_features(frames))
+# print(_get_features(frames))
+print(_get_probs(_get_features(frames)))
