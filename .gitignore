@@ -1,3 +1,5 @@
 venv
-frames
-video
+frames/*
+video/*
+*.srt
+__pycache__
