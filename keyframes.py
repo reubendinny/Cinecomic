@@ -85,7 +85,8 @@ from extract_frames import extract_frames
 data=""
 with open("test1.srt") as f:
     data = f.read()
-    
+
+from copy_image import copy_and_rename_file    
 subs = srt.parse(data)
 torch.cuda.empty_cache()
 
@@ -93,11 +94,15 @@ for sub in subs:
     frames = []
     if not os.path.exists(f"frames/sub{sub.index}"):
         os.makedirs(f"frames/sub{sub.index}")
-    frames = extract_frames("video/steve.mp4",os.path.join("frames",f"sub{sub.index}"),sub.start.total_seconds(),sub.end.total_seconds(),2)
+    frames = extract_frames("video/harry.mp4",os.path.join("frames",f"sub{sub.index}"),sub.start.total_seconds(),sub.end.total_seconds(),2)
     features = _get_features(frames)
     highlight_scores = _get_probs(features)
 
     highlight_scores = list(highlight_scores)
     sorted_indices = [i[0] for i in sorted(enumerate(highlight_scores), key=lambda x: x[1])]
     print(f"The indices of the list in the increasing order of value are {sorted_indices}.")
+    selected_keyframe = sorted_indices[-1]
+    frames[selected_keyframe]
+
+    copy_and_rename_file(frames[selected_keyframe], os.path.join("frames","final"), f"frame{sub.index}.png")
     # print(sub)
