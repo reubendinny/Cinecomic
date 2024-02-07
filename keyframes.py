@@ -104,5 +104,5 @@ for sub in subs:
     selected_keyframe = sorted_indices[-1]
     frames[selected_keyframe]
 
-    copy_and_rename_file(frames[selected_keyframe], os.path.join("frames","final"), f"frame{sub.index}.png")
+    copy_and_rename_file(frames[selected_keyframe], os.path.join("frames","final"), f"frame{sub.index:03}.png")
     # print(sub)
