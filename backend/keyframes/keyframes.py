@@ -3,11 +3,14 @@ import torch
 from torchvision import transforms
 from PIL import Image
 import numpy as np
-from model import DSN
+from backend.keyframes.model import DSN
 import torch.nn as nn
 import cv2
 import time
 import os
+import srt
+from backend.keyframes.extract_frames import extract_frames
+from backend.utils import copy_and_rename_file 
 
 # Cell 2
 def _get_features(frames, gpu=True, batch_size=1):
@@ -59,9 +62,9 @@ def _get_features(frames, gpu=True, batch_size=1):
 def _get_probs(features, gpu=True, mode=0):
     # model_cache_key = "keyframes_rl_model_cache_" + str(mode)
     if mode == 1:
-        model_path = "pretrained_model/model_1.pth.tar"
+        model_path = "backend/keyframes/pretrained_model/model_1.pth.tar"
     else:
-        model_path = "pretrained_model/model_0.pth.tar"
+        model_path = "backend/keyframes/pretrained_model/model_0.pth.tar"
     model = DSN(in_dim=1024, hid_dim=256, num_layers=1, cell="lstm")
     if gpu:
         checkpoint = torch.load(model_path)
@@ -79,30 +82,28 @@ def _get_probs(features, gpu=True, mode=0):
     return probs
 
 
-import srt
-from extract_frames import extract_frames
+   
+def generate_keyframes(video):
+    data=""
+    with open("test1.srt") as f:
+        data = f.read()
 
-data=""
-with open("test1.srt") as f:
-    data = f.read()
+    subs = srt.parse(data)
+    torch.cuda.empty_cache()
 
-from copy_image import copy_and_rename_file    
-subs = srt.parse(data)
-torch.cuda.empty_cache()
+    for sub in subs:
+        frames = []
+        if not os.path.exists(f"frames/sub{sub.index}"):
+            os.makedirs(f"frames/sub{sub.index}")
+        frames = extract_frames(video,os.path.join("frames",f"sub{sub.index}"),sub.start.total_seconds(),sub.end.total_seconds(),2)
+        features = _get_features(frames)
+        highlight_scores = _get_probs(features)
 
-for sub in subs:
-    frames = []
-    if not os.path.exists(f"frames/sub{sub.index}"):
-        os.makedirs(f"frames/sub{sub.index}")
-    frames = extract_frames("video/harry.mp4",os.path.join("frames",f"sub{sub.index}"),sub.start.total_seconds(),sub.end.total_seconds(),2)
-    features = _get_features(frames)
-    highlight_scores = _get_probs(features)
+        highlight_scores = list(highlight_scores)
+        sorted_indices = [i[0] for i in sorted(enumerate(highlight_scores), key=lambda x: x[1])]
+        print(f"The indices of the list in the increasing order of value are {sorted_indices}.")
+        selected_keyframe = sorted_indices[-1]
+        frames[selected_keyframe]
 
-    highlight_scores = list(highlight_scores)
-    sorted_indices = [i[0] for i in sorted(enumerate(highlight_scores), key=lambda x: x[1])]
-    print(f"The indices of the list in the increasing order of value are {sorted_indices}.")
-    selected_keyframe = sorted_indices[-1]
-    frames[selected_keyframe]
-
-    copy_and_rename_file(frames[selected_keyframe], os.path.join("frames","final"), f"frame{sub.index:03}.png")
-    # print(sub)
+        copy_and_rename_file(frames[selected_keyframe], os.path.join("frames","final"), f"frame{sub.index:03}.png")
+        # print(sub)
