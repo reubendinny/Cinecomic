@@ -3,70 +3,71 @@
     height: 150vh;
     width: 100vw;
     justify-content: center;
-}
-.grid-container {
+  }
+  .grid-container {
     width: 50%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border: 3px solid black;
     row-gap: 3px;
     column-gap: 3px;
-}
-.grid-item {
+  }
+  .grid-item {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     border: 3px solid black;
-}
-#_1 {
+  }
+  #_1 {
     background-image: url("images/frame_0010.png");;
     background-size: contain;
     background-repeat: no-repeat;
-    grid-row: span 1;
-}
-#_2 {
+  }
+  #_2 {
     background-image: url("images/frame_0011.png");;
     background-size: contain;
     background-repeat: no-repeat;
     background-color: green;
-    grid-column: span 3;
-}
-#_3 {
+  }
+  #_3 {
     background-image: url("images/frame_0012.png");;
     background-size: contain;
     background-repeat: no-repeat;
-    grid-column: span 1;
-}
-#_4 {
-    background-image: url("images/frame_0013.png");
+  }
+  #_4 {
+    background-image: url("images/frame_0013.png");;
     background-size: contain;
     background-repeat: no-repeat;
-}
-#_5 {
-    background-image: url("images/frame_0014.png");
+  }
+  #_5 {
+    background-image: url("images/frame_0014.png");;
     background-size: contain;
     background-repeat: no-repeat;
-}
-#_6 {
-    background-image: url("images/frame_0015.png");
+  }
+  #_6 {
+    background-image: url("images/frame_0015.png");;
     background-size: contain;
     background-repeat: no-repeat;
-}
-#_7 {
+  }
+  #_7 {
     background-image: url("images/frame_0010.png");
     background-size: contain;
     background-repeat: no-repeat;
     display: none;
-}
-#_8 {
+  
+  }
+  #_8 {
     background-image: url("images/frame_0010.png");
     background-size: contain;
     background-repeat: no-repeat;
     display: none;
-}
-#_9 {
+  
+  }
+  #_9 {
     background-image: url("images/frame_0010.png");
     background-size: contain;
     background-repeat: no-repeat;
     display: none;
-}
+  
+  }
+  
