@@ -3,3 +3,4 @@ frames/*
 video/*
 *.srt
 __pycache__
+*.png

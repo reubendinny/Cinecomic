@@ -1,5 +1,5 @@
 import srt,os
-from extract_frames import extract_frames
+from backend.keyframes.extract_frames import extract_frames
 
 data=""
 with open("test1.srt") as f:
