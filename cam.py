@@ -97,12 +97,13 @@ def get_coordinates(img_path):
     right = right * x_
     left,right,top,bottom
 
-    left_top = (left, top)
-    right_top = (right, top)
-    left_bottom = (left, bottom)
-    right_bottom = (right, bottom)
+    # left_top = (left, top)
+    # right_top = (right, top)
+    # left_bottom = (left, bottom)
+    # right_bottom = (right, bottom)
 
-    return left_top, right_top, left_bottom, right_bottom
+    # return left_top, right_top, left_bottom, right_bottom
+    return left, top, right, bottom
 
 # print(get_coordinates('frames/final/frame005.png')) 
 
