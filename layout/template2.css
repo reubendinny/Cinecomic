@@ -9,8 +9,8 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     border: 3px solid black;
-    row-gap: 3px;
-    column-gap: 3px;
+    row-gap: 5px;
+    column-gap: 5px;
   }
   .grid-item {
     background-position: center center;
@@ -28,6 +28,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-color: green;
+    grid-column: span 2;
   }
   #_3 {
     background-image: url("images/frame_0012.png");;
@@ -38,11 +39,15 @@
     background-image: url("images/frame_0013.png");;
     background-size: contain;
     background-repeat: no-repeat;
+    grid-row: span 2;
+
   }
   #_5 {
     background-image: url("images/frame_0014.png");;
     background-size: contain;
     background-repeat: no-repeat;
+    grid-column: span 2;
+
   }
   #_6 {
     background-image: url("images/frame_0015.png");;
@@ -53,23 +58,41 @@
     background-image: url("images/frame_0010.png");
     background-size: contain;
     background-repeat: no-repeat;
-    display: none;
   
   }
   #_8 {
     background-image: url("images/frame_0010.png");
     background-size: contain;
     background-repeat: no-repeat;
-    display: none;
-  
+    grid-column: span 2;
+
   }
   #_9 {
     background-image: url("images/frame_0010.png");
     background-size: contain;
     background-repeat: no-repeat;
     display: none;
+
   
   }
- 
-  
+  #_10 {
+    background-image: url("images/frame_0010.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+
+  }
+  #_11 {
+    background-image: url("images/frame_0010.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+
+  }
+  #_12 {
+    background-image: url("images/frame_0010.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+  }
   

@@ -80,7 +80,7 @@ for image in images:
 
     total_rank = total_rank + image['rank']
     print(total_rank)
-    if(total_rank >=6):
+    if(total_rank >=7):
         break
 
     set_background_image( f'#_{i}', image['name'] )
@@ -94,10 +94,14 @@ for image in images:
 
 # New logic
 
-grid = [[000],[000],[000]]
+# grid = [[0,0,0],[0,0,0],[0,0,0]]
+# k = 0
 
-
-
+# for i in range(3):
+#     print(grid[i])
+#     images[k]['rank']
+#     k = k+1
+    
 
 
 
