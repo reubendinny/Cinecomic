@@ -39,24 +39,35 @@ def set_background_image(key, image_path):
     url_str =   f'url("images/{image_path}");'
     css_dict[key]['background-image'] =  url_str
 
-lis = ['row' , 'column']
+
+
+# Function to calculate Hamming distance  
+def hammingDist(str1, str2): 
+    i = 0
+    count = 0
+  
+    while(i < len(str1)): 
+        if(str1[i] != str2[i]): 
+            count += 1
+        i += 1
+    return count
+
+
+
 
 def get_files_in_folder(folder_path):
     file_dicts = []
     for root, dirs, files in os.walk(folder_path):
         for file in files:
             file_path = os.path.join(root, file)
-            span = random.choice(lis)
-            if(span == 'row'):
-                rank = random.randint(1, 4) 
-            else:
-                rank = random.randint(1, 3) 
+            rank = random.randint(1, 3) 
 
-            file_dicts.append({"name": file , 'rank' :  rank, 'span' :span})
+            file_dicts.append({"name": file , 'rank' :  rank})
     return file_dicts
 
 
-
+templates = ['444444','14124114','312341' , '4432111' , '21411241' , '324114' , '13411141' , '12411131' ,'132113', '131423' , 
+'142344' , '234241','2411413','3141214','42111131']
 
 
 css_file = 'template.css'  # Replace 'styles.css' with your CSS file path
@@ -64,18 +75,74 @@ css_dict = parse_css_file(css_file)
 print(css_dict)
 
 
-# css_dict['#_3']['background-color'] = 'red'
-
-
 folder_path = 'images' # Specify the folder path
 images = get_files_in_folder(folder_path)
 print(images)
 
+count = 0
+
+def get_templates(input):
+    page_templates = []
+    start = 0
+
+    while(start<len(input)):
+        # print(f"start: {start}")
+        result = []
+        print(input)
+        for template in templates:
+
+            temp = input[start:start + len(template)]
+            print(f"start: {start} len:{len(template)} temp:{temp}" )
+            result.append(hammingDist(temp,template))
+
+        # print(result)
+        # print(min(result))
+        # print(templates[result.index(min(result))])
+
+        page_templates.append(templates[result.index(min(result))])
+
+        start = start + len(templates[result.index(min(result))]) 
+
+
+        # print("****************")
+
+    return page_templates
 
 
 
-i=1
-total_rank = 0
+page_templates = get_templates('12154848486454111111')
+print(page_templates)
+
+
+template_specs = {
+    "1" : {
+        "span" : 1,
+        "direction": "row"
+    },
+    "2" : {
+        "span" : 2,
+        "direction": "row"
+    },
+    "3" : {
+        "span" : 3,
+        "direction": "column"
+    },
+     "4" : {
+        "span" : 2,
+        "direction": "column"
+    }
+   
+   
+}
+
+
+# def insert_in_grid(images , page_templates):
+#     for page_template in page_templates:
+#         for i in page_template:
+                
+#                 css_dict[f'#_{i}']['grid-'+ image['span']] = 'span ' + str(image['rank'])   #Trying to assign this: grid-column: span 2;
+
+
 
 
 
