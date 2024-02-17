@@ -1,5 +1,6 @@
 import os
 import random
+import copy
 
 
 def parse_css_file(css_file):
@@ -137,23 +138,31 @@ template_specs = {
 def insert_in_grid(images , page_templates):
     page_css = []
     for page_template in page_templates:
-        new = dict(css_dict)
+        new = copy.deepcopy(css_dict)
+        count = 1
         for i in page_template:
-                new[f'#_{i}']['grid-'+ template_specs[i]['direction']] = 'span ' + str(template_specs[i]['span'])   #Trying to assign this: grid-column: span 2;
+            # print(i)
+            new[f'#_{count}']['grid-'+ template_specs[i]['direction']] = 'span ' + str(template_specs[i]['span'])   #Trying to assign this: grid-column: span 2;
+            # print(new[f'#_{count}']['grid-'+ template_specs[i]['direction']])
+            # print(f'count: {count}')
+            count = count+1
 
-        for i in range(len(page_template), 12):
+        for i in range(count, 13):
                 new[f'#_{i}']['display'] = 'none'
-
+        # print(new)
         page_css.append(new)
 
+    return page_css
 
 page_templates = get_templates('12154848486454111111')
 print(page_templates)
 page_css = insert_in_grid(images,page_templates)
 
-print(page_css)
-print(css_dict)
-
+# print(page_css)
+# print(css_dict)
+for i in range(0,len(page_css)):
+    # print(i)
+    output_file = f'page_css/page{i+1}.css'
+    write_css_file(page_css[i],output_file)
 
 # output_file = 'page.css'  # Specify the output file path
-# write_css_file(css_dict, output_file)
