@@ -40,10 +40,7 @@ def get_coordinates(img_path):
     y_ = img.shape[1] // cms
 
     top,bottom,left,right = -1,-1,-1,-1
-    threshold = 0.2
-
-    top,bottom,left,right = -1,-1,-1,-1
-    threshold = 0.2
+    threshold = 0.25
 
     # Top
     found = False
@@ -103,7 +100,7 @@ def get_coordinates(img_path):
     # right_bottom = (right, bottom)
 
     # return left_top, right_top, left_bottom, right_bottom
-    return left, top, right, bottom
+    return left, right, top, bottom
 
 # print(get_coordinates('frames/final/frame005.png')) 
 

@@ -1,5 +1,6 @@
 import shutil
 import os
+from PIL import Image
 
 def copy_and_rename_file(source_file, destination_folder, new_file_name):
 
@@ -22,6 +23,36 @@ def copy_and_rename_file(source_file, destination_folder, new_file_name):
         print("Permission denied.")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+def crop_image(img_path, left, right, top, bottom):
+    img = Image.open(img_path)
+
+    # Reposition if it exceeds image boundary
+    width, height = img.size
+    if(left < 0):
+        left += -(left)
+        right += -(left)
+
+    elif(right > width):
+        left -= (right-width)
+        right -= (right-width)
+
+    elif(top < 0):
+        top += -(top)
+        bottom += -(top)
+
+    elif(bottom > height):
+        top -= (bottom-height)
+        bottom -= (bottom-height)
+
+    # Crop the image wrt the 4 coordinates
+    box = (left, top, right, bottom)
+    img2 = img.crop(box)
+    
+    # Save the cropped image
+    img2.save(img_path)
+    # img2.show()
+    # return img2
 
 
 
