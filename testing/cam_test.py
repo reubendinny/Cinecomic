@@ -13,7 +13,7 @@ from torchcam.methods import SmoothGradCAMpp
 
 model = resnet18(pretrained=True).eval()
 # Get your input
-img = read_image("../frames/final/frame005.png")
+img = read_image("../frames/final/frame001.png")
 # Preprocess it for your chosen model
 input_tensor = normalize(resize(img, (224, 224)) / 255., [0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 
@@ -35,4 +35,5 @@ plt.imshow(result); plt.axis('off'); plt.tight_layout(); plt.show()
 # import matplotlib.pyplot as plt
 # # Visualize the raw CAM
 # plt.imshow(to_pil_image(activation_map[0].squeeze(0))); plt.axis('off'); plt.tight_layout(); plt.show()
+
 
