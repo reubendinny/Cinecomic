@@ -110,8 +110,6 @@ def get_templates(input):
 
 
 
-page_templates = get_templates('12154848486454111111')
-print(page_templates)
 
 
 template_specs = {
@@ -136,32 +134,26 @@ template_specs = {
 }
 
 
-# def insert_in_grid(images , page_templates):
-#     for page_template in page_templates:
-#         for i in page_template:
-                
-#                 css_dict[f'#_{i}']['grid-'+ image['span']] = 'span ' + str(image['rank'])   #Trying to assign this: grid-column: span 2;
+def insert_in_grid(images , page_templates):
+    page_css = []
+    for page_template in page_templates:
+        new = dict(css_dict)
+        for i in page_template:
+                new[f'#_{i}']['grid-'+ template_specs[i]['direction']] = 'span ' + str(template_specs[i]['span'])   #Trying to assign this: grid-column: span 2;
+
+        for i in range(len(page_template), 12):
+                new[f'#_{i}']['display'] = 'none'
+
+        page_css.append(new)
 
 
+page_templates = get_templates('12154848486454111111')
+print(page_templates)
+page_css = insert_in_grid(images,page_templates)
 
-
-
+print(page_css)
 print(css_dict)
 
-# New logic
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-output_file = 'page.css'  # Specify the output file path
-write_css_file(css_dict, output_file)
+# output_file = 'page.css'  # Specify the output file path
+# write_css_file(css_dict, output_file)
