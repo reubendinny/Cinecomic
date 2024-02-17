@@ -73,17 +73,51 @@ print(images)
 
 
 
+# print(len(images))
+
+# delete = 9 - len(images)
+
+
 
 i=1
 total_rank = 0
 
+for image in images:
 
+    total_rank = total_rank + image['rank']
+    print(total_rank)
+
+
+    set_background_image( f'#_{i}', image['name'] )
+
+    css_dict[f'#_{i}']['grid-'+ image['span']] = 'span ' + str(image['rank'])   #Trying to assign this: grid-column: span 2;
+
+    i = i+1
+   
 
 print(css_dict)
 
 # New logic
 
+# grid = [[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+# k = 0
 
+# i=0
+
+# for i in range(3):
+#     if(images[i]['span'] == 'column'):
+#         j=0
+#         while(j<images[i]['rank'] ):
+#             grid[i][j] = 1
+#             j=j+1
+
+#     if(images[i]['span'] == 'row'):
+#         j=0
+#         while(j<images[i]['rank'] ):
+#             grid[j][i] = 1
+#             j=j+1
+
+# print(grid)
 
 
 

@@ -27,7 +27,6 @@
     background-image: url("images/frame_0011.png");;
     background-size: contain;
     background-repeat: no-repeat;
-    background-color: green;
   }
   #_3 {
     background-image: url("images/frame_0012.png");;
@@ -70,6 +69,25 @@
     display: none;
   
   }
- 
+  #_10 {
+    background-image: url("images/frame_0010.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+
+  }
+  #_11 {
+    background-image: url("images/frame_0010.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+
+  }
+  #_12 {
+    background-image: url("images/frame_0010.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+  }
   
   
