@@ -37,7 +37,7 @@ def write_css_file(css_dict, output_file):
 
 
 def set_background_image(key, image_path):  
-    url_str =   f'url("images/{image_path}");'
+    url_str =   f'url("../../../../frames/final/{image_path}");'
     css_dict[key]['background-image'] =  url_str
 
 
@@ -71,14 +71,13 @@ templates = ['444444','14124114','312341' , '4432111' , '21411241' , '324114' , 
 '142344' , '234241','2411413','3141214','42111131']
 
 
-css_file = 'template.css'  # Replace 'styles.css' with your CSS file path
+css_file = 'backend/panel_layout/layout/template.css'  # Replace 'styles.css' with your CSS file path
 css_dict = parse_css_file(css_file)
 print(css_dict)
 
 
-folder_path = 'images' # Specify the folder path
-images = get_files_in_folder(folder_path)
-print(images)
+folder_path = 'frames/final' # Specify the folder path
+
 
 count = 0
 
@@ -135,34 +134,45 @@ template_specs = {
 }
 
 
-def insert_in_grid(images , page_templates):
+def insert_in_grid(page_templates):
     page_css = []
+
+    images = get_files_in_folder(folder_path)
+    print(images)
+    count_images = 1
+
     for page_template in page_templates:
         new = copy.deepcopy(css_dict)
         count = 1
         for i in page_template:
             # print(i)
+
+            set_background_image(f'#_{count}', f'frame{count_images:03d}')
+
             new[f'#_{count}']['grid-'+ template_specs[i]['direction']] = 'span ' + str(template_specs[i]['span'])   #Trying to assign this: grid-column: span 2;
             # print(new[f'#_{count}']['grid-'+ template_specs[i]['direction']])
             # print(f'count: {count}')
             count = count+1
+            count_images+=1
 
         for i in range(count, 13):
                 new[f'#_{i}']['display'] = 'none'
         # print(new)
         page_css.append(new)
 
-    return page_css
 
-page_templates = get_templates('12154848486454111111')
-print(page_templates)
-page_css = insert_in_grid(images,page_templates)
+    for i in range(0,len(page_css)):
+    # print(i)
+        output_file = f'backend/panel_layout/layout/page_css/page{i+1}.css'
+        write_css_file(page_css[i],output_file)
+
+
+
 
 # print(page_css)
 # print(css_dict)
-for i in range(0,len(page_css)):
-    # print(i)
-    output_file = f'page_css/page{i+1}.css'
-    write_css_file(page_css[i],output_file)
+
+
+
 
 # output_file = 'page.css'  # Specify the output file path

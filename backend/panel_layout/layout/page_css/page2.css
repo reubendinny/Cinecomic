@@ -19,46 +19,46 @@
     border: 3px solid black;
 }
 #_1 {
-    background-image: url("images/frame_0010.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    grid-column: span 2;
-}
-#_2 {
-    background-image: url("images/frame_0011.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    grid-column: span 2;
-}
-#_3 {
-    background-image: url("images/frame_0012.png");
+    background-image: url("../../../../frames/final/frame001");;
     background-size: contain;
     background-repeat: no-repeat;
     grid-column: span 3;
 }
-#_4 {
-    background-image: url("images/frame_0013.png");
+#_2 {
+    background-image: url("../../../../frames/final/frame002");;
     background-size: contain;
     background-repeat: no-repeat;
     grid-row: span 2;
 }
+#_3 {
+    background-image: url("../../../../frames/final/frame003");;
+    background-size: contain;
+    background-repeat: no-repeat;
+    grid-column: span 2;
+}
+#_4 {
+    background-image: url("../../../../frames/final/frame004");;
+    background-size: contain;
+    background-repeat: no-repeat;
+    grid-row: span 1;
+}
 #_5 {
-    background-image: url("images/frame_0014.png");
+    background-image: url("../../../../frames/final/frame005");;
     background-size: contain;
     background-repeat: no-repeat;
     grid-row: span 1;
 }
 #_6 {
-    background-image: url("images/frame_0015.png");
+    background-image: url("../../../../frames/final/frame006");;
     background-size: contain;
     background-repeat: no-repeat;
-    grid-row: span 1;
+    grid-column: span 2;
 }
 #_7 {
     background-image: url("images/frame_0010.png");
     background-size: contain;
     background-repeat: no-repeat;
-    grid-row: span 1;
+    display: none;
 }
 #_8 {
     background-image: url("images/frame_0010.png");
