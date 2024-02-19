@@ -36,9 +36,9 @@ def write_css_file(css_dict, output_file):
             f.write("}\n")
 
 
-def set_background_image(key, image_path):  
-    url_str =   f'url("../../../../frames/final/{image_path}");'
-    css_dict[key]['background-image'] =  url_str
+def set_background_image(key, image_path, page_template):  
+    url_str =   f'url("../../../../frames/final/{image_path}.png");'
+    page_template[key]['background-image'] =  url_str
 
 
 
@@ -67,7 +67,7 @@ def get_files_in_folder(folder_path):
     return file_dicts
 
 
-templates = ['444444','14124114','312341' , '4432111' , '21411241' , '324114' , '13411141' , '12411131' ,'132113', '131423' , 
+templates = ['14124114','312341' , '4432111' , '21411241' , '324114' , '13411141' , '12411131' ,'132113', '131423' , 
 '142344' , '234241','2411413','3141214','42111131']
 
 
@@ -147,7 +147,7 @@ def insert_in_grid(page_templates):
         for i in page_template:
             # print(i)
 
-            set_background_image(f'#_{count}', f'frame{count_images:03d}')
+            set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
 
             new[f'#_{count}']['grid-'+ template_specs[i]['direction']] = 'span ' + str(template_specs[i]['span'])   #Trying to assign this: grid-column: span 2;
             # print(new[f'#_{count}']['grid-'+ template_specs[i]['direction']])
@@ -163,6 +163,7 @@ def insert_in_grid(page_templates):
 
     for i in range(0,len(page_css)):
     # print(i)
+        print(page_css[i])
         output_file = f'backend/panel_layout/layout/page_css/page{i+1}.css'
         write_css_file(page_css[i],output_file)
 

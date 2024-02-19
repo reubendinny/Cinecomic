@@ -1,11 +1,14 @@
-.wrapper {
+body {
     display: flex;
-    height: 150vh;
-    width: 100vw;
     justify-content: center;
 }
+.wrapper {
+    display: flex;
+    width: 1754px;
+    height: 2480px;
+}
 .grid-container {
-    width: 50%;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     border: 3px solid black;
@@ -19,74 +22,57 @@
     border: 3px solid black;
 }
 #_1 {
-    background-image: url("images/frame_0010.png");
-    background-size: contain;
     background-repeat: no-repeat;
-    grid-column: span 2;
+    background-image: url("../../../../frames/final/frame001.png");;
+    grid-row: span 2;
 }
 #_2 {
-    background-image: url("images/frame_0011.png");
-    background-size: contain;
     background-repeat: no-repeat;
+    background-image: url("../../../../frames/final/frame002.png");;
     grid-column: span 2;
 }
 #_3 {
-    background-image: url("images/frame_0012.png");
-    background-size: contain;
     background-repeat: no-repeat;
-    grid-column: span 2;
+    background-image: url("../../../../frames/final/frame003.png");;
+    grid-row: span 1;
 }
 #_4 {
-    background-image: url("images/frame_0013.png");
-    background-size: contain;
     background-repeat: no-repeat;
-    grid-column: span 2;
+    background-image: url("../../../../frames/final/frame004.png");;
+    grid-row: span 1;
 }
 #_5 {
-    background-image: url("images/frame_0014.png");
-    background-size: contain;
     background-repeat: no-repeat;
+    background-image: url("../../../../frames/final/frame005.png");;
     grid-column: span 2;
 }
 #_6 {
-    background-image: url("images/frame_0015.png");
-    background-size: contain;
     background-repeat: no-repeat;
-    grid-column: span 2;
+    background-image: url("../../../../frames/final/frame006.png");;
+    grid-row: span 1;
 }
 #_7 {
-    background-image: url("images/frame_0010.png");
-    background-size: contain;
     background-repeat: no-repeat;
-    display: none;
+    background-image: url("../../../../frames/final/frame007.png");;
+    grid-column: span 3;
 }
 #_8 {
-    background-image: url("images/frame_0010.png");
-    background-size: contain;
     background-repeat: no-repeat;
     display: none;
 }
 #_9 {
-    background-image: url("images/frame_0010.png");
-    background-size: contain;
     background-repeat: no-repeat;
     display: none;
 }
 #_10 {
-    background-image: url("images/frame_0010.png");
-    background-size: contain;
     background-repeat: no-repeat;
     display: none;
 }
 #_11 {
-    background-image: url("images/frame_0010.png");
-    background-size: contain;
     background-repeat: no-repeat;
     display: none;
 }
 #_12 {
-    background-image: url("images/frame_0010.png");
-    background-size: contain;
     background-repeat: no-repeat;
     display: none;
 }
