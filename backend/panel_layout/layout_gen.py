@@ -69,15 +69,23 @@ def centroid_crop(index, panel_type, cam_coords):
     crop_bottom = yC + (0.5 * types[panel_type]['height']) 
 
     # Scale the panel to fit the bounding box 
-    if(panel_type == '2'):
-        Sfactor =  (right - left) / types[panel_type]['width']
-    else:
-        Sfactor = (bottom - top) / types[panel_type]['height']
+    # if(panel_type == '2'):
+    #     Sfactor =  (right - left) / types[panel_type]['width']
+    # else:
+    Sfactor = (bottom - top) / types[panel_type]['height']
 
-    crop_left *= Sfactor
-    crop_right *= Sfactor
-    crop_top *= Sfactor
-    crop_bottom *= Sfactor
+    xCcrop, yCcrop = (crop_right - crop_left)/2, (crop_bottom - crop_top)/2
+
+    # if Sfactor >= 1:
+    crop_left = xCcrop - ((xCcrop - crop_left) * Sfactor)
+    crop_right = xCcrop + ((crop_right - xCcrop) * Sfactor)
+    crop_top = yCcrop + ((crop_top - yCcrop) * Sfactor)
+    crop_bottom = yCcrop - ((yCcrop - crop_bottom) * Sfactor)
+    # else:
+    #     crop_left = xCcrop + ((xCcrop - crop_left) * Sfactor)
+    #     crop_right = xCcrop - ((crop_right - xCcrop) * Sfactor)
+    #     crop_top = yCcrop - ((crop_top - yCcrop) * Sfactor)
+    #     crop_bottom = yCcrop + ((yCcrop - crop_bottom) * Sfactor)
 
     # Crop image
     frame_path = os.path.join("frames",'final',f"frame{index+1:03d}.png")
