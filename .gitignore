@@ -4,3 +4,4 @@ video/*
 *.srt
 __pycache__
 *.png
+backend/panel_layout/layout/page_css

@@ -3,10 +3,12 @@ import os
 from os import listdir
 from backend.panel_layout.cam import get_coordinates
 from backend.utils import crop_image
+from backend.panel_layout.layout.page import get_templates,insert_in_grid
+
 
 # Dimensions of the entire page
-hT = 1100
-wT = 1000
+hT = 1654
+wT = 1169
 
 # Dimensions of a panel
 hP = hT/3
@@ -96,15 +98,19 @@ def generate_layout():
 
         cam_coords.append((left, right, top, bottom))
     
-    # page_templates = get_templates(input_seq)
-
+    page_templates = get_templates(input_seq)
+    print(page_templates)
     i = 0
-    for page in ['14124114','312341', '4432111']:
-        for panel in page:
-            centroid_crop(i, panel, cam_coords[i])
-            i += 1
+    try:
+        for page in page_templates:
+            for panel in page:
+                centroid_crop(i, panel, cam_coords[i])
+                i += 1
+    except(IndexError):
+        pass
 
-    # insert_in_grid(page_templates)
+
+    insert_in_grid(page_templates)
 
 
         
