@@ -4,8 +4,8 @@ body {
 }
 .wrapper {
     display: flex;
-    width: 1754px;
-    height: 2480px;
+    height: 1654px;
+    width: 1169px;
 }
 .grid-container {
     width: 100%;
@@ -24,32 +24,32 @@ body {
 }
 #_1 {
     background-repeat: no-repeat;
-    background-image: url("../../../../frames/final/frame014.png");;
+    background-image: url("../../../../frames/final/frame013.png");;
     grid-row: span 1;
 }
 #_2 {
     background-repeat: no-repeat;
-    background-image: url("../../../../frames/final/frame015.png");;
+    background-image: url("../../../../frames/final/frame014.png");;
     grid-column: span 2;
 }
 #_3 {
     background-repeat: no-repeat;
-    background-image: url("../../../../frames/final/frame016.png");;
+    background-image: url("../../../../frames/final/frame015.png");;
     grid-row: span 2;
 }
 #_4 {
     background-repeat: no-repeat;
-    background-image: url("../../../../frames/final/frame017.png");;
+    background-image: url("../../../../frames/final/frame016.png");;
     grid-column: span 3;
 }
 #_5 {
     background-repeat: no-repeat;
-    background-image: url("../../../../frames/final/frame018.png");;
+    background-image: url("../../../../frames/final/frame017.png");;
     grid-column: span 2;
 }
 #_6 {
     background-repeat: no-repeat;
-    background-image: url("../../../../frames/final/frame019.png");;
+    background-image: url("../../../../frames/final/frame018.png");;
     grid-column: span 2;
 }
 #_7 {
