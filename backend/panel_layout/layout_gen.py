@@ -103,6 +103,8 @@ def generate_layout():
     i = 0
     try:
         for page in page_templates:
+            if(len(page) < 6):
+                break
             for panel in page:
                 centroid_crop(i, panel, cam_coords[i])
                 i += 1

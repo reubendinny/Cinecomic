@@ -67,9 +67,32 @@ def get_files_in_folder(folder_path):
     return file_dicts
 
 
-templates = ['14124114','312341' , '4432111' , '21411241' , '324114' , '13411141' , '12411131' ,'132113', '131423' , 
+def last_page(count,count_images,length):
+
+    new = copy.deepcopy(css_dict)
+    if(length==1):
+        set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
+        new[f'#_{count}']['grid-row'] = 'span' + str(3) 
+        new[f'#_{count}']['grid-column'] = 'span' + str(4)
+    elif(length==2):
+        set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
+        new[f'#_{count}']['grid-row'] = 'span' + str(3) 
+        new[f'#_{count}']['grid-column'] = 'span' + str(4)
+    elif(length==3):
+        set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
+        new[f'#_{count}']['grid-row'] = 'span' + str(1) 
+        new[f'#_{count}']['grid-column'] = 'span' + str(4)
+           
+       
+
+
+
+
+templates = ['14124114','312341' , '4432111' , '21411241' , '3241141' , '13411141' , '12411131' ,'1321113', '131423' , 
 '142344' , '234241','2411413','3141214','42111131']
 
+
+min_length = 6
 
 css_file = 'backend/panel_layout/layout/template.css'  # Replace 'styles.css' with your CSS file path
 css_dict = parse_css_file(css_file)
@@ -93,6 +116,10 @@ def get_templates(input):
 
             temp = input[start:start + len(template)]
             print(f"start: {start} len:{len(template)} temp:{temp}" )
+            if(len(temp)<min_length):
+                result.append(temp)
+
+
             result.append(hammingDist(temp,template))
 
         # print(result)
@@ -103,7 +130,7 @@ def get_templates(input):
 
         start = start + len(templates[result.index(min(result))]) 
 
-
+    # page_templates.append(temp)
         # print("****************")
 
     return page_templates
@@ -129,7 +156,7 @@ template_specs = {
         "span" : 2,
         "direction": "column"
     }
-   
+    
    
 }
 
@@ -144,6 +171,9 @@ def insert_in_grid(page_templates):
     for page_template in page_templates:
         new = copy.deepcopy(css_dict)
         count = 1
+        if(len(page_template)<min_length):
+            last_page(count,count_images,len(page_template))
+
         for i in page_template:
             # print(i)
 
