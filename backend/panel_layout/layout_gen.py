@@ -67,8 +67,8 @@ def centroid_crop(index, panel_type, cam_coords):
     panel_asp = types[panel_type]['aspect_ratio']
     S = (h/w) * panel_asp
     new_width = (h/S)*panel_asp
-    new_height = (w*S)/(1/panel_asp)
-
+    new_height = (w*S)/panel_asp
+    
     if panel_type == '1':
         if h >= w: 
             crop_left = xC - (new_width / 2) 
