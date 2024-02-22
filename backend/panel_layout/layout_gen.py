@@ -62,30 +62,66 @@ def centroid_crop(index, panel_type, cam_coords):
 
     xC, yC = (right - left)/2, (bottom - top)/2
 
-    # Place panel wrt the centroid
-    crop_left = xC - (0.5 * types[panel_type]['width']) 
-    crop_right = xC + (0.5 * types[panel_type]['width']) 
-    crop_top = yC - (0.5 * types[panel_type]['height']) 
-    crop_bottom = yC + (0.5 * types[panel_type]['height']) 
+    # ======================MODIFIED=======================================================================
+    w, h = right-left, top-bottom
+    panel_asp = types[panel_type]['aspect_ratio']
+    S = (h/w) * panel_asp
+    new_width = (h/S)*panel_asp
+    new_height = (w*S)/(1/panel_asp)
 
-    # Scale the panel to fit the bounding box 
-    # if(panel_type == '2'):
-    #     Sfactor =  (right - left) / types[panel_type]['width']
-    # else:
-    Sfactor = (bottom - top) / types[panel_type]['height']
+    if panel_type == '1':
+        if h >= w: 
+            crop_left = xC - (new_width / 2) 
+            crop_right = xC + (new_width / 2)
+            crop_top = top
+            crop_bottom = bottom
+        else: 
+            crop_top = yC + (new_height / 2)
+            crop_bottom = yC - (new_height / 2)
+            crop_left = left
+            crop_right = right
 
-    xCcrop, yCcrop = (crop_right - crop_left)/2, (crop_bottom - crop_top)/2
+    elif panel_type == '2':
+        crop_top = yC + (new_height / 2)
+        crop_bottom = yC - (new_height / 2)
+        crop_left = left
+        crop_right = right
 
-    # if Sfactor >= 1:
-    crop_left = xCcrop - ((xCcrop - crop_left) * Sfactor)
-    crop_right = xCcrop + ((crop_right - xCcrop) * Sfactor)
-    crop_top = yCcrop + ((crop_top - yCcrop) * Sfactor)
-    crop_bottom = yCcrop - ((yCcrop - crop_bottom) * Sfactor)
-    # else:
-    #     crop_left = xCcrop + ((xCcrop - crop_left) * Sfactor)
-    #     crop_right = xCcrop - ((crop_right - xCcrop) * Sfactor)
-    #     crop_top = yCcrop - ((crop_top - yCcrop) * Sfactor)
-    #     crop_bottom = yCcrop + ((yCcrop - crop_bottom) * Sfactor)
+    else:
+        crop_left = xC - (new_width / 2)  
+        crop_right = xC + (new_width / 2) 
+        crop_top = top
+        crop_bottom = bottom
+
+    # resolve edge condition also --> If coordinates exceeds image coordinates, scale down the coordinates
+        # resolved in crop utils
+    
+    # ======================MODIFIED=======================================================================
+
+    # # Place panel wrt the centroid
+    # crop_left = xC - (0.5 * types[panel_type]['width']) 
+    # crop_right = xC + (0.5 * types[panel_type]['width']) 
+    # crop_top = yC - (0.5 * types[panel_type]['height']) 
+    # crop_bottom = yC + (0.5 * types[panel_type]['height']) 
+
+    # # Scale the panel to fit the bounding box 
+    # # if(panel_type == '2'):
+    # #     Sfactor =  (right - left) / types[panel_type]['width']
+    # # else:
+    # Sfactor = (bottom - top) / types[panel_type]['height']
+
+    # xCcrop, yCcrop = (crop_right - crop_left)/2, (crop_bottom - crop_top)/2
+
+    # # if Sfactor >= 1:
+    # crop_left = xCcrop - ((xCcrop - crop_left) * Sfactor)
+    # crop_right = xCcrop + ((crop_right - xCcrop) * Sfactor)
+    # crop_top = yCcrop + ((crop_top - yCcrop) * Sfactor)
+    # crop_bottom = yCcrop - ((yCcrop - crop_bottom) * Sfactor)
+    # # else:
+    # #     crop_left = xCcrop + ((xCcrop - crop_left) * Sfactor)
+    # #     crop_right = xCcrop - ((crop_right - xCcrop) * Sfactor)
+    # #     crop_top = yCcrop - ((crop_top - yCcrop) * Sfactor)
+    # #     crop_bottom = yCcrop + ((yCcrop - crop_bottom) * Sfactor)
 
     # Crop image
     frame_path = os.path.join("frames",'final',f"frame{index+1:03d}.png")
