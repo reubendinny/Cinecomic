@@ -25,32 +25,32 @@ body {
 #_1 {
     background-repeat: no-repeat;
     background-image: url("../../../../frames/final/frame019.png");;
-    grid-column: span 3;
+    grid-row: span 1;
 }
 #_2 {
     background-repeat: no-repeat;
     background-image: url("../../../../frames/final/frame020.png");;
-    grid-row: span 2;
+    grid-column: span 3;
 }
 #_3 {
     background-repeat: no-repeat;
     background-image: url("../../../../frames/final/frame021.png");;
-    grid-column: span 2;
+    grid-row: span 1;
 }
 #_4 {
     background-repeat: no-repeat;
     background-image: url("../../../../frames/final/frame022.png");;
-    grid-row: span 1;
+    grid-column: span 2;
 }
 #_5 {
     background-repeat: no-repeat;
     background-image: url("../../../../frames/final/frame023.png");;
-    grid-row: span 1;
+    grid-row: span 2;
 }
 #_6 {
     background-repeat: no-repeat;
     background-image: url("../../../../frames/final/frame024.png");;
-    grid-column: span 2;
+    grid-column: span 3;
 }
 #_7 {
     background-repeat: no-repeat;
