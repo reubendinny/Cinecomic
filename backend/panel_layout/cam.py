@@ -40,7 +40,7 @@ def get_coordinates(img_path):
     y_ = img.shape[1] // cms
 
     top,bottom,left,right = -1,-1,-1,-1
-    threshold = 0.2
+    threshold = 0.1
 
     # Top
     found = False

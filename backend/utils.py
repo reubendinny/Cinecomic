@@ -33,26 +33,18 @@ def crop_image(img_path, left, right, top, bottom):
     if(left < 0):
         new_left = left + (-left) 
         new_right = right + -(left)
-        new_top = top
-        new_bottom = bottom
 
-    elif(right > width):
+    if(right > width):
         new_left = left - (right-width)
         new_right = right - (right-width)
-        new_top = top
-        new_bottom = bottom
 
-    elif(top < 0):
+    if(top < 0):
         new_top = top + -(top)
         new_bottom = bottom + -(top)
-        new_left = left
-        new_right = right
 
-    elif(bottom > height):
+    if(bottom > height):
         new_top = top - (bottom-height)
         new_bottom = bottom - (bottom-height)
-        new_left = left
-        new_right = right
     
     print("crop2coords: ", new_left,new_right,new_top,new_bottom)
     # Crop the image wrt the 4 coordinates

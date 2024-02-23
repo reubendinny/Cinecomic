@@ -4,11 +4,13 @@ from os import listdir
 from backend.panel_layout.cam import get_coordinates
 from backend.utils import crop_image
 from backend.panel_layout.layout.page import get_templates,insert_in_grid
+from PIL import Image
+
 
 
 # Dimensions of the entire page
 hT = 1654
-wT = 1169
+wT = 1500
 
 # Dimensions of a panel
 hP = hT/3
@@ -57,7 +59,8 @@ def get_panel_type(left,right,top,bottom):
     else:
         return '3'
 
-def centroid_crop(index, panel_type, cam_coords):
+def centroid_crop(index, panel_type, cam_coords, img_w, img_h):
+
     left, right, top, bottom = cam_coords[0], cam_coords[1], cam_coords[2], cam_coords[3]
 
     xC, yC = (right + left)/2, (bottom + top)/2
@@ -117,13 +120,43 @@ def centroid_crop(index, panel_type, cam_coords):
     # Crop image
     frame_path = os.path.join("frames",'final',f"frame{index+1:03d}.png")
     
+    # Reposition if it exceeds image boundary
+    if crop_right - crop_left > img_w :
+        crop_w = crop_right - crop_left
+        crop_h = crop_bottom - crop_top
+        S = img_w / crop_w
+
+        new_width = S * crop_w # img_w
+        new_height = S * crop_h
+
+        crop_left = xC - (new_width/2)
+        crop_right = xC + (new_width/2)
+        crop_top = yC - (new_height/2)
+        crop_bottom = yC + (new_height/2)
+
+    elif crop_bottom - crop_top > img_h:
+        crop_w = crop_right - crop_left
+        crop_h = crop_bottom - crop_top
+        S = img_h / crop_h
+
+        new_width = S * crop_w # img_w
+        new_height = S * crop_h
+
+        crop_left = xC - (new_width/2)
+        crop_right = xC + (new_width/2)
+        crop_top = yC - (new_height/2)
+        crop_bottom = yC + (new_height/2)
+
     print("crop1coords: ", crop_left,crop_right,crop_top, crop_bottom)
     crop_image(frame_path, crop_left,crop_right,crop_top, crop_bottom)
 
 def generate_layout():
     input_seq = ""
     cam_coords = []
-
+    #Get dimensions of images
+    img = Image.open(os.path.join("frames",'final',f"frame001.png"))
+    width, height = img.size
+    
     # Loop through images and get type
     folder_dir = "frames/final"
     for image in os.listdir(folder_dir):
@@ -141,7 +174,7 @@ def generate_layout():
     try:
         for page in page_templates:
             for panel in page:
-                centroid_crop(i, panel, cam_coords[i])
+                centroid_crop(i, panel, cam_coords[i], width, height)
                 i += 1
     except(IndexError):
         pass
