@@ -60,38 +60,29 @@ def get_panel_type(left,right,top,bottom):
 def centroid_crop(index, panel_type, cam_coords):
     left, right, top, bottom = cam_coords[0], cam_coords[1], cam_coords[2], cam_coords[3]
 
-    xC, yC = (right - left)/2, (bottom - top)/2
-
-    # ======================MODIFIED=======================================================================
-    w, h = right-left, top-bottom
-    panel_asp = types[panel_type]['aspect_ratio']
-    S = (h/w) * panel_asp
-    new_width = (h/S)*panel_asp
-    new_height = (w*S)/panel_asp
+    xC, yC = (right + left)/2, (bottom + top)/2
     
-    if panel_type == '1':
-        if h >= w: 
-            crop_left = xC - (new_width / 2) 
-            crop_right = xC + (new_width / 2)
-            crop_top = top
-            crop_bottom = bottom
-        else: 
-            crop_top = yC + (new_height / 2)
-            crop_bottom = yC - (new_height / 2)
-            crop_left = left
-            crop_right = right
+    print("camcoords: ",left,right,top,bottom)
+    # ======================MODIFIED=======================================================================
+    w, h = right-left, bottom-top
+    wP, hP = types[panel_type]['width'], types[panel_type]['height']
 
-    elif panel_type == '2':
-        crop_top = yC + (new_height / 2)
-        crop_bottom = yC - (new_height / 2)
-        crop_left = left
-        crop_right = right
-
-    else:
-        crop_left = xC - (new_width / 2)  
-        crop_right = xC + (new_width / 2) 
+    if wP < hP:
+        S = h / hP
+        new_width = wP * S
+        crop_left = xC - (new_width/2)
+        crop_right = xC + (new_width/2)
         crop_top = top
         crop_bottom = bottom
+
+    else:
+        S = w / wP
+        new_height = hP * S
+        crop_top = yC - (new_height/2)
+        crop_bottom = yC + (new_height/2)
+        crop_left = left
+        crop_right = right
+  
 
     # resolve edge condition also --> If coordinates exceeds image coordinates, scale down the coordinates
         # resolved in crop utils
@@ -125,6 +116,8 @@ def centroid_crop(index, panel_type, cam_coords):
 
     # Crop image
     frame_path = os.path.join("frames",'final',f"frame{index+1:03d}.png")
+    
+    print("crop1coords: ", crop_left,crop_right,crop_top, crop_bottom)
     crop_image(frame_path, crop_left,crop_right,crop_top, crop_bottom)
 
 def generate_layout():
