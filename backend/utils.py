@@ -26,9 +26,10 @@ def copy_and_rename_file(source_file, destination_folder, new_file_name):
 
 def crop_image(img_path, left, right, top, bottom):
     img = Image.open(img_path)
-    # Reposition if it exceeds image boundary
     width, height = img.size
 
+    
+    # Reposition if it exceeds image boundary
     new_left, new_right, new_top, new_bottom = left, right, top, bottom
     if(left < 0):
         new_left = left + (-left) 
@@ -46,15 +47,12 @@ def crop_image(img_path, left, right, top, bottom):
         new_top = top - (bottom-height)
         new_bottom = bottom - (bottom-height)
     
-    print("crop2coords: ", new_left,new_right,new_top,new_bottom)
     # Crop the image wrt the 4 coordinates
     box = (new_left, new_top, new_right, new_bottom)
     img2 = img.crop(box)
     
     # Save the cropped image
     img2.save(img_path)
+
     # img2.show()
     # return img2
-
-
-

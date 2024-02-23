@@ -6,8 +6,6 @@ from backend.utils import crop_image
 from backend.panel_layout.layout.page import get_templates,insert_in_grid
 from PIL import Image
 
-
-
 # Dimensions of the entire page
 hT = 1654
 wT = 1500
@@ -43,8 +41,6 @@ types = {
     }
 }
 
-# print(type1,type2,type3,type4)
-
 def get_panel_type(left,right,top,bottom):
     w = right - left
     h = bottom - top
@@ -62,11 +58,7 @@ def get_panel_type(left,right,top,bottom):
 def centroid_crop(index, panel_type, cam_coords, img_w, img_h):
 
     left, right, top, bottom = cam_coords[0], cam_coords[1], cam_coords[2], cam_coords[3]
-
     xC, yC = (right + left)/2, (bottom + top)/2
-    
-    print("camcoords: ",left,right,top,bottom)
-    # ======================MODIFIED=======================================================================
     w, h = right-left, bottom-top
     wP, hP = types[panel_type]['width'], types[panel_type]['height']
 
@@ -85,37 +77,6 @@ def centroid_crop(index, panel_type, cam_coords, img_w, img_h):
         crop_bottom = yC + (new_height/2)
         crop_left = left
         crop_right = right
-  
-
-    # resolve edge condition also --> If coordinates exceeds image coordinates, scale down the coordinates
-        # resolved in crop utils
-    
-    # ======================MODIFIED=======================================================================
-
-    # # Place panel wrt the centroid
-    # crop_left = xC - (0.5 * types[panel_type]['width']) 
-    # crop_right = xC + (0.5 * types[panel_type]['width']) 
-    # crop_top = yC - (0.5 * types[panel_type]['height']) 
-    # crop_bottom = yC + (0.5 * types[panel_type]['height']) 
-
-    # # Scale the panel to fit the bounding box 
-    # # if(panel_type == '2'):
-    # #     Sfactor =  (right - left) / types[panel_type]['width']
-    # # else:
-    # Sfactor = (bottom - top) / types[panel_type]['height']
-
-    # xCcrop, yCcrop = (crop_right - crop_left)/2, (crop_bottom - crop_top)/2
-
-    # # if Sfactor >= 1:
-    # crop_left = xCcrop - ((xCcrop - crop_left) * Sfactor)
-    # crop_right = xCcrop + ((crop_right - xCcrop) * Sfactor)
-    # crop_top = yCcrop + ((crop_top - yCcrop) * Sfactor)
-    # crop_bottom = yCcrop - ((yCcrop - crop_bottom) * Sfactor)
-    # # else:
-    # #     crop_left = xCcrop + ((xCcrop - crop_left) * Sfactor)
-    # #     crop_right = xCcrop - ((crop_right - xCcrop) * Sfactor)
-    # #     crop_top = yCcrop - ((crop_top - yCcrop) * Sfactor)
-    # #     crop_bottom = yCcrop + ((yCcrop - crop_bottom) * Sfactor)
 
     # Crop image
     frame_path = os.path.join("frames",'final',f"frame{index+1:03d}.png")
@@ -126,7 +87,7 @@ def centroid_crop(index, panel_type, cam_coords, img_w, img_h):
         crop_h = crop_bottom - crop_top
         S = img_w / crop_w
 
-        new_width = S * crop_w # img_w
+        new_width = S * crop_w 
         new_height = S * crop_h
 
         crop_left = xC - (new_width/2)
@@ -139,7 +100,7 @@ def centroid_crop(index, panel_type, cam_coords, img_w, img_h):
         crop_h = crop_bottom - crop_top
         S = img_h / crop_h
 
-        new_width = S * crop_w # img_w
+        new_width = S * crop_w 
         new_height = S * crop_h
 
         crop_left = xC - (new_width/2)
@@ -147,7 +108,6 @@ def centroid_crop(index, panel_type, cam_coords, img_w, img_h):
         crop_top = yC - (new_height/2)
         crop_bottom = yC + (new_height/2)
 
-    print("crop1coords: ", crop_left,crop_right,crop_top, crop_bottom)
     crop_image(frame_path, crop_left,crop_right,crop_top, crop_bottom)
 
 def generate_layout():
@@ -164,7 +124,6 @@ def generate_layout():
         frame_path = os.path.join("frames",'final',image)
         left, right, top, bottom = get_coordinates(frame_path)
         input_seq += get_panel_type(left, right, top, bottom)
-        # print(left, right, top, bottom)
 
         cam_coords.append((left, right, top, bottom))
     
@@ -179,11 +138,4 @@ def generate_layout():
     except(IndexError):
         pass
 
-
     insert_in_grid(page_templates)
-
-
-        
-
-
-
