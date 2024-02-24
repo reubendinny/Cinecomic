@@ -32,19 +32,23 @@ def crop_black_borders(img_path):
     _, thresh = cv2.threshold(image_gray, 1, 255, cv2.THRESH_BINARY)
     contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-    biggest = np.array([])
+    # Find the largest contour with four corners
+    largest_contour = np.array([])
     max_area = 0
     for cntrs in contours:
         area = cv2.contourArea(cntrs)
         peri = cv2.arcLength(cntrs, True)
         approx = cv2.approxPolyDP(cntrs, 0.02 * peri, True)
         if area > max_area:
-            biggest = approx
+            largest_contour = approx
             max_area = area
 
-    cnt = biggest
-    x, y, w, h = cv2.boundingRect(cnt)
+    # Extract bounding box
+    x, y, w, h = cv2.boundingRect(largest_contour)
+
+    # Crop the image
     crop = image[y:y+h, x:x+w]
+
     # Save the cropped image
     cv2.imwrite(img_path, crop)
 
