@@ -1,6 +1,8 @@
 import shutil
 import os
 from PIL import Image
+import cv2
+import numpy as np
 
 def copy_and_rename_file(source_file, destination_folder, new_file_name):
 
@@ -24,11 +26,35 @@ def copy_and_rename_file(source_file, destination_folder, new_file_name):
     except Exception as e:
         print(f"An error occurred: {e}")
 
+def crop_black_borders(img_path):
+
+    image = cv2.imread(img_path)
+    image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    _, thresh = cv2.threshold(image_gray, 1, 255, cv2.THRESH_BINARY)
+    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    biggest = np.array([])
+    max_area = 0
+    for cntrs in contours:
+        area = cv2.contourArea(cntrs)
+        peri = cv2.arcLength(cntrs, True)
+        approx = cv2.approxPolyDP(cntrs, 0.02 * peri, True)
+        if area > max_area:
+            biggest = approx
+            max_area = area
+
+    cnt = biggest
+    x, y, w, h = cv2.boundingRect(cnt)
+    crop = image[y:y+h, x:x+w]
+    # Save the cropped image
+    cv2.imwrite(img_path, crop)
+
+
 def crop_image(img_path, left, right, top, bottom):
+    
     img = Image.open(img_path)
     width, height = img.size
 
-    
     # Reposition if it exceeds image boundary
     new_left, new_right, new_top, new_bottom = left, right, top, bottom
     if(left < 0):
