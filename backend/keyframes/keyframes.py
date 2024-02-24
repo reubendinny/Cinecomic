@@ -11,6 +11,7 @@ import os
 import srt
 from backend.keyframes.extract_frames import extract_frames
 from backend.utils import copy_and_rename_file 
+from backend.utils import crop_black_borders
 
 # Cell 2
 def _get_features(frames, gpu=True, batch_size=1):
@@ -106,4 +107,5 @@ def generate_keyframes(video):
         frames[selected_keyframe]
 
         copy_and_rename_file(frames[selected_keyframe], os.path.join("frames","final"), f"frame{sub.index:03}.png")
-        # print(sub)
+        
+        crop_black_borders(os.path.join("frames","final", f"frame{sub.index:03}.png"))

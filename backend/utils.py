@@ -27,7 +27,6 @@ def copy_and_rename_file(source_file, destination_folder, new_file_name):
         print(f"An error occurred: {e}")
 
 def crop_black_borders(img_path):
-
     image = cv2.imread(img_path)
     image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     _, thresh = cv2.threshold(image_gray, 1, 255, cv2.THRESH_BINARY)
