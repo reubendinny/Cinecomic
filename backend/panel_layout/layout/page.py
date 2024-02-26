@@ -92,14 +92,32 @@ def last_page(count_images,length):
             new[f'#_{count}']['grid-column'] = 'span ' + str(4)
             count+=1
             count_images+=1
-    # elif(length==4):
-    #     for i in range(0,4):
-    #         set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
-    #         new[f'#_{count}']['grid-row'] = 'span ' + str(1) 
-    #         new[f'#_{count}']['grid-column'] = 'span ' + str(4)
-    #         count+=1
-    #         count_images+=1
-       
+    elif(length==4):
+        for i in range(0,2):
+            set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
+            new[f'#_{count}']['grid-row'] = 'span ' + str(1) 
+            new[f'#_{count}']['grid-column'] = 'span ' + str(2)
+            count+=1
+            count_images+=1
+        for i in range(2,4):
+            set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
+            new[f'#_{count}']['grid-row'] = 'span ' + str(2) 
+            new[f'#_{count}']['grid-column'] = 'span ' + str(2)
+            count+=1
+            count_images+=1
+    elif(length==5):
+        for i in range(0,4):
+            set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
+            new[f'#_{count}']['grid-row'] = 'span ' + str(1) 
+            new[f'#_{count}']['grid-column'] = 'span ' + str(2)
+            count+=1
+            count_images+=1
+        set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
+        new[f'#_{count}']['grid-row'] = 'span ' + str(1) 
+        new[f'#_{count}']['grid-column'] = 'span ' + str(4)
+        count+=1
+        count_images+=1
+
     return new
 
 
@@ -108,7 +126,7 @@ templates = ['14124114','312341' , '4432111' , '21411241' , '3241141' , '1341114
 '142344' , '234241','2411413','3141214','42111131']
 
 
-min_length = 5
+min_length = 6
 
 css_file = 'backend/panel_layout/layout/template.css'  # Replace 'styles.css' with your CSS file path
 css_dict = parse_css_file(css_file)
@@ -142,11 +160,21 @@ def get_templates(input):
 
 
     if(len(temp) < min_length):
+        if(len(temp) ==1):
+          temp="5"
+        elif(len(temp) ==2):
+          temp="67"
+        elif(len(temp) ==3):
+          temp="666"
+        elif(len(temp) ==4):
+          temp="4488"
+        elif(len(temp) ==5):
+          temp="44446"
+
         page_templates[len(page_templates)-1] = temp
         # print("****************")
 
     return page_templates
-
 
 
 

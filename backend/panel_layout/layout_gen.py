@@ -38,6 +38,30 @@ types = {
         "width" : 2*wP,
         "height" : hP,
         "aspect_ratio" : (2*wP)/hP
+    },
+
+    '5':{
+        "width" : 4*wP,
+        "height" : 3*hP,
+        "aspect_ratio" : (4*wP)/(3*hP)
+    },
+
+    '6':{
+        "width" : 4*wP,
+        "height" : hP,
+        "aspect_ratio" : (4*wP)/hP
+    },
+
+    '7':{
+        "width" : 4*wP,
+        "height" : 2*hP,
+        "aspect_ratio" : (4*wP)/(2*hP)
+    },
+
+    '8':{
+        "width" : 2*wP,
+        "height" : 2*hP,
+        "aspect_ratio" : (2*wP)/(2*hP)
     }
 }
 
@@ -82,6 +106,7 @@ def centroid_crop(index, panel_type, cam_coords):
     # Crop image
     frame_path = os.path.join("frames",'final',f"frame{index+1:03d}.png")
     crop_image(frame_path, crop_left,crop_right,crop_top, crop_bottom)
+
 
 def generate_layout():
     input_seq = ""
