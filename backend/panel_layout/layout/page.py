@@ -67,6 +67,7 @@ def get_files_in_folder(folder_path):
     return file_dicts
 
 
+
 def last_page(count_images,length):
     count=1
     new = copy.deepcopy(css_dict)
