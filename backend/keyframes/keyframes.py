@@ -99,13 +99,16 @@ def generate_keyframes(video):
         features = _get_features(frames)
         highlight_scores = _get_probs(features)
 
-        highlight_scores = list(highlight_scores)
-        sorted_indices = [i[0] for i in sorted(enumerate(highlight_scores), key=lambda x: x[1])]
-        print(f"The indices of the list in the increasing order of value are {sorted_indices}.")
-        selected_keyframe = sorted_indices[-1]
-        frames[selected_keyframe]
-
-        copy_and_rename_file(frames[selected_keyframe], os.path.join("frames","final"), f"frame{sub.index:03}.png")
+        try:
+            highlight_scores = list(highlight_scores)    
+            sorted_indices = [i[0] for i in sorted(enumerate(highlight_scores), key=lambda x: x[1])]
+            print(f"The indices of the list in the increasing order of value are {sorted_indices}.")
+            selected_keyframe = sorted_indices[-1]
+            frames[selected_keyframe]
+            copy_and_rename_file(frames[selected_keyframe], os.path.join("frames","final"), f"frame{sub.index:03}.png")
+        
+        except(TypeError):
+            copy_and_rename_file(frames[0], os.path.join("frames","final"), f"frame{sub.index:03}.png")
 
 def black_bar_crop():
     ref_img_path = "frames/final/frame001.png"
