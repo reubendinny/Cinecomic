@@ -1,5 +1,5 @@
 # from backend.subtitles.subs import get_subtitles
-from backend.keyframes.keyframes import generate_keyframes
+from backend.keyframes.keyframes import generate_keyframes, black_bar_crop
 from backend.panel_layout.layout_gen import generate_layout
 from backend.cartoonize.cartoonize import style_frames
 
@@ -7,6 +7,7 @@ video = 'video/harry.mp4'
 # get_subtitles(video)
 
 generate_keyframes(video)
+black_bar_crop()
 
 generate_layout()
 style_frames()
