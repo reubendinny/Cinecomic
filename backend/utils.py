@@ -26,7 +26,7 @@ def copy_and_rename_file(source_file, destination_folder, new_file_name):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-def crop_black_borders(img_path):
+def get_black_bar_coordinates(img_path):
     image = cv2.imread(img_path)
     image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     _, thresh = cv2.threshold(image_gray, 1, 255, cv2.THRESH_BINARY)
@@ -46,12 +46,7 @@ def crop_black_borders(img_path):
     # Extract bounding box
     x, y, w, h = cv2.boundingRect(largest_contour)
 
-    # Crop the image
-    crop = image[y:y+h, x:x+w]
-
-    # Save the cropped image
-    cv2.imwrite(img_path, crop)
-
+    return x, y, w, h
 
 def crop_image(img_path, left, right, top, bottom):
     

@@ -10,8 +10,7 @@ import time
 import os
 import srt
 from backend.keyframes.extract_frames import extract_frames
-from backend.utils import copy_and_rename_file 
-from backend.utils import crop_black_borders
+from backend.utils import copy_and_rename_file, get_black_bar_coordinates, crop_image
 
 # Cell 2
 def _get_features(frames, gpu=True, batch_size=1):
@@ -107,5 +106,19 @@ def generate_keyframes(video):
         frames[selected_keyframe]
 
         copy_and_rename_file(frames[selected_keyframe], os.path.join("frames","final"), f"frame{sub.index:03}.png")
+
+def black_bar_crop():
+    ref_img_path = "frames/final/frame001.png"
+    x, y, w, h = get_black_bar_coordinates(ref_img_path)
+
+    # Loop through each keyframe
+    folder_dir = "frames/final"
+    for image in os.listdir(folder_dir): 
+        img_path = os.path.join("frames",'final',image)
+        image = cv2.imread(img_path)
         
-        crop_black_borders(os.path.join("frames","final", f"frame{sub.index:03}.png"))
+        # Crop the image
+        crop = image[y:y+h, x:x+w]
+
+        # Save the cropped image
+        cv2.imwrite(img_path, crop)
