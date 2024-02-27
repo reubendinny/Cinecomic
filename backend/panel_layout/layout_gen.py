@@ -38,6 +38,30 @@ types = {
         "width" : 2*wP,
         "height" : hP,
         "aspect_ratio" : (2*wP)/hP
+    },
+
+    '5':{
+        "width" : 4*wP,
+        "height" : 3*hP,
+        "aspect_ratio" : (4*wP)/(3*hP)
+    },
+
+    '6':{
+        "width" : 4*wP,
+        "height" : hP,
+        "aspect_ratio" : (4*wP)/hP
+    },
+
+    '7':{
+        "width" : 4*wP,
+        "height" : 2*hP,
+        "aspect_ratio" : (4*wP)/(2*hP)
+    },
+
+    '8':{
+        "width" : 2*wP,
+        "height" : 2*hP,
+        "aspect_ratio" : (2*wP)/(2*hP)
     }
 }
 
@@ -110,6 +134,7 @@ def centroid_crop(index, panel_type, cam_coords, img_w, img_h):
 
     crop_image(frame_path, crop_left,crop_right,crop_top, crop_bottom)
 
+
 def generate_layout():
     input_seq = ""
     cam_coords = []
@@ -132,8 +157,6 @@ def generate_layout():
     i = 0
     try:
         for page in page_templates:
-            if(len(page) < 6):
-                break
             for panel in page:
                 centroid_crop(i, panel, cam_coords[i], width, height)
                 i += 1
