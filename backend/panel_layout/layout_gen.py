@@ -7,8 +7,8 @@ from backend.panel_layout.layout.page import get_templates,insert_in_grid
 from PIL import Image
 
 # Dimensions of the entire page
-hT = 1654
-wT = 1500
+hT = 1100
+wT = 1035
 
 # Dimensions of a panel
 hP = hT/3

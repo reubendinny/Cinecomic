@@ -4,8 +4,8 @@ body {
 }
 .wrapper {
     display: flex;
-    height: 1654px;
-    width: 1169px;
+    height: 1100px;
+    width: 1035px;
 }
 .grid-container {
     width: 100%;
@@ -19,7 +19,7 @@ body {
 .grid-item {
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     border: 3px solid black;
 }
 #_1 {
