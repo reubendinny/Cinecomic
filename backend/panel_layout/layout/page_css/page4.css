@@ -4,8 +4,8 @@ body {
 }
 .wrapper {
     display: flex;
-    height: 1654px;
-    width: 1169px;
+    height: 1100px;
+    width: 1035px;
 }
 .grid-container {
     width: 100%;
@@ -19,7 +19,7 @@ body {
 .grid-item {
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     border: 3px solid black;
 }
 #_1 {
@@ -30,27 +30,27 @@ body {
 #_2 {
     background-repeat: no-repeat;
     background-image: url("../../../../frames/final/frame020.png");;
-    grid-column: span 3;
+    grid-column: span 2;
 }
 #_3 {
     background-repeat: no-repeat;
     background-image: url("../../../../frames/final/frame021.png");;
-    grid-row: span 1;
+    grid-row: span 2;
 }
 #_4 {
     background-repeat: no-repeat;
     background-image: url("../../../../frames/final/frame022.png");;
-    grid-column: span 2;
+    grid-column: span 3;
 }
 #_5 {
     background-repeat: no-repeat;
     background-image: url("../../../../frames/final/frame023.png");;
-    grid-row: span 2;
+    grid-column: span 2;
 }
 #_6 {
     background-repeat: no-repeat;
     background-image: url("../../../../frames/final/frame024.png");;
-    grid-column: span 3;
+    grid-column: span 2;
 }
 #_7 {
     background-repeat: no-repeat;
