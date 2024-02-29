@@ -5,11 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link id="pageStyle" rel="stylesheet" href="page_css/page1.css">
+    <link id="pageStyle" rel="stylesheet" href="testing/page.css">
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .leftbutton {
+            border: none;
+            background: none;
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            width:60px;
+            height:60px;
+        }
+        .rightbutton {
+            border: none;
+            background: none;
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            width:60px;
+            height:60px;
+        }
+    </style>
 </head>
 
 <body>
-    <button onclick="prevPage()">BACK</button>
+  <div class="button-container">
+    <button class="leftbutton" onclick="prevPage()"><img src="\buttons\backward-button.png" width="50" height="50"></button>
 
     <div class="wrapper">
         <div class="grid-container">
@@ -28,8 +55,8 @@
         </div>
     </div>
 
-    <button onclick="nextPage()">NEXT</button>
-
+    <button class="rightbutton" onclick="nextPage()"><img src="\buttons\forward-button.png" width="50" height="50"></button>
+  </div>
 </body>
 
 <script>
