@@ -1,0 +1,20 @@
+body { background: #000; }
+.balloon {
+    width: 250px;
+    height: 75px;
+    padding: 50px;
+    background: #fff;
+    border-radius: 50px;
+    position: relative;
+    font-size: 34px;
+    text-align: center;
+}
+.balloon .tip {
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 70px;
+    bottom: -120px;
+    border: solid 100px;
+    border-color: #fff transparent  ;
+}

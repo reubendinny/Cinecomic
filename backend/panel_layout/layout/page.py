@@ -1,7 +1,7 @@
 import os
 import random
 import copy
-
+from main import video
 
 def parse_css_file(css_file):
     css_dict = {}
@@ -240,7 +240,7 @@ def insert_in_grid(page_templates):
     for i in range(0,len(page_css)):
     # print(i)
         print(page_css[i])
-        output_file = f'backend/panel_layout/layout/page_css/page{i+1}.css'
+        output_file = f'backend/panel_layout/layout/{(((video.split('/'))[-1]).split('.'))[0]}/page{i+1}.css'
         write_css_file(page_css[i],output_file)
 
 
