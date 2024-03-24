@@ -187,6 +187,10 @@ def get_multi_speaker_lips(sub,video, keyframe_face_rects):
     # max_value = lip_motion_count[max_lip_index]
     # if max_lip_count / (total_frames_selected-1) > THETA2:
     #     print("speaking")
-    return lip_coords[max_lip_index]
+    if lip_motion_count[max_lip_index] / (total_frames_selected-1) > THETA2:
+        return lip_coords[max_lip_index]
+    else:
+        return (-1,-1)
+    
 
     
