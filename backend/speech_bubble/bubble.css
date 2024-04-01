@@ -1,10 +1,8 @@
 .dialog{
-    height: 10%;
-    width: 10%;
+    width: 200px;
+    height: 94px;
     background-color: white;
-    position: absolute;
-    /* top: 10%; */
-    /* left: 0%; */
+    position: relative;
     border-radius: 50%;
     font-size: 15;
     display: flex;
@@ -20,6 +18,6 @@
   border-right: 2vh solid transparent;
   border-top: 10vh solid black;
   position: absolute;
-  transform: translate(0px, 0px) rotate(297deg); 
+  transform: translate(0px, 0px) rotate(0deg); 
 }
 
