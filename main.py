@@ -9,5 +9,8 @@ video = 'video/harry.mp4'
 generate_keyframes(video)
 black_bar_crop()
 
-generate_layout()
+page_template = generate_layout()
+
 style_frames()
+
+print(page_template)

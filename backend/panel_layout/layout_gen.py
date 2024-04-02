@@ -164,3 +164,5 @@ def generate_layout():
         pass
 
     insert_in_grid(page_templates)
+
+    return page_templates
