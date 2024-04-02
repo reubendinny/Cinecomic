@@ -1,6 +1,6 @@
 import math
 import json
-
+import srt
 
 
 class bubble:
@@ -63,28 +63,33 @@ class bubble:
         self.tail_offset_x = tail_offset_x
         self.tail_offset_y = tail_offset_y
 
-
-b1 = bubble(4,1,2,2)
-b2 = bubble(2,1,4,2)
-b3 = bubble(4,2,2,1)
-b4 = bubble(2,2,4,1)
-
-
-print(b1.__dict__)
-print(b2.__dict__)
-print(b3.__dict__)
-print(b4.__dict__)
-
 data=""
 with open("test1.srt") as f:
     data=f.read()
 
 subs=srt.parse(data)
+file = open('bubble.js', 'a')
+
 bubbles = []
 for sub in subs:
-    temp = bubble(0,0,0,0,sub)
-
+    temp = bubble(4,1,2,2,sub.content)
     bubbles.append(temp)
+
+    # convert into JSON:
+    y = json.dumps(temp.__dict__)
+
+    # the result is a JSON string:
+    print(y)
+    file.write(y)
+file.close()
+
+
+for b in bubbles:
+    print(b.__dict__)
+
+
+
+
 
 
 
