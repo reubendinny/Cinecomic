@@ -5,13 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link id="pageStyle" rel="stylesheet" href="page_css/page1.css">
+    <link id="pageStyle" rel="stylesheet" href="backend/panel_layout/layout/page_css/page1.css">
+    <link rel="stylesheet" href="backend/speech_bubble/bubble.css">
+    <script src="backend/speech_bubble/bubble.js"></script>
+    <!-- <script src="backend/speech_bubble/data.json" id="jsonData" type="application/json"></script> -->
+    <script src="backend/speech_bubble/bubble_place.js"></script>
+
 </head>
 
 <body>
     <button onclick="prevPage()">BACK</button>
 
     <div class="wrapper">
+
         <div class="grid-container">
             <div class="grid-item" id="_1">1</div>
             <div class="grid-item" id="_2">2</div>
@@ -27,6 +33,7 @@
             <div class="grid-item" id="_12">12</div>
         </div>
     </div>
+
 
     <button onclick="nextPage()">NEXT</button>
 
