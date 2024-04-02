@@ -109,11 +109,12 @@ def generate_keyframes(video):
         
         except(TypeError):
             copy_and_rename_file(frames[0], os.path.join("frames","final"), f"frame{sub.index:03}.png")
+    
 
 def black_bar_crop():
     ref_img_path = "frames/final/frame001.png"
     x, y, w, h = get_black_bar_coordinates(ref_img_path)
-
+    
     # Loop through each keyframe
     folder_dir = "frames/final"
     for image in os.listdir(folder_dir): 
@@ -125,3 +126,4 @@ def black_bar_crop():
 
         # Save the cropped image
         cv2.imwrite(img_path, crop)
+    return x,y,w,h

@@ -132,7 +132,8 @@ def centroid_crop(index, panel_type, cam_coords, img_w, img_h):
         crop_top = yC - (new_height/2)
         crop_bottom = yC + (new_height/2)
 
-    crop_image(frame_path, crop_left,crop_right,crop_top, crop_bottom)
+    crop_coords = crop_image(frame_path, crop_left,crop_right,crop_top, crop_bottom)
+    return crop_coords
 
 
 def generate_layout():
@@ -155,12 +156,15 @@ def generate_layout():
     page_templates = get_templates(input_seq)
     print(page_templates)
     i = 0
+    crop_coords = []
     try:
         for page in page_templates:
             for panel in page:
-                centroid_crop(i, panel, cam_coords[i], width, height)
+                origin = centroid_crop(i, panel, cam_coords[i], width, height)
+                crop_coords.append(origin)
                 i += 1
     except(IndexError):
         pass
 
     insert_in_grid(page_templates)
+    return crop_coords

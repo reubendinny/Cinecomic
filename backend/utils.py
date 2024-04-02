@@ -45,7 +45,7 @@ def get_black_bar_coordinates(img_path):
 
     # Extract bounding box
     x, y, w, h = cv2.boundingRect(largest_contour)
-
+    print("Black bar coords : ", x,y,w,h)
     return x, y, w, h
 
 def crop_image(img_path, left, right, top, bottom):
@@ -77,6 +77,6 @@ def crop_image(img_path, left, right, top, bottom):
     
     # Save the cropped image
     img2.save(img_path)
-
+    return (new_left, new_right, new_top, new_bottom)
     # img2.show()
     # return img2

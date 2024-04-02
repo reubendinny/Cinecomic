@@ -15,11 +15,6 @@ FACE_AREA = 0.6
 face_detector = dlib.get_frontal_face_detector()   
 landmark_detector = dlib.shape_predictor("backend/speech_bubble/shape_predictor_68_face_landmarks.dat")
 
-data=""
-with open("test1.srt") as f:
-    data = f.read()
-subs = srt.parse(data)
-
 
 def dist(p1, p2):
     p1_x = p1[0]
@@ -52,8 +47,14 @@ def similar_to_keyframe(face_rects, keyframe_face_rects):
     else:
         return False
 
+#crop_coords contain left,right,top,bottom of each frame
+def get_lips(video, crop_coords, black_x, black_y):
+    print(crop_coords)
+    data=""
+    with open("test1.srt") as f:
+        data = f.read()
+    subs = srt.parse(data)
 
-def get_lips(video):
     lips = {}
     for sub in subs:  
         keyframe_path = f"frames/final/frame{sub.index:03}.png"
@@ -77,7 +78,12 @@ def get_lips(video):
             
         if len(face_rects) > 1:                  # Too many face detected
             print("Too many face: sub_",sub.index,": ", len(face_rects))
-            lips[sub.index] = get_multi_speaker_lips(sub,video,face_rects)
+            origin = (crop_coords[sub.index - 1][0] , crop_coords[sub.index - 1][2] ) # (left,top)
+            lip_coords = get_multi_speaker_lips(sub,video,face_rects)
+            if lip_coords == (-1,-1):
+                lips[sub.index] = (-1,-1)
+            else:
+                lips[sub.index] = (lip_coords[0] - (origin[0] + black_x), lip_coords[1] - (origin[1] + black_y))
             continue
     print(lips)
 
