@@ -1,9 +1,9 @@
 import math
 import json
 import srt
+import pickle
 from backend.speech_bubble.lip_detection import get_lips
-
-
+from backend.speech_bubble.bubble_placement import get_bubble_position
 
 page_template = ['142344', '312341', '312341', '4432111', '312341', '131423', '142344', '67']
 
@@ -19,7 +19,7 @@ class bubble:
 
         self.bubble_offset_x = bubble_offset_x
         self.bubble_offset_y = bubble_offset_y
-
+        
         temp = math.degrees(math.atan((bubble_offset_x-lip_x)/(bubble_offset_y-lip_y)))
 
         if(bubble_offset_y>lip_y):
@@ -76,8 +76,12 @@ def bubble_create(video, crop_coords, black_x, black_y):
     data=""
     with open("test1.srt") as f:
         data=f.read()
-
     subs=srt.parse(data)
+
+    # Reading CAM data from dump
+    CAM_data = None
+    with open('CAM_data.pkl', 'rb') as f:
+        CAM_data = pickle.load(f)
 
     with open('bubble.js', 'w') as f:
         f.write(f'var page_template = {page_template}')
@@ -91,12 +95,13 @@ def bubble_create(video, crop_coords, black_x, black_y):
         lip_x = lips[sub.index][0]
         lip_y = lips[sub.index][1]
 
+        bubble_x, bubble_y = get_bubble_position(crop_coords[sub.index-1], CAM_data[sub.index-1])
         # If lip wasn't detected
         if lip_x == -1 and lip_y == -1:
             lip_x = 0
             lip_y = 0
 
-        temp = bubble(80,360,lip_x,lip_y,sub.content)
+        temp = bubble(bubble_x, bubble_y,lip_x,lip_y,sub.content)
         bubbles.append(temp.__dict__)
 
 

@@ -26,11 +26,6 @@ def dump_CAM_data():
     # Dumping CAM_data
     with open('CAM_data.pkl', 'wb') as f:
         pickle.dump(CAM_data, f)
-    # ==============================================
-    # # Reading CAM_data
-    # CAM_data = None
-    # with open('CAM_data.pkl', 'rb') as f:
-    #     CAM_data = pickle.load(f)
 
 def get_coordinates(img_path):
     # Get your input

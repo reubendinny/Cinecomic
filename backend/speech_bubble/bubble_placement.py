@@ -3,6 +3,7 @@ def get_bubble_position(crop_coord, CAM_data):
     x_ = CAM_data['x_']
     y_ = CAM_data['y_']
     ten_map = CAM_data['ten_map']
+    print(ten_map)
 
     new_top = int(top / y_)
     new_bottom = int(bottom / y_)
@@ -18,7 +19,7 @@ def get_bubble_position(crop_coord, CAM_data):
     found = False
     for i in range(new_left, new_right + 1):
         for j in range(new_top, new_bottom + 1):
-            if ten_map[i][j] < min_value:
+            if (i < ten_map.shape[0] and j < ten_map.shape[1]) and ten_map[i][j] < min_value:
                 min_point = (i, j)
                 min_value = ten_map[i][j]
 
