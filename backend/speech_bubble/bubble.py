@@ -2,6 +2,8 @@ import math
 import json
 import srt
 
+
+
 page_template = ['142344', '312341', '312341', '4432111', '312341', '131423', '142344', '67']
 
 class bubble:
@@ -64,22 +66,33 @@ class bubble:
         self.tail_offset_x = tail_offset_x
         self.tail_offset_y = tail_offset_y
 
-data=""
-with open("./../../test1.srt") as f:
-    data=f.read()
 
-subs=srt.parse(data)
+def bubble_create():
 
-bubbles = []
+    bubbles = []
+
+    # def bubble_create(bubble_cord,lip_cord,page_template):
+    data=""
+    with open("./../../test1.srt") as f:
+        data=f.read()
+
+    subs=srt.parse(data)
+
+    with open('bubble.js', 'w') as f:
+        f.write(f'var page_template = {page_template}')
+        f.write("\n var bubble = ")
+
+    f.close()
 
 
-for sub in subs:
-    temp = bubble(4,1,2,2,sub.content)
-    bubbles.append(temp.__dict__)
+    for sub in subs:
+        temp = bubble(4,1,2,2,sub.content)
+        bubbles.append(temp.__dict__)
 
 
-with open('data.json', 'w') as f:
-    json.dump(bubbles, f)
+    with open('bubble.js', 'a') as f:
+        json.dump(bubbles, f , indent=4)
+    f.close()
 
 
 

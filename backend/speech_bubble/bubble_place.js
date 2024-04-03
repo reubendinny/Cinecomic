@@ -7,11 +7,6 @@ function placeDialogs() {
         dialog.classList.add('dialog'); // Add the 'dialog' class to the div
         dialog.id = `dialog_${i}`;
 
-        const tail= document.createElement('div'); // Create a new div for the tail
-        tail.classList.add('tail'); // Add the 'tail' class to the div
-        tail.id = `tail${i}`;
-
-        dialog.appendChild(tail); // Append the tail div to the dialog div
         item.appendChild(dialog); // Append the dialog div to the current grid item
 
         i++;
@@ -47,11 +42,14 @@ function updateDialogs(start){
         dialog_temp.style.transform = "translate(45px, 45px)"
        
         dialog_temp.innerHTML = bubble[count + i]['dialog']; // Add content to the dialog
-        console.log(i)
+        // console.log(i)
 
-        // const tail_temp= document.getElementById(`tail${i}`) // Create a new div for the tail
-        // tail_temp.style.transform = `translate(45px, 45px) rotate(${bubble[i]['tail_deg']}deg)`
-        
+        const tail= document.createElement('div'); // Create a new div for the tail
+        tail.classList.add('tail'); // Add the 'tail' class to the div
+
+        tail.style.transform = `translate(45px, 45px) rotate(${bubble[count + i]['tail_deg']}deg)`
+        dialog_temp.appendChild(tail); // Append the tail div to the dialog div        // console.log(tail_temp)
+
         i++;
 
     });

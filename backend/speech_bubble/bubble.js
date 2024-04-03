@@ -1,4 +1,5 @@
-var bubble = [
+var page_template = ['142344', '312341', '312341', '4432111', '312341', '131423', '142344', '67']
+ var bubble = [
     {
         "dialog": "When I call your name, you will come forth.",
         "bubble_offset_x": 4,
@@ -360,5 +361,3 @@ var bubble = [
         "tail_offset_y": 70
     }
 ]
-
-var page_template = ['142344', '312341', '312341', '4432111', '312341', '131423', '142344', '67']
