@@ -39,15 +39,14 @@ function updateDialogs(start){
     gridItems.forEach(item => {
         const dialog_temp = document.getElementById(`dialog_${i}`); // Create a new div for dialog
         console.log(dialog_temp)
-        dialog_temp.style.transform = "translate(45px, 45px)"
-       
+        dialog_temp.style.transform = `translate(${bubble[count + i]['bubble_offset_x']}px, ${bubble[count + i]['bubble_offset_y']}px)`
         dialog_temp.innerHTML = bubble[count + i]['dialog']; // Add content to the dialog
         // console.log(i)
 
         const tail= document.createElement('div'); // Create a new div for the tail
         tail.classList.add('tail'); // Add the 'tail' class to the div
 
-        tail.style.transform = `translate(45px, 45px) rotate(${bubble[count + i]['tail_deg']}deg)`
+        tail.style.transform = `translate(${bubble[count + i]['tail_offset_x']}px, ${bubble[count + i]['tail_offset_y']}px) rotate(${bubble[count + i]['tail_deg']}deg)`
         dialog_temp.appendChild(tail); // Append the tail div to the dialog div        // console.log(tail_temp)
 
         i++;

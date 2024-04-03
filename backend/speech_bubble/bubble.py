@@ -1,6 +1,7 @@
 import math
 import json
 import srt
+from backend.speech_bubble.lip_detection import get_lips
 
 
 
@@ -67,13 +68,13 @@ class bubble:
         self.tail_offset_y = tail_offset_y
 
 
-def bubble_create():
+def bubble_create(video, crop_coords, black_x, black_y):
 
     bubbles = []
 
     # def bubble_create(bubble_cord,lip_cord,page_template):
     data=""
-    with open("./../../test1.srt") as f:
+    with open("test1.srt") as f:
         data=f.read()
 
     subs=srt.parse(data)
@@ -84,9 +85,18 @@ def bubble_create():
 
     f.close()
 
-
+    lips = get_lips(video, crop_coords,black_x,black_y)
+    
     for sub in subs:
-        temp = bubble(4,1,2,2,sub.content)
+        lip_x = lips[sub.index][0]
+        lip_y = lips[sub.index][1]
+
+        # If lip wasn't detected
+        if lip_x == -1 and lip_y == -1:
+            lip_x = 0
+            lip_y = 0
+
+        temp = bubble(80,360,lip_x,lip_y,sub.content)
         bubbles.append(temp.__dict__)
 
 

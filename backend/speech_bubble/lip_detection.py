@@ -86,6 +86,7 @@ def get_lips(video, crop_coords, black_x, black_y):
                 lips[sub.index] = (lip_coords[0] - (origin[0] + black_x), lip_coords[1] - (origin[1] + black_y))
             continue
     print(lips)
+    return lips
 
 
 def get_multi_speaker_lips(sub,video, keyframe_face_rects):

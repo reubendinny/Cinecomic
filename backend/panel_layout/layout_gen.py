@@ -167,4 +167,4 @@ def generate_layout():
         pass
 
     insert_in_grid(page_templates)
-    return crop_coords
+    return crop_coords, page_templates
