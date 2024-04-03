@@ -1,0 +1,23 @@
+.dialog{
+    width: 200px;
+    height: 94px;
+    background-color: white;
+    position: relative;
+    border-radius: 50%;
+    font-size: 15;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.tail{
+  width: 0;
+  height: 0;
+  border-left: 2vh solid transparent;
+  border-right: 2vh solid transparent;
+  border-top: 10vh solid black;
+  position: absolute;
+  transform: translate(0px, 0px) rotate(0deg); 
+}
+
