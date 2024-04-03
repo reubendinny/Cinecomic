@@ -16,8 +16,21 @@ from torchvision.io.image import read_image
 from torchvision.transforms.functional import normalize, resize, to_pil_image
 from torchvision.models import resnet18
 from torchcam.methods import SmoothGradCAMpp
+import pickle
 
 model = resnet18(pretrained=True).eval()
+
+CAM_data = []
+
+def dump_CAM_data():
+    # Dumping CAM_data
+    with open('CAM_data.pkl', 'wb') as f:
+        pickle.dump(CAM_data, f)
+    # ==============================================
+    # # Reading CAM_data
+    # CAM_data = None
+    # with open('CAM_data.pkl', 'rb') as f:
+    #     CAM_data = pickle.load(f)
 
 def get_coordinates(img_path):
     # Get your input
@@ -38,6 +51,8 @@ def get_coordinates(img_path):
 
     x_ = img.shape[2] // cms
     y_ = img.shape[1] // cms
+
+    CAM_data.append({'x_': x_, 'y_': y_, 'ten_map': ten_map})
 
     top,bottom,left,right = -1,-1,-1,-1
     threshold = 0.2
