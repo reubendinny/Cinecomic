@@ -39,6 +39,13 @@ class bubble:
                 #tail right
                 angle=360-temp
 
+        if(bubble_offset_x==lip_x):
+            angle=0
+            if(bubble_offset_y>lip_y):
+                angle=180
+            if(bubble_offset_y<lip_y):
+                angle=0
+
         print(angle)
 
         self.tail_deg=angle
@@ -63,6 +70,14 @@ class bubble:
                 #tail right
                 tail_offset_x=tail_centre_x+50
                 tail_offset_y=tail_centre_y+23
+        
+        if(bubble_offset_x==lip_x):
+            tail_offset_x=tail_centre_x
+            if(bubble_offset_y>lip_y):
+                tail_offset_y=tail_centre_y-23
+            if(bubble_offset_y<lip_y):
+                tail_offset_y=tail_centre_y+23
+
 
         self.tail_offset_x = tail_offset_x
         self.tail_offset_y = tail_offset_y
