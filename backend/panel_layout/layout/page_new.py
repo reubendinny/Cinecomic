@@ -1,13 +1,7 @@
 import os
 import random
 import copy
-
-class panel:
-    def __init__(self,image,row_span,col_span):
-       self.image = image
-       self.row_span = row_span
-       self.col_span = col_span
-
+from backend.class_def import panel
 
 
 template_specs = {
@@ -30,7 +24,7 @@ template_specs = {
       
 }
 
-input = '443333333343333333343434344333333334344433433'
+input = '433343333343343333443333443334333343344443433'
 
 
 
@@ -101,6 +95,53 @@ def get_templates(input):
     return page_templates
 
 
+def last_page(pages,count_images, length):
+    count = 1
+    # new = copy.deepcopy(css_dict)
+    # for i in range(length + 1, 13):
+    #     new[f'#_{i}']['display'] = 'none'
+    
+    if length == 1:
+        new_panel = panel(f'frame{count_images:03d}', 3, 4)
+        pages.append(new_panel)
+    elif length == 2:
+        new_panel = panel(f'frame{count_images:03d}', 1, 4)
+        pages.append(new_panel)
+        count += 1
+        count_images += 1
+        new_panel = panel(f'frame{count_images:03d}', 2, 4)
+        pages.append(new_panel)
+    elif length == 3:
+        for i in range(0, 3):
+            new_panel = panel(f'frame{count_images:03d}', 1, 4)
+            pages.append(new_panel)
+            count += 1
+            count_images += 1
+    elif length == 4:
+        for i in range(0, 2):
+            new_panel = panel(f'frame{count_images:03d}', 1, 2)
+            pages.append(new_panel)
+            count += 1
+            count_images += 1
+        for i in range(2, 4):
+            new_panel = panel(f'frame{count_images:03d}', 2, 2)
+            pages.append(new_panel)
+            count += 1
+            count_images += 1
+    elif length == 5:
+        for i in range(0, 4):
+            new_panel = panel(f'frame{count_images:03d}', 1, 2)
+            pages.append(new_panel)
+            count += 1
+            count_images += 1
+        new_panel = panel(f'frame{count_images:03d}', 1, 4)
+        pages.append(new_panel)
+        count += 1
+        count_images += 1
+
+    return pages
+
+
 
 def page_create(page_templates):
 
@@ -111,26 +152,34 @@ def page_create(page_templates):
     count_images = 1
 
     for page_template in page_templates:
-        count = 1
-        try:
-            for i in page_template:
 
-                if(template_specs[i]['direction'] == 'row'):
-                    new = panel(f'frame{count_images:03d}',template_specs[i]['span'] , 1)
-                else:
-                    new = panel(f'frame{count_images:03d}', 1 ,template_specs[i]['span'])
-                pages.append(new)
-                print(new.__dict__)
-                count = count+1
-                count_images+=1
-        except:
-           continue
+
+        if(len(page_template)<min_length): #To handle last page 
+            pages = last_page(pages,count_images,len(page_template))
+            break
+
+
+        count = 1
+        
+        for i in page_template:
+
+            if(template_specs[i]['direction'] == 'row'):
+                new = panel(f'frame{count_images:03d}',template_specs[i]['span'] , 1)
+            else:
+                new = panel(f'frame{count_images:03d}', 1 ,template_specs[i]['span'])
+            pages.append(new)
+            count = count+1
+            count_images+=1
+
         
     
-    return(new)
+    return(pages)
 
 
 v = get_templates(input)
-page_create(v)
-print(page_create(v))
+print(v)
+new = page_create(v)
 
+
+for i in new:
+    print(i.__dict__)
