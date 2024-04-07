@@ -6,3 +6,4 @@ __pycache__
 *.png
 backend/panel_layout/layout/page_css
 bubble.js
+dlib-19.24.1-cp311-cp311-win_amd64.whl
