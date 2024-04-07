@@ -93,26 +93,30 @@ class bubble:
             if(bubble_offset_x==lip_x):
                  angle=0
             else:
-                 temp = math.degrees(math.atan((bubble_offset_y-lip_y) / (bubble_offset_x-lip_x)))
-        except ZeroDivisionError:
-            temp = 45
+                 #temp = math.degrees(math.atan((bubble_offset_y-lip_y) / (bubble_offset_x-lip_x)))
+     #   except ZeroDivisionError:
+      #      temp = 45
 
-        if(bubble_offset_y>lip_y):
-            # tail top
-            if(bubble_offset_x>lip_x):
-                #tail left
-                angle=180-temp
-            elif(bubble_offset_x<lip_x):
-                #tail right
-                angle=180-temp
-        elif(bubble_offset_y<lip_y):
-            #tail bottom
-            if(bubble_offset_x>lip_x):
-                #tail left
-                angle=-temp
-            elif(bubble_offset_x<lip_x):
-                #tail right
-                angle=360-temp
+                    if(bubble_offset_y>lip_y):
+                        # tail top
+                        if(bubble_offset_x>lip_x):
+                            #tail left
+                            temp = math.degrees(math.atan((bubble_offset_y-lip_y) / (bubble_offset_x-lip_x)))
+                            angle=90+temp
+                        elif(bubble_offset_x<lip_x):
+                            #tail right
+                            temp = math.degrees(math.atan((lip_y-bubble_offset_y) / (lip_x-bubble_offset_x)))
+                            angle=270-temp
+                    elif(bubble_offset_y<lip_y):
+                        #tail bottom
+                        if(bubble_offset_x>lip_x):
+                            #tail left
+                            temp = math.degrees(math.atan((lip_y-bubble_offset_y) / (bubble_offset_x-lip_x)))
+                            angle=90-temp
+                        elif(bubble_offset_x<lip_x):
+                            #tail right
+                            temp = math.degrees(math.atan((lip_y-bubble_offset_y) / (lip_x-bubble_offset_x)))
+                            angle=270+temp
 
         
         print(angle)
@@ -121,26 +125,30 @@ class bubble:
 
         self.tail_deg=angle
 
-        if(bubble_offset_y>lip_y):
-            # tail top
-            if(bubble_offset_x>lip_x):
-                #tail left
-                tail_offset_x=tail_centre_x-50
-                tail_offset_y=tail_centre_y-23
-            elif(bubble_offset_x<lip_x):
-                #tail right
-                tail_offset_x=tail_centre_x+50
-                tail_offset_y=tail_centre_y-23
-        elif(bubble_offset_y<=lip_y):
-            #tail bottom
-            if(bubble_offset_x>lip_x):
-                #tail left
-                tail_offset_x=tail_centre_x-50
-                tail_offset_y=tail_centre_y+23
-            elif(bubble_offset_x<lip_x):
-                #tail right
-                tail_offset_x=tail_centre_x+50
-                tail_offset_y=tail_centre_y+23
+        if(bubble_offset_x==lip_x):
+            tail_offset_x=tail_centre_x+bubble_offset_x
+            tail_offset_y=tail_centre_y+bubble_offset_y
+        else:
+            if(bubble_offset_y>lip_y):
+                # tail top
+                if(bubble_offset_x>lip_x):
+                    #tail left
+                    tail_offset_x=tail_centre_x+bubble_offset_x-50
+                    tail_offset_y=tail_centre_y+bubble_offset_y-23
+                elif(bubble_offset_x<lip_x):
+                    #tail right
+                    tail_offset_x=tail_centre_x+bubble_offset_x+50
+                    tail_offset_y=tail_centre_y+bubble_offset_y-23
+            elif(bubble_offset_y<lip_y):
+                #tail bottom
+                if(bubble_offset_x>lip_x):
+                    #tail left
+                    tail_offset_x=tail_centre_x+bubble_offset_x-50
+                    tail_offset_y=tail_centre_y+bubble_offset_y+23
+                elif(bubble_offset_x<lip_x):
+                    #tail right
+                    tail_offset_x=tail_centre_x+bubble_offset_x+50
+                    tail_offset_y=tail_centre_y+bubble_offset_y+23
 
         self.tail_offset_x = tail_offset_x
         self.tail_offset_y = tail_offset_y
