@@ -69,11 +69,11 @@ def get_panel_type(left,right,top,bottom):
     h = bottom - top
     aspect_ratio = w/h
 
-    if 0 <= aspect_ratio < 0.75:
+    if 0 <= aspect_ratio < 0.7:
         return '2'
-    elif 0.75 <= aspect_ratio < 1.25:
+    elif 0.7 <= aspect_ratio < 1.4:
         return '1'
-    elif 1.25 <= aspect_ratio < 2.25:
+    elif 1.4 <= aspect_ratio < 2:
         return '4'
     else:
         return '3'
