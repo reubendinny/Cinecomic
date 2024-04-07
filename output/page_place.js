@@ -1,4 +1,5 @@
-// path = 'final/'
+path = '../frames/final/'
+
 function placeDialogs(page) {
     var gridItems = document.querySelectorAll('.grid-item');
     page.panels.forEach(function (panel, index) {
@@ -6,7 +7,7 @@ function placeDialogs(page) {
         gridItem.style.display = 'block'; // Display the grid item
         gridItem.style.gridRow = 'span ' + panel.row_span;
         gridItem.style.gridColumn = 'span ' + panel.col_span;
-        gridItem.style.backgroundImage = `url("final/${panel.image}.png")`;
+        gridItem.style.backgroundImage = `url("${path}${panel.image}.png")`;
 
 
         const bubble_temp = document.createElement('div');
@@ -35,6 +36,6 @@ function placeDialogs(page) {
 
 // Call the function to place dialogs when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    placeDialogs(pages[4]);
+    placeDialogs(pages[1]);
 });
 
