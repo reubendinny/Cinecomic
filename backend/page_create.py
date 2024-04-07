@@ -1,5 +1,5 @@
 from backend.class_def import Page,panel,bubble
-
+import json
 
 def page_create(page_templates,panels,bubbles):
     count = 0
@@ -12,3 +12,14 @@ def page_create(page_templates,panels,bubbles):
         print(new_page.__dict__)        
 
     return pages
+
+
+def page_json(pages):
+    pages_dict = []
+
+    for page in pages:
+        pages_dict.append(page.__dict__)
+
+    with open('page.js', 'w') as f:
+        f.write(f'var pages = ')
+        json.dump(pages_dict, f , indent=4)

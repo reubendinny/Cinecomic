@@ -35,6 +35,6 @@ function placeDialogs(page) {
 
 // Call the function to place dialogs when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    placeDialogs(pages[0]);
+    placeDialogs(pages[4]);
 });
 

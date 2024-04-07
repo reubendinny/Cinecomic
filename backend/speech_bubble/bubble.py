@@ -6,8 +6,6 @@ from backend.speech_bubble.lip_detection import get_lips
 from backend.speech_bubble.bubble_placement import get_bubble_position
 from backend.class_def import bubble
 
-page_template = ['142344', '312341', '312341', '4432111', '312341', '131423', '142344', '67']
-
 
 def bubble_create(video, crop_coords, black_x, black_y):
 
@@ -39,7 +37,7 @@ def bubble_create(video, crop_coords, black_x, black_y):
             lip_y = 0
 
         temp = bubble(bubble_x, bubble_y,lip_x,lip_y,sub.content)
-        bubbles.append(temp.__dict__)
+        bubbles.append(temp)
 
 
     return bubbles
