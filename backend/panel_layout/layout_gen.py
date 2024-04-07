@@ -2,7 +2,7 @@ import os
 from os import listdir
 from backend.panel_layout.cam import get_coordinates, dump_CAM_data
 from backend.utils import crop_image
-from backend.panel_layout.layout.page import get_templates,insert_in_grid
+from backend.panel_layout.layout.page import get_templates,panel_create
 from PIL import Image
 
 # Dimensions of the entire page
@@ -165,6 +165,6 @@ def generate_layout():
     except(IndexError):
         pass
 
-    insert_in_grid(page_templates)
+    panels = panel_create(page_templates)
     dump_CAM_data()
-    return crop_coords, page_templates
+    return crop_coords, page_templates, panels
