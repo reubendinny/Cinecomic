@@ -20,6 +20,6 @@ def page_json(pages):
     for page in pages:
         pages_dict.append(page.__dict__)
 
-    with open('../output/page.js', 'w') as f:
+    with open('output/page.js', 'w') as f:
         f.write(f'var pages = ')
         json.dump(pages_dict, f , indent=4)

@@ -137,7 +137,7 @@ var pages = [
                 "dialog": "Right, okay.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 0,
-                "tail_deg": -0.0,
+                "tail_deg": 0,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
@@ -153,7 +153,7 @@ var pages = [
                 "dialog": "Great call, Malfoy.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 0,
-                "tail_deg": -0.0,
+                "tail_deg": 0,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
@@ -329,7 +329,7 @@ var pages = [
                 "dialog": "I know just what to do with you.",
                 "bubble_offset_x": 910,
                 "bubble_offset_y": 0,
-                "tail_deg": -0.0,
+                "tail_deg": 0,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             }
@@ -473,7 +473,7 @@ var pages = [
                 "dialog": "Not Slytherin.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 0,
-                "tail_deg": -0.0,
+                "tail_deg": 0,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
@@ -489,7 +489,7 @@ var pages = [
                 "dialog": "Are you sure?",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 0,
-                "tail_deg": -0.0,
+                "tail_deg": 0,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
@@ -541,7 +541,7 @@ var pages = [
                 "dialog": "It's all here in your head.",
                 "bubble_offset_x": 546,
                 "bubble_offset_y": 0,
-                "tail_deg": -0.0,
+                "tail_deg": 0,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
@@ -549,7 +549,7 @@ var pages = [
                 "dialog": "And Slytherin will help you on the way to greatness.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 0,
-                "tail_deg": -0.0,
+                "tail_deg": 0,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
@@ -557,7 +557,7 @@ var pages = [
                 "dialog": "Is there no doubt about that?",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 0,
-                "tail_deg": -0.0,
+                "tail_deg": 0,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
@@ -581,7 +581,7 @@ var pages = [
                 "dialog": "I'll sleep with you.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 0,
-                "tail_deg": -0.0,
+                "tail_deg": 0,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             }
@@ -618,7 +618,7 @@ var pages = [
                 "dialog": "Gryffindor!",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 0,
-                "tail_deg": -0.0,
+                "tail_deg": 0,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
