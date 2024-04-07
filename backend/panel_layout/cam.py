@@ -42,12 +42,13 @@ def get_coordinates(img_path):
     cam_map = activation_map[0][0]
     arr = np.array(cam_map.cpu())
     ten_map = tensor(arr)
+    print("TENMAP",arr)
     cms = cam_map.shape[0]
 
     x_ = img.shape[2] // cms
     y_ = img.shape[1] // cms
 
-    CAM_data.append({'x_': x_, 'y_': y_, 'ten_map': ten_map})
+    CAM_data.append({'x_': x_, 'y_': y_, 'ten_map': arr})
 
     top,bottom,left,right = -1,-1,-1,-1
     threshold = 0.2

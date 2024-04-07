@@ -20,7 +20,12 @@ class bubble:
         self.bubble_offset_x = bubble_offset_x
         self.bubble_offset_y = bubble_offset_y
         
-        temp = math.degrees(math.atan((bubble_offset_x-lip_x)/(bubble_offset_y-lip_y)))
+        temp = 0
+        angle = 0
+        try:
+            temp = math.degrees(math.atan((bubble_offset_y-lip_y) / (bubble_offset_x-lip_x)))
+        except ZeroDivisionError:
+            temp = 45
 
         if(bubble_offset_y>lip_y):
             # tail top
@@ -30,7 +35,7 @@ class bubble:
             elif(bubble_offset_x<lip_x):
                 #tail right
                 angle=180-temp
-        elif(bubble_offset_y<lip_y):
+        elif(bubble_offset_y<=lip_y):
             #tail bottom
             if(bubble_offset_x>lip_x):
                 #tail left
@@ -40,6 +45,8 @@ class bubble:
                 angle=360-temp
 
         print(angle)
+        tail_offset_x = None
+        tail_offset_y = None
 
         self.tail_deg=angle
 
@@ -53,7 +60,7 @@ class bubble:
                 #tail right
                 tail_offset_x=tail_centre_x+50
                 tail_offset_y=tail_centre_y-23
-        elif(bubble_offset_y<lip_y):
+        elif(bubble_offset_y<=lip_y):
             #tail bottom
             if(bubble_offset_x>lip_x):
                 #tail left

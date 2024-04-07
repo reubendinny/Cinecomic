@@ -1,5 +1,6 @@
 def get_bubble_position(crop_coord, CAM_data):
     left, right, top, bottom = crop_coord
+    print("Initial Crop Coords:", crop_coord)
     x_ = CAM_data['x_']
     y_ = CAM_data['y_']
     ten_map = CAM_data['ten_map']
@@ -25,5 +26,8 @@ def get_bubble_position(crop_coord, CAM_data):
 
     least_roi_x = min_point[0] * x_
     least_roi_y = min_point[1] * y_
+
+    least_roi_x -= left
+    least_roi_y -= top
     print("Least ROI coords: ", least_roi_x, least_roi_y)
     return least_roi_x, least_roi_y
