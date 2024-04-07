@@ -89,30 +89,29 @@ class bubble:
         
         temp = 0
         angle = 0
-        try:
-            if(bubble_offset_x==lip_x):
+        if(bubble_offset_x==lip_x):
                  angle=0
-            else:
-                 temp = math.degrees(math.atan((bubble_offset_y-lip_y) / (bubble_offset_x-lip_x)))
-        except ZeroDivisionError:
-            temp = 45
-
-        if(bubble_offset_y>lip_y):
-            # tail top
-            if(bubble_offset_x>lip_x):
-                #tail left
-                angle=180-temp
-            elif(bubble_offset_x<lip_x):
-                #tail right
-                angle=180-temp
-        elif(bubble_offset_y<lip_y):
-            #tail bottom
-            if(bubble_offset_x>lip_x):
-                #tail left
-                angle=-temp
-            elif(bubble_offset_x<lip_x):
-                #tail right
-                angle=360-temp
+        else:
+            if(bubble_offset_y>lip_y):
+                # tail top
+                if(bubble_offset_x>lip_x):
+                    #tail left
+                    temp = math.degrees(math.atan((lip_x-bubble_offset_x) / (lip_y-bubble_offset_y)))
+                    angle=180-temp
+                elif(bubble_offset_x<lip_x):
+                    #tail right
+                    temp = math.degrees(math.atan((lip_x-bubble_offset_x) / (lip_y-bubble_offset_y))) 
+                    angle=180+temp
+            elif(bubble_offset_y<lip_y):
+                #tail bottom
+                if(bubble_offset_x>lip_x):
+                    #tail left
+                    temp = math.degrees(math.atan((lip_x-bubble_offset_x) / (lip_y-bubble_offset_y)))
+                    angle=temp
+                elif(bubble_offset_x<lip_x):
+                    #tail right
+                    temp = math.degrees(math.atan((lip_x-bubble_offset_x) / (lip_y-bubble_offset_y)))
+                    angle=360-temp
 
         
         print(angle)
@@ -144,6 +143,7 @@ class bubble:
 
         self.tail_offset_x = tail_offset_x
         self.tail_offset_y = tail_offset_y
+
 
 
 # page.py

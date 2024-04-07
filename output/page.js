@@ -37,7 +37,7 @@ var pages = [
                 "dialog": "When I call your name, you will come forth.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 0,
-                "tail_deg": 74.37576541881316,
+                "tail_deg": -15.624234581186835,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
@@ -45,7 +45,7 @@ var pages = [
                 "dialog": "I shall place the sorting hat on your head,",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 0,
-                "tail_deg": 326.18767992943435,
+                "tail_deg": 303.81232007056565,
                 "tail_offset_x": 150,
                 "tail_offset_y": 70
             },
@@ -53,7 +53,7 @@ var pages = [
                 "dialog": "and you will be sorted into your houses.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 0,
-                "tail_deg": 55.45990909292913,
+                "tail_deg": -34.540090907070876,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
@@ -61,7 +61,7 @@ var pages = [
                 "dialog": "Hermione Granger?",
                 "bubble_offset_x": 0,
                 "bubble_offset_y": 0,
-                "tail_deg": 338.24935462869905,
+                "tail_deg": 291.75064537130095,
                 "tail_offset_x": 150,
                 "tail_offset_y": 70
             },
@@ -69,7 +69,7 @@ var pages = [
                 "dialog": "Oh no.",
                 "bubble_offset_x": 546,
                 "bubble_offset_y": 456,
-                "tail_deg": 140.13255443987296,
+                "tail_deg": 129.867445560127,
                 "tail_offset_x": 50,
                 "tail_offset_y": 24
             },
@@ -77,7 +77,7 @@ var pages = [
                 "dialog": "Okay, relax.",
                 "bubble_offset_x": 0,
                 "bubble_offset_y": 0,
-                "tail_deg": 326.5026845795319,
+                "tail_deg": 303.4973154204681,
                 "tail_offset_x": 150,
                 "tail_offset_y": 70
             }
@@ -121,7 +121,7 @@ var pages = [
                 "dialog": "Mental that one. I'm telling you.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 456,
-                "tail_deg": 195.54448886649837,
+                "tail_deg": 105.54448886649837,
                 "tail_offset_x": 150,
                 "tail_offset_y": 24
             },
@@ -129,7 +129,7 @@ var pages = [
                 "dialog": "Ah, right then.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 0,
-                "tail_deg": 66.80140948635182,
+                "tail_deg": -23.198590513648185,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
@@ -161,7 +161,7 @@ var pages = [
                 "dialog": "Slytherin!",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 456,
-                "tail_deg": 148.13402230639633,
+                "tail_deg": 121.86597769360367,
                 "tail_offset_x": 50,
                 "tail_offset_y": 24
             }
@@ -205,7 +205,7 @@ var pages = [
                 "dialog": "There's not Whitjock Wizard who went bad.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 456,
-                "tail_deg": 128.5984637598503,
+                "tail_deg": 141.4015362401497,
                 "tail_offset_x": 50,
                 "tail_offset_y": 24
             },
@@ -213,7 +213,7 @@ var pages = [
                 "dialog": "It wasn't in Slytherin.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 456,
-                "tail_deg": 128.5984637598503,
+                "tail_deg": 141.4015362401497,
                 "tail_offset_x": 50,
                 "tail_offset_y": 24
             },
@@ -221,7 +221,7 @@ var pages = [
                 "dialog": "Susan Bones!",
                 "bubble_offset_x": 546,
                 "bubble_offset_y": 456,
-                "tail_deg": 140.13255443987296,
+                "tail_deg": 129.867445560127,
                 "tail_offset_x": 50,
                 "tail_offset_y": 24
             },
@@ -229,7 +229,7 @@ var pages = [
                 "dialog": "Ah.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 456,
-                "tail_deg": 212.23941615118883,
+                "tail_deg": 122.23941615118882,
                 "tail_offset_x": 150,
                 "tail_offset_y": 24
             },
@@ -237,7 +237,7 @@ var pages = [
                 "dialog": "Harry, what is it?",
                 "bubble_offset_x": 0,
                 "bubble_offset_y": 456,
-                "tail_deg": 190.3409212504074,
+                "tail_deg": 100.34092125040739,
                 "tail_offset_x": 150,
                 "tail_offset_y": 24
             },
@@ -245,7 +245,7 @@ var pages = [
                 "dialog": "Where's the light?",
                 "bubble_offset_x": 546,
                 "bubble_offset_y": 456,
-                "tail_deg": 168.19756579221644,
+                "tail_deg": 101.80243420778355,
                 "tail_offset_x": 50,
                 "tail_offset_y": 24
             }
@@ -289,7 +289,7 @@ var pages = [
                 "dialog": "Nothing. Nothing of fine.",
                 "bubble_offset_x": 546,
                 "bubble_offset_y": 456,
-                "tail_deg": 170.30785239197394,
+                "tail_deg": 99.69214760802605,
                 "tail_offset_x": 50,
                 "tail_offset_y": 24
             },
@@ -297,7 +297,7 @@ var pages = [
                 "dialog": "I know.",
                 "bubble_offset_x": 728,
                 "bubble_offset_y": 0,
-                "tail_deg": 71.21599504590554,
+                "tail_deg": -18.784004954094463,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
@@ -305,7 +305,7 @@ var pages = [
                 "dialog": "Half a puff!",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 152,
-                "tail_deg": 157.3354425653039,
+                "tail_deg": 112.66455743469609,
                 "tail_offset_x": 50,
                 "tail_offset_y": 24
             },
@@ -313,7 +313,7 @@ var pages = [
                 "dialog": "Run on, weasley!",
                 "bubble_offset_x": 0,
                 "bubble_offset_y": 0,
-                "tail_deg": 335.0877538440403,
+                "tail_deg": 294.9122461559597,
                 "tail_offset_x": 150,
                 "tail_offset_y": 70
             },
@@ -373,7 +373,7 @@ var pages = [
                 "dialog": "Gryffindor!",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 456,
-                "tail_deg": 128.5984637598503,
+                "tail_deg": 141.4015362401497,
                 "tail_offset_x": 50,
                 "tail_offset_y": 24
             },
@@ -381,7 +381,7 @@ var pages = [
                 "dialog": "Harry Potter?",
                 "bubble_offset_x": 1092,
                 "bubble_offset_y": 0,
-                "tail_deg": 24.15509205275976,
+                "tail_deg": -65.84490794724024,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
@@ -389,7 +389,7 @@ var pages = [
                 "dialog": "Hmm, difficult, very difficult.",
                 "bubble_offset_x": 546,
                 "bubble_offset_y": 456,
-                "tail_deg": 140.13255443987296,
+                "tail_deg": 129.867445560127,
                 "tail_offset_x": 50,
                 "tail_offset_y": 24
             },
@@ -397,7 +397,7 @@ var pages = [
                 "dialog": "Penty of courage, I see.",
                 "bubble_offset_x": 0,
                 "bubble_offset_y": 456,
-                "tail_deg": 186.4326539241383,
+                "tail_deg": 96.4326539241383,
                 "tail_offset_x": 150,
                 "tail_offset_y": 24
             },
@@ -413,7 +413,7 @@ var pages = [
                 "dialog": "There's talent, oh yes, and a thirst to prove yourself.",
                 "bubble_offset_x": 910,
                 "bubble_offset_y": 0,
-                "tail_deg": 27.088938135119573,
+                "tail_deg": -62.91106186488042,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             }
@@ -457,7 +457,7 @@ var pages = [
                 "dialog": "But where to put you?",
                 "bubble_offset_x": 0,
                 "bubble_offset_y": 456,
-                "tail_deg": 190.81942262311537,
+                "tail_deg": 100.81942262311537,
                 "tail_offset_x": 150,
                 "tail_offset_y": 24
             },
@@ -465,7 +465,7 @@ var pages = [
                 "dialog": "Not Slytherin.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 456,
-                "tail_deg": 128.5984637598503,
+                "tail_deg": 141.4015362401497,
                 "tail_offset_x": 50,
                 "tail_offset_y": 24
             },
@@ -481,7 +481,7 @@ var pages = [
                 "dialog": "Not Slytherin, eh?",
                 "bubble_offset_x": 0,
                 "bubble_offset_y": 0,
-                "tail_deg": 330.4405698695158,
+                "tail_deg": 299.55943013048415,
                 "tail_offset_x": 150,
                 "tail_offset_y": 70
             },
@@ -497,7 +497,7 @@ var pages = [
                 "dialog": "You could be great to know.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 456,
-                "tail_deg": 151.29803796916477,
+                "tail_deg": 118.70196203083523,
                 "tail_offset_x": 50,
                 "tail_offset_y": 24
             }
@@ -565,7 +565,7 @@ var pages = [
                 "dialog": "No.",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 0,
-                "tail_deg": 51.79090444002845,
+                "tail_deg": -38.209095559971544,
                 "tail_offset_x": 50,
                 "tail_offset_y": 70
             },
@@ -573,7 +573,7 @@ var pages = [
                 "dialog": "Well, if you're sure,",
                 "bubble_offset_x": 364,
                 "bubble_offset_y": 76,
-                "tail_deg": 168.20657031508952,
+                "tail_deg": 101.79342968491046,
                 "tail_offset_x": 50,
                 "tail_offset_y": 24
             },
@@ -610,7 +610,7 @@ var pages = [
                 "dialog": "Betta-bee!",
                 "bubble_offset_x": 0,
                 "bubble_offset_y": 456,
-                "tail_deg": 194.67283704388996,
+                "tail_deg": 104.67283704388996,
                 "tail_offset_x": 150,
                 "tail_offset_y": 24
             },
