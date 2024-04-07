@@ -18,7 +18,7 @@ function placeDialogs(page) {
         bubble_temp.innerHTML = page['bubbles'][index]['dialog'];
 
         bubble_temp.style.transform = `translate(${page['bubbles'][index]['bubble_offset_x']}px, ${page['bubbles'][index]['bubble_offset_y']}px)`
-        bubble_temp.style.transform = `translate(0px, 0px)`
+        // bubble_temp.style.transform = `translate(0px, 0px)`
         console.log(bubble_temp.style.transform )
     
         const tail= document.createElement('div'); // Create a new div for the tail
