@@ -15,8 +15,8 @@ function placeDialogs(page) {
         bubble_temp.style.position = 'relative';
         bubble_temp.innerHTML = page['bubbles'][index]['dialog'];
 
-        bubble_temp.style.transform = `translate(${page['bubbles'][index]['bubble_offset_x']}px, ${page['bubbles'][index]['bubble_offset_y']}px)`
-        
+        // bubble_temp.style.transform = `translate(${page['bubbles'][index]['bubble_offset_x']}px, ${page['bubbles'][index]['bubble_offset_y']}px)`
+        bubble_temp.style.transform = `translate(0px, 0px)`
         console.log(bubble_temp.style.transform )
     
         const tail= document.createElement('div'); // Create a new div for the tail
@@ -36,6 +36,6 @@ function placeDialogs(page) {
 
 // Call the function to place dialogs when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    placeDialogs(pages[1]);
+    placeDialogs(pages[0]);
 });
 
