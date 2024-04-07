@@ -1,14 +1,16 @@
 path = '../frames/final/'
+current_page = 0
 
 function placeDialogs(page) {
     var gridItems = document.querySelectorAll('.grid-item');
     page.panels.forEach(function (panel, index) {
         var gridItem = gridItems[index];
-        gridItem.style.display = 'block'; // Display the grid item
+        // gridItem.style.display = 'block'; // Display the grid item
         gridItem.style.gridRow = 'span ' + panel.row_span;
         gridItem.style.gridColumn = 'span ' + panel.col_span;
         gridItem.style.backgroundImage = `url("${path}${panel.image}.png")`;
 
+        gridItem.innerHTML = "";
 
         const bubble_temp = document.createElement('div');
         bubble_temp.classList.add('bubble');
@@ -36,6 +38,17 @@ function placeDialogs(page) {
 
 // Call the function to place dialogs when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    placeDialogs(pages[1]);
+    placeDialogs(pages[current_page]);
 });
+
+function prevPage(){
+    current_page = (current_page - 1);
+    placeDialogs(pages[current_page]);
+}
+
+function nextPage(){
+    current_page = (current_page + 1) % pages.length;
+    console.log(current_page)
+    placeDialogs(pages[current_page]);
+}
 
