@@ -24,6 +24,8 @@ function placeDialogs(page) {
         const tail= document.createElement('div'); // Create a new div for the tail
         tail.classList.add('tail'); // Add the 'tail' class to the div
         tail.style.transform = `translate(${page['bubbles'][index]['tail_offset_x']}px, ${page['bubbles'][index]['tail_offset_y']}px) rotate(${page['bubbles'][index]['tail_deg']}deg)`
+        tail.style.transform = `translate(0px, 0px) rotate(0deg)`
+
         bubble_temp.appendChild(tail);
 
 

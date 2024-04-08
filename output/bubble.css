@@ -14,9 +14,9 @@
 .tail{
   width: 0;
   height: 0;
-  border-left: 2vh solid transparent;
-  border-right: 2vh solid transparent;
-  border-top: 10vh solid black;
+  border-top: 2vh solid transparent;
+  border-bottom: 2vh solid transparent;
+  border-left: 10vh solid black;
   position: absolute;
   transform: translate(0px, 0px) rotate(0deg); 
 }
