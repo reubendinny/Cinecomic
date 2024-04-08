@@ -3,80 +3,9 @@ from os import listdir
 from backend.panel_layout.cam import get_coordinates, dump_CAM_data
 from backend.utils import crop_image
 from backend.panel_layout.layout.page import get_templates,panel_create
+from backend.utils import get_panel_type, types
 from PIL import Image
 
-# Dimensions of the entire page
-hT = 1100
-wT = 1035
-
-# Dimensions of a panel
-hP = hT/3
-wP = wT/4
-
-# Defining types
-types = {
-    '1': {
-        "width" : wP,
-        "height" : hP,
-        "aspect_ratio" : wP/hP
-    },
-
-    '2': {
-        "width" : wP,
-        "height" : 2*hP,
-        "aspect_ratio" : wP/(2*hP)
-    },
-
-    '3': {
-        "width" : 3*wP,
-        "height" : hP,
-        "aspect_ratio" : (3*wP)/hP
-    },
-
-    '4': {
-        "width" : 2*wP,
-        "height" : hP,
-        "aspect_ratio" : (2*wP)/hP
-    },
-
-    '5':{
-        "width" : 4*wP,
-        "height" : 3*hP,
-        "aspect_ratio" : (4*wP)/(3*hP)
-    },
-
-    '6':{
-        "width" : 4*wP,
-        "height" : hP,
-        "aspect_ratio" : (4*wP)/hP
-    },
-
-    '7':{
-        "width" : 4*wP,
-        "height" : 2*hP,
-        "aspect_ratio" : (4*wP)/(2*hP)
-    },
-
-    '8':{
-        "width" : 2*wP,
-        "height" : 2*hP,
-        "aspect_ratio" : (2*wP)/(2*hP)
-    }
-}
-
-def get_panel_type(left,right,top,bottom):
-    w = right - left
-    h = bottom - top
-    aspect_ratio = w/h
-
-    if 0 <= aspect_ratio < 0.7:
-        return '2'
-    elif 0.7 <= aspect_ratio < 1.4:
-        return '1'
-    elif 1.4 <= aspect_ratio < 2:
-        return '4'
-    else:
-        return '3'
 
 def centroid_crop(index, panel_type, cam_coords, img_w, img_h):
 

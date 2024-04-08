@@ -4,6 +4,7 @@ import os
 import srt
 import re
 from math import floor,sqrt
+from backend.utils import convert_to_css_pixel
 
 # Some constants
 THETA1 = 1.2    # Difference between lip distance of prev and curr frame
@@ -71,8 +72,8 @@ def get_lips(video, crop_coords, black_x, black_y):
         if len(face_rects) == 1:                # 1 face detected: Extract from keyframe itself
             rect = face_rects[0]
             landmark = landmark_detector(gray, rect)   # Detect face landmarks
-            part_65 = (landmark.part(65).x,landmark.part(65).y)
-            lips[sub.index] = part_65
+            x,y = convert_to_css_pixel(landmark.part(65).x, landmark.part(65).y, crop_coords[sub.index - 1])
+            lips[sub.index] = (x,y)
             continue
 
             
@@ -83,7 +84,10 @@ def get_lips(video, crop_coords, black_x, black_y):
             if lip_coords == (-1,-1):
                 lips[sub.index] = (-1,-1)
             else:
-                lips[sub.index] = (lip_coords[0] - (origin[0] + black_x), lip_coords[1] - (origin[1] + black_y))
+                x = lip_coords[0] - (origin[0] + black_x)
+                y = lip_coords[1] - (origin[1] + black_y)
+                x , y = convert_to_css_pixel(x,y,crop_coords[sub.index - 1])
+                lips[sub.index] = (x,y)
             continue
     print(lips)
     return lips

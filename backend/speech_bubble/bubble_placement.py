@@ -1,4 +1,4 @@
-from backend.panel_layout.layout_gen import get_panel_type, types
+from backend.utils import convert_to_css_pixel
 
 
 def get_bubble_position(crop_coord, CAM_data):
@@ -41,20 +41,7 @@ def get_bubble_position(crop_coord, CAM_data):
     least_roi_x -= left
     least_roi_y -= top
     print("Least ROI coords: ", least_roi_x, least_roi_y)
-
-    #Scaling the image to CSS pixels. DPI : (1px/1 css px)
-    panel_type = get_panel_type(left, right, top, bottom)
-    panel_width = types[panel_type]['width']
-    image_width = right-left
-    dpi_width = image_width/panel_width
-
-    panel_height = types[panel_type]['height']
-    # print("Panel Height:",panel_height)
-    image_height = bottom-top
-    dpi_height = image_height/panel_height
-    # print("DPI Height",dpi_height)
-
-    least_roi_x /= dpi_width
-    least_roi_y /= dpi_height
+    
+    least_roi_x, least_roi_y = convert_to_css_pixel(least_roi_x,least_roi_y,crop_coord)
     print("Least ROI coords after scaling: ", least_roi_x, least_roi_y)
     return least_roi_x, least_roi_y
