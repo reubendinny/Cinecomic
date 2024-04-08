@@ -37,10 +37,6 @@ def bubble_create(video, crop_coords, black_x, black_y):
         lip_y = lips[sub.index][1]
 
         bubble_x, bubble_y = get_bubble_position(crop_coords[sub.index-1], CAM_data[sub.index-1])
-        # If lip wasn't detected
-        if lip_x == -1 and lip_y == -1:
-            lip_x = 0
-            lip_y = 0
 
         temp = bubble(bubble_x, bubble_y,lip_x,lip_y,sub.content)
         bubbles.append(temp)

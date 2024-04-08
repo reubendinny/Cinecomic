@@ -87,55 +87,29 @@ class bubble:
         self.bubble_offset_x = bubble_offset_x
         self.bubble_offset_y = bubble_offset_y
         
-        temp = 0
         angle = 0
+         
+        print(f"lipx = {lip_x} and lipy = {lip_y}")
+        # If lip wasn't detected
 
-        dx = lip_x - bubble_offset_x
-        dy = lip_y - bubble_offset_y
-        # hyp = np.hypot(dx,dy) 
+        if(lip_x==-1 and lip_y == -1):
+            angle = 0
+            self.tail_offset_x = None
+            self.tail_offset_y = None
+        else:
+            dx = lip_x - bubble_offset_x
+            dy = lip_y - bubble_offset_y
+            angle = np.arctan2(dy, dx)
+            print(angle)
 
-        angle = np.arctan2(dy, dx)
-        print(angle)
+            tail_offset_x = None
+            tail_offset_y = None
 
-        tail_offset_x = None
-        tail_offset_y = None
+            self.tail_deg=np.degrees(angle)
 
-        self.tail_deg=np.degrees(angle)
+            self.tail_offset_x = 80 * np.cos(angle)
+            self.tail_offset_y = 80 * np.sin(angle)
 
-        self.tail_offset_x = 80 * np.cos(angle)
-        self.tail_offset_y = 80 * np.sin(angle)
-
-        # dx = lip_x - bubble_offset_x+self.tail_offset_x
-        # dy = lip_y - bubble_offset_y+self.tail_offset_y
-
-        # new_angle = np.arctan2(dy, dx)
-        # self.tail_deg = np.degrees(angle)
-        # if(bubble_offset_y>lip_y):
-        #     # tail top
-        #     if(bubble_offset_x>lip_x):
-        #         #tail left
-        #         tail_offset_x=tail_centre_x-50
-        #         tail_offset_y=tail_centre_y-23
-        #     elif(bubble_offset_x<lip_x):
-        #         #tail right
-        #         tail_offset_x=tail_centre_x+50
-        #         tail_offset_y=tail_centre_y-23
-        # elif(bubble_offset_y<=lip_y):
-        #     #tail bottom
-        #     if(bubble_offset_x>lip_x):
-        #         #tail left
-        #         tail_offset_x=tail_centre_x-50
-        #         tail_offset_y=tail_centre_y+23
-        #     elif(bubble_offset_x<lip_x):
-        #         #tail right
-        #         tail_offset_x=tail_centre_x+50
-        #         tail_offset_y=tail_centre_y+23
-
-
-
-
-
-# page.py
 
 class Page:
     def __init__(self,panels,bubbles):
