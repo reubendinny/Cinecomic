@@ -9,6 +9,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 .tail{
@@ -19,5 +20,6 @@
   border-left: 10vh solid rgb(255, 255, 255);
   position: absolute;
   transform: translate(0px, 0px) rotate(0deg); 
+  z-index: -1;
 }
 
