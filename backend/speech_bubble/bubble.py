@@ -22,9 +22,15 @@ def bubble_create(video, crop_coords, black_x, black_y):
     with open('CAM_data.pkl', 'rb') as f:
         CAM_data = pickle.load(f)
 
-
-
     lips = get_lips(video, crop_coords,black_x,black_y)
+    # Dumping lips
+    with open('lips.pkl', 'wb') as f:
+        pickle.dump(lips, f)
+
+    # # Reading lips
+    # lips=None
+    # with open('lips.pkl', 'rb') as f:
+    #     lips = pickle.load(f)
     
     for sub in subs:
         lip_x = lips[sub.index][0]
