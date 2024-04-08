@@ -102,14 +102,14 @@ class bubble:
 
         self.tail_deg=np.degrees(angle)
 
-        self.tail_offset_x = tail_centre_x * np.cos(angle)
-        self.tail_offset_y = tail_centre_x * np.sin(angle)
+        self.tail_offset_x = 80 * np.cos(angle)
+        self.tail_offset_y = 80 * np.sin(angle)
 
-        dx = lip_x - bubble_offset_x+self.tail_offset_x
-        dy = lip_y - bubble_offset_y+self.tail_offset_y
+        # dx = lip_x - bubble_offset_x+self.tail_offset_x
+        # dy = lip_y - bubble_offset_y+self.tail_offset_y
 
-        new_angle = np.arctan2(dy, dx)
-        self.tail_deg = np.degrees(angle)
+        # new_angle = np.arctan2(dy, dx)
+        # self.tail_deg = np.degrees(angle)
         # if(bubble_offset_y>lip_y):
         #     # tail top
         #     if(bubble_offset_x>lip_x):
