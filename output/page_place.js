@@ -16,6 +16,7 @@ function placeDialogs(page) {
         bubble_temp.classList.add('bubble');
         bubble_temp.style.position = 'relative';
         bubble_temp.innerHTML = page['bubbles'][index]['dialog'];
+        // bubble_temp.style.width = 0.2 
 
         bubble_temp.style.transform = `translate(${page['bubbles'][index]['bubble_offset_x']}px, ${page['bubbles'][index]['bubble_offset_y']}px)`
         // bubble_temp.style.transform = `translate(0px, 0px)`
@@ -24,8 +25,8 @@ function placeDialogs(page) {
         const tail= document.createElement('div'); // Create a new div for the tail
         tail.classList.add('tail'); // Add the 'tail' class to the div
         tail.style.transform = `translate(${page['bubbles'][index]['tail_offset_x']}px, ${page['bubbles'][index]['tail_offset_y']}px) rotate(${page['bubbles'][index]['tail_deg']}deg)`
-        tail.style.transform = `translate(0px, 0px) rotate(0deg)`
-
+        // tail.style.transform = `translate(0px, 0px) rotate(${page['bubbles'][index]['tail_deg']}deg)`
+        
         bubble_temp.appendChild(tail);
 
 

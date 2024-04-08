@@ -1,5 +1,5 @@
 import math
-
+import numpy as np
 class panel:
     def __init__(self,image,row_span,col_span):
        self.image = image
@@ -89,60 +89,49 @@ class bubble:
         
         temp = 0
         angle = 0
-        if(bubble_offset_x==lip_x):
-                 angle=0
-        else:
-            if(bubble_offset_y>lip_y):
-                # tail top
-                if(bubble_offset_x>lip_x):
-                    #tail left
-                    temp = math.degrees(math.atan((lip_x-bubble_offset_x) / (lip_y-bubble_offset_y)))
-                    angle=180-temp
-                elif(bubble_offset_x<lip_x):
-                    #tail right
-                    temp = math.degrees(math.atan((lip_x-bubble_offset_x) / (lip_y-bubble_offset_y))) 
-                    angle=180+temp
-            elif(bubble_offset_y<lip_y):
-                #tail bottom
-                if(bubble_offset_x>lip_x):
-                    #tail left
-                    temp = math.degrees(math.atan((lip_x-bubble_offset_x) / (lip_y-bubble_offset_y)))
-                    angle=temp
-                elif(bubble_offset_x<lip_x):
-                    #tail right
-                    temp = math.degrees(math.atan((lip_x-bubble_offset_x) / (lip_y-bubble_offset_y)))
-                    angle=360-temp
 
-        
+        dx = lip_x - bubble_offset_x
+        dy = lip_y - bubble_offset_y
+        # hyp = np.hypot(dx,dy) 
+
+        angle = np.arctan2(dy, dx)
         print(angle)
+
         tail_offset_x = None
         tail_offset_y = None
 
-        self.tail_deg=angle
+        self.tail_deg=np.degrees(angle)
 
-        if(bubble_offset_y>lip_y):
-            # tail top
-            if(bubble_offset_x>lip_x):
-                #tail left
-                tail_offset_x=tail_centre_x-50
-                tail_offset_y=tail_centre_y-23
-            elif(bubble_offset_x<lip_x):
-                #tail right
-                tail_offset_x=tail_centre_x+50
-                tail_offset_y=tail_centre_y-23
-        elif(bubble_offset_y<=lip_y):
-            #tail bottom
-            if(bubble_offset_x>lip_x):
-                #tail left
-                tail_offset_x=tail_centre_x-50
-                tail_offset_y=tail_centre_y+23
-            elif(bubble_offset_x<lip_x):
-                #tail right
-                tail_offset_x=tail_centre_x+50
-                tail_offset_y=tail_centre_y+23
+        self.tail_offset_x = tail_centre_x * np.cos(angle)
+        self.tail_offset_y = tail_centre_x * np.sin(angle)
 
-        self.tail_offset_x = tail_offset_x
-        self.tail_offset_y = tail_offset_y
+        dx = lip_x - bubble_offset_x+self.tail_offset_x
+        dy = lip_y - bubble_offset_y+self.tail_offset_y
+
+        new_angle = np.arctan2(dy, dx)
+        self.tail_deg = np.degrees(angle)
+        # if(bubble_offset_y>lip_y):
+        #     # tail top
+        #     if(bubble_offset_x>lip_x):
+        #         #tail left
+        #         tail_offset_x=tail_centre_x-50
+        #         tail_offset_y=tail_centre_y-23
+        #     elif(bubble_offset_x<lip_x):
+        #         #tail right
+        #         tail_offset_x=tail_centre_x+50
+        #         tail_offset_y=tail_centre_y-23
+        # elif(bubble_offset_y<=lip_y):
+        #     #tail bottom
+        #     if(bubble_offset_x>lip_x):
+        #         #tail left
+        #         tail_offset_x=tail_centre_x-50
+        #         tail_offset_y=tail_centre_y+23
+        #     elif(bubble_offset_x<lip_x):
+        #         #tail right
+        #         tail_offset_x=tail_centre_x+50
+        #         tail_offset_y=tail_centre_y+23
+
+
 
 
 
