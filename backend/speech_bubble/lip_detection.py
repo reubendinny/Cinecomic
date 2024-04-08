@@ -194,13 +194,16 @@ def get_multi_speaker_lips(sub,video, keyframe_face_rects):
    
     print("Lip motion count, total_frames_selected = ", lip_motion_count, total_frames_selected)
     # print("max lip count ratio = ", lip_motion_count / (total_frames_selected-1))
-    max_lip_index = max(lip_motion_count, key=lip_motion_count.get)
-    # max_value = lip_motion_count[max_lip_index]
-    # if max_lip_count / (total_frames_selected-1) > THETA2:
-    #     print("speaking")
-    if lip_motion_count[max_lip_index] / (total_frames_selected-1) > THETA2:
-        return lip_coords[max_lip_index]
-    else:
+    try:
+        max_lip_index = max(lip_motion_count, key=lip_motion_count.get)
+        # max_value = lip_motion_count[max_lip_index]
+        # if max_lip_count / (total_frames_selected-1) > THETA2:
+        #     print("speaking")
+        if lip_motion_count[max_lip_index] / (total_frames_selected-1) > THETA2:
+            return lip_coords[max_lip_index]
+        else:
+            return (-1,-1)
+    except ValueError:
         return (-1,-1)
     
 
