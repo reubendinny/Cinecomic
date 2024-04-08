@@ -1,19 +1,19 @@
 import pickle
-# from backend.subtitles.subs import get_subtitles
-# from backend.keyframes.keyframes import generate_keyframes, black_bar_crop
-# from backend.panel_layout.layout_gen import generate_layout
-# from backend.cartoonize.cartoonize import style_frames
+from backend.subtitles.subs import get_subtitles
+from backend.keyframes.keyframes import generate_keyframes, black_bar_crop
+from backend.panel_layout.layout_gen import generate_layout
+from backend.cartoonize.cartoonize import style_frames
 from backend.speech_bubble.bubble import bubble_create
 from backend.page_create import page_create,page_json
 
 
 video = 'video/harry.mp4'
-# get_subtitles(video)
+get_subtitles(video)
 
-# generate_keyframes(video)
-# black_x, black_y, _, _ = black_bar_crop()
+generate_keyframes(video)
+black_x, black_y, _, _ = black_bar_crop()
 
-# crop_coords, page_templates, panels = generate_layout()
+crop_coords, page_templates, panels = generate_layout()
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # Dumping crop_coords and black_coords
