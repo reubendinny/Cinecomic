@@ -1,0 +1,25 @@
+.bubble{
+    width: 200px;
+    height: 94px;
+    background-color: white;
+    position: relative;
+    border-radius: 50%;
+    font-size: 15;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.tail{
+  width: 0;
+  height: 0;
+  border-top: 2vh solid transparent;
+  border-bottom: 2vh solid transparent;
+  border-left: 10vh solid rgb(255, 255, 255);
+  position: absolute;
+  transform: translate(0px, 0px) rotate(0deg); 
+  z-index: -1;
+}
+

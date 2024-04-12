@@ -4,6 +4,79 @@ from PIL import Image
 import cv2
 import numpy as np
 
+# Dimensions of the entire page
+hT = 1100
+wT = 1035
+
+# Dimensions of a panel
+hP = hT/3
+wP = wT/4
+
+# Defining types
+types = {
+    '1': {
+        "width" : wP,
+        "height" : hP,
+        "aspect_ratio" : wP/hP
+    },
+
+    '2': {
+        "width" : wP,
+        "height" : 2*hP,
+        "aspect_ratio" : wP/(2*hP)
+    },
+
+    '3': {
+        "width" : 3*wP,
+        "height" : hP,
+        "aspect_ratio" : (3*wP)/hP
+    },
+
+    '4': {
+        "width" : 2*wP,
+        "height" : hP,
+        "aspect_ratio" : (2*wP)/hP
+    },
+
+    '5':{
+        "width" : 4*wP,
+        "height" : 3*hP,
+        "aspect_ratio" : (4*wP)/(3*hP)
+    },
+
+    '6':{
+        "width" : 4*wP,
+        "height" : hP,
+        "aspect_ratio" : (4*wP)/hP
+    },
+
+    '7':{
+        "width" : 4*wP,
+        "height" : 2*hP,
+        "aspect_ratio" : (4*wP)/(2*hP)
+    },
+
+    '8':{
+        "width" : 2*wP,
+        "height" : 2*hP,
+        "aspect_ratio" : (2*wP)/(2*hP)
+    }
+}
+
+def get_panel_type(left,right,top,bottom):
+    w = right - left
+    h = bottom - top
+    aspect_ratio = w/h
+
+    if 0 <= aspect_ratio < 0.7:
+        return '2'
+    elif 0.7 <= aspect_ratio < 1.4:
+        return '1'
+    elif 1.4 <= aspect_ratio < 2:
+        return '4'
+    else:
+        return '3'
+
 def copy_and_rename_file(source_file, destination_folder, new_file_name):
 
     destination_path = os.path.join(destination_folder, new_file_name)
@@ -45,7 +118,7 @@ def get_black_bar_coordinates(img_path):
 
     # Extract bounding box
     x, y, w, h = cv2.boundingRect(largest_contour)
-
+    print("Black bar coords : ", x,y,w,h)
     return x, y, w, h
 
 def crop_image(img_path, left, right, top, bottom):
@@ -77,6 +150,24 @@ def crop_image(img_path, left, right, top, bottom):
     
     # Save the cropped image
     img2.save(img_path)
-
+    return (new_left, new_right, new_top, new_bottom)
     # img2.show()
     # return img2
+
+def convert_to_css_pixel(x,y,crop_coord):
+    #Scaling the image to CSS pixels. DPI : (1px/1 css px)
+    left, right, top, bottom = crop_coord
+    panel_type = get_panel_type(left, right, top, bottom)
+    panel_width = types[panel_type]['width']
+    image_width = right-left
+    dpi_width = image_width/panel_width
+
+    panel_height = types[panel_type]['height']
+    # print("Panel Height:",panel_height)
+    image_height = bottom-top
+    dpi_height = image_height/panel_height
+    # print("DPI Height",dpi_height)
+
+    x /= dpi_width
+    y /= dpi_height
+    return x,y

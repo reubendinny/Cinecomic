@@ -1,48 +1,33 @@
 import os
 import random
 import copy
+from backend.class_def import panel
 
 
-def parse_css_file(css_file):
-    css_dict = {}
-    current_selector = None
+template_specs = {
+    "1" : {
+        "span" : 1,
+        "direction": "row"
+    },
+    "2" : {
+        "span" : 2,
+        "direction": "row"
+    },
+    "3" : {
+        "span" : 3,
+        "direction": "column"
+    },
+     "4" : {
+        "span" : 2,
+        "direction": "column"
+    }
+      
+}
 
-    with open(css_file, 'r') as f:
-        for line in f:
-            line = line.strip()
-            if not line or line.startswith('/*'):
-                continue
-            if line.endswith('{'):
-                current_selector = line[:-1].strip()
-                css_dict[current_selector] = {}
-            elif line.endswith('}'):
-                current_selector = None
-            else:
-                property_name, value = line.split(':', 1)
-                property_name = property_name.strip()
-                value = value.strip().rstrip(';')
-                if current_selector:
-                    css_dict[current_selector][property_name] = value
-
-    return css_dict
-
-
-def write_css_file(css_dict, output_file):
-    with open(output_file, 'w') as f:
-        for selector, properties in css_dict.items():
-            f.write(f"{selector} {{\n")
-            for property_name, value in properties.items():
-                f.write(f"    {property_name}: {value};\n")
-            f.write("}\n")
-
-
-def set_background_image(key, image_path, page_template):  
-    url_str =   f'url("../../../../frames/final/{image_path}.png");'
-    page_template[key]['background-image'] =  url_str
+input = '433343333343343333443333443334333343344443433'
 
 
 
-# Function to calculate Hamming distance  
 def hammingDist(str1, str2): 
     i = 0
     count = 0
@@ -52,9 +37,6 @@ def hammingDist(str1, str2):
             count += 1
         i += 1
     return count
-
-
-
 
 def get_files_in_folder(folder_path):
     file_dicts = []
@@ -66,78 +48,13 @@ def get_files_in_folder(folder_path):
             file_dicts.append({"name": file , 'rank' :  rank})
     return file_dicts
 
-
-
-def last_page(count_images,length):
-    count=1
-    new = copy.deepcopy(css_dict)
-    for i in range(length+1,13):
-        new[f'#_{i}']['display']='none'
-    if(length==1):
-        set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
-        new[f'#_{count}']['grid-row'] = 'span ' + str(3) 
-        new[f'#_{count}']['grid-column'] = 'span ' + str(4)
-    elif(length==2):
-        set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
-        new[f'#_{count}']['grid-row'] = 'span ' + str(1) 
-        new[f'#_{count}']['grid-column'] = 'span ' + str(4)
-        count+=1
-        count_images+=1
-        set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
-        new[f'#_{count}']['grid-row'] = 'span ' + str(2) 
-        new[f'#_{count}']['grid-column'] = 'span ' + str(4)
-    elif(length==3):
-        for i in range(0,3):
-            set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
-            new[f'#_{count}']['grid-row'] = 'span ' + str(1) 
-            new[f'#_{count}']['grid-column'] = 'span ' + str(4)
-            count+=1
-            count_images+=1
-    elif(length==4):
-        for i in range(0,2):
-            set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
-            new[f'#_{count}']['grid-row'] = 'span ' + str(1) 
-            new[f'#_{count}']['grid-column'] = 'span ' + str(2)
-            count+=1
-            count_images+=1
-        for i in range(2,4):
-            set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
-            new[f'#_{count}']['grid-row'] = 'span ' + str(2) 
-            new[f'#_{count}']['grid-column'] = 'span ' + str(2)
-            count+=1
-            count_images+=1
-    elif(length==5):
-        for i in range(0,4):
-            set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
-            new[f'#_{count}']['grid-row'] = 'span ' + str(1) 
-            new[f'#_{count}']['grid-column'] = 'span ' + str(2)
-            count+=1
-            count_images+=1
-        set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
-        new[f'#_{count}']['grid-row'] = 'span ' + str(1) 
-        new[f'#_{count}']['grid-column'] = 'span ' + str(4)
-        count+=1
-        count_images+=1
-
-    return new
-
-
-
 templates = ['14124114','312341' , '4432111' , '21411241' , '3241141' , '13411141' , '12411131' ,'1321113', '131423' , 
 '142344' , '234241','2411413','3141214','42111131']
 
-
 min_length = 6
-
-css_file = 'backend/panel_layout/layout/template.css'  # Replace 'styles.css' with your CSS file path
-css_dict = parse_css_file(css_file)
-print(css_dict)
-
-
 folder_path = 'frames/final' # Specify the folder path
 
 
-count = 0
 
 def get_templates(input):
     page_templates = []
@@ -178,32 +95,57 @@ def get_templates(input):
     return page_templates
 
 
-
-
-template_specs = {
-    "1" : {
-        "span" : 1,
-        "direction": "row"
-    },
-    "2" : {
-        "span" : 2,
-        "direction": "row"
-    },
-    "3" : {
-        "span" : 3,
-        "direction": "column"
-    },
-     "4" : {
-        "span" : 2,
-        "direction": "column"
-    }
+def last_page(panels,count_images, length):
+    count = 1
+    # new = copy.deepcopy(css_dict)
+    # for i in range(length + 1, 13):
+    #     new[f'#_{i}']['display'] = 'none'
     
-   
-}
+    if length == 1:
+        new_panel = panel(f'frame{count_images:03d}', 3, 4)
+        panels.append(new_panel)
+    elif length == 2:
+        new_panel = panel(f'frame{count_images:03d}', 1, 4)
+        panels.append(new_panel)
+        count += 1
+        count_images += 1
+        new_panel = panel(f'frame{count_images:03d}', 2, 4)
+        panels.append(new_panel)
+    elif length == 3:
+        for i in range(0, 3):
+            new_panel = panel(f'frame{count_images:03d}', 1, 4)
+            panels.append(new_panel)
+            count += 1
+            count_images += 1
+    elif length == 4:
+        for i in range(0, 2):
+            new_panel = panel(f'frame{count_images:03d}', 1, 2)
+            panels.append(new_panel)
+            count += 1
+            count_images += 1
+        for i in range(2, 4):
+            new_panel = panel(f'frame{count_images:03d}', 2, 2)
+            panels.append(new_panel)
+            count += 1
+            count_images += 1
+    elif length == 5:
+        for i in range(0, 4):
+            new_panel = panel(f'frame{count_images:03d}', 1, 2)
+            panels.append(new_panel)
+            count += 1
+            count_images += 1
+        new_panel = panel(f'frame{count_images:03d}', 1, 4)
+        panels.append(new_panel)
+        count += 1
+        count_images += 1
+
+    return panels
 
 
-def insert_in_grid(page_templates):
-    page_css = []
+
+def panel_create(page_templates):
+
+    panels = []
 
     images = get_files_in_folder(folder_path)
     print(images)
@@ -211,45 +153,33 @@ def insert_in_grid(page_templates):
 
     for page_template in page_templates:
 
+
         if(len(page_template)<min_length): #To handle last page 
-            page_css.append(last_page(count_images,len(page_template)))
+            panels = last_page(panels,count_images,len(page_template))
             break
 
 
-        new = copy.deepcopy(css_dict)
         count = 1
         
-
         for i in page_template:
-            # print(i)
 
-            set_background_image(f'#_{count}', f'frame{count_images:03d}' ,new)
-
-            new[f'#_{count}']['grid-'+ template_specs[i]['direction']] = 'span ' + str(template_specs[i]['span'])   #Trying to assign this: grid-column: span 2;
-            # print(new[f'#_{count}']['grid-'+ template_specs[i]['direction']])
-            # print(f'count: {count}')
+            if(template_specs[i]['direction'] == 'row'):
+                new = panel(f'frame{count_images:03d}',template_specs[i]['span'] , 1)
+            else:
+                new = panel(f'frame{count_images:03d}', 1 ,template_specs[i]['span'])
+            panels.append(new)
             count = count+1
             count_images+=1
 
-        for i in range(count, 13):
-                new[f'#_{i}']['display'] = 'none'
-        # print(new)
-        page_css.append(new)
+        
+    
+    return(panels)
 
 
-    for i in range(0,len(page_css)):
-    # print(i)
-        print(page_css[i])
-        output_file = f'backend/panel_layout/layout/page_css/page{i+1}.css'
-        write_css_file(page_css[i],output_file)
+# v = get_templates(input)
+# print(v)
+# new = panel_create(v)
 
 
-
-
-# print(page_css)
-# print(css_dict)
-
-
-
-
-# output_file = 'page.css'  # Specify the output file path
+# for i in new:
+#     print(i.__dict__)
