@@ -6,25 +6,36 @@ from backend.cartoonize.cartoonize import style_frames
 from backend.speech_bubble.bubble import bubble_create
 from backend.page_create import page_create,page_json
 
+import srt
+from backend.speech_bubble.bubble_shape import get_bubble_type
+
 
 video = 'video/harry.mp4'
 # get_subtitles(video)
 
-generate_keyframes(video)
-black_x, black_y, _, _ = black_bar_crop()
+with open("test1.srt", "r") as file:
+  subs = list(srt.parse(file))
+for sub in subs:
+      start_time_seconds = sub.start.total_seconds()
+      end_time_seconds = sub.end.total_seconds()
+      dialogue = sub.content
+get_bubble_type(dialogue)
 
-crop_coords, page_templates, panels = generate_layout()
+# generate_keyframes(video)
+# black_x, black_y, _, _ = black_bar_crop()
+
+# crop_coords, page_templates, panels = generate_layout()
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # Dumping crop_coords and black_coords
-with open('crop_coords.pkl', 'wb') as f:
-    pickle.dump(crop_coords, f)
-with open('black_coords.pkl', 'wb') as f:
-    pickle.dump((black_x,black_y), f)
-with open('page_templates.pkl', 'wb') as f:
-    pickle.dump(page_templates, f)
-with open('panels.pkl', 'wb') as f:
-    pickle.dump(panels, f)
+# with open('crop_coords.pkl', 'wb') as f:
+#     pickle.dump(crop_coords, f)
+# with open('black_coords.pkl', 'wb') as f:
+#     pickle.dump((black_x,black_y), f)
+# with open('page_templates.pkl', 'wb') as f:
+#     pickle.dump(page_templates, f)
+# with open('panels.pkl', 'wb') as f:
+#     pickle.dump(panels, f)
 # ==============================================
 # Reading crop_coords and black_coords
 # crop_coords=None
@@ -44,10 +55,10 @@ with open('panels.pkl', 'wb') as f:
 
 # 
     
-bubbles = bubble_create(video, crop_coords, black_x, black_y)
+# bubbles = bubble_create(video, crop_coords, black_x, black_y)
 
-pages  = page_create(page_templates,panels,bubbles)
+# pages  = page_create(page_templates,panels,bubbles)
 
-page_json(pages)
+# page_json(pages)
 
-style_frames()
+# style_frames()

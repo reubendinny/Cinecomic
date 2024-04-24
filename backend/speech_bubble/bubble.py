@@ -4,6 +4,7 @@ import srt
 import pickle
 from backend.speech_bubble.lip_detection import get_lips
 from backend.speech_bubble.bubble_placement import get_bubble_position
+from backend.speech_bubble.bubble_shape import get_bubble_type
 from backend.class_def import bubble
 
 
@@ -37,6 +38,9 @@ def bubble_create(video, crop_coords, black_x, black_y):
         lip_y = lips[sub.index][1]
 
         bubble_x, bubble_y = get_bubble_position(crop_coords[sub.index-1], CAM_data[sub.index-1])
+
+        dialogue = sub.content
+        type = get_bubble_type(dialogue)
 
         temp = bubble(bubble_x, bubble_y,lip_x,lip_y,sub.content)
         bubbles.append(temp)
