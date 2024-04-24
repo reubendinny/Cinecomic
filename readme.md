@@ -4,6 +4,7 @@ Cinecomic is an automated movie-to-comic generator. Input a video and it generat
 <p align="center">
     <img src="https://i.postimg.cc/KcB9QpKq/harry-final.jpg" width=60% height=60%>
 </p>
+
 ## Methodology
 Our project consists of the following core modules:
 1. **Subtitle Generation**
