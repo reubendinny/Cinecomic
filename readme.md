@@ -1,8 +1,9 @@
 # Cinecomic
 Cinecomic is an automated movie-to-comic generator. Input a video and it generates a comic book for the same complete with a comic style and dialogue bubbles
 
-<img src="https://i.postimg.cc/KcB9QpKq/harry-final.jpg" width=50% height=50%>
-
+<p align="center">
+    <img src="https://i.postimg.cc/KcB9QpKq/harry-final.jpg" width=60% height=60%>
+</p>
 ## Methodology
 Our project consists of the following core modules:
 1. **Subtitle Generation**
