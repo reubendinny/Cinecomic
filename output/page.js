@@ -65,9 +65,9 @@ var pages = [
                 "dialog": "Three guild navigators, a total of 1.46 million sixty-two salaris round trip.",
                 "bubble_offset_x": 302.5,
                 "bubble_offset_y": 15.0,
-                "tail_deg": 76.54886782196989,
-                "tail_offset_x": 18.609275237728436,
-                "tail_offset_y": 77.80549386210762
+                "tail_deg": 76.78066382272866,
+                "tail_offset_x": 18.294353637444,
+                "tail_offset_y": 77.88014268726104
             },
             {
                 "dialog": "By the grace of Shaddam, fourth of House Corrino, ascendant to the Golden Lion throne of Padecia, emperor of the known universe, I stand before you as herald of the change.",
@@ -123,9 +123,9 @@ var pages = [
                 "dialog": "The emperor has spoken.",
                 "bubble_offset_x": 43.75,
                 "bubble_offset_y": 15.0,
-                "tail_deg": 69.16797446448014,
-                "tail_offset_x": 28.450354295373263,
-                "tail_offset_y": 74.77016343748177
+                "tail_deg": 69.255279316065,
+                "tail_offset_x": 28.336389742556275,
+                "tail_offset_y": 74.81342804843226
             },
             {
                 "dialog": "House Atreides shall immediately take control of Arrakis and serve as its steward.",
@@ -196,9 +196,9 @@ var pages = [
                 "dialog": "The emperor asks us to bring peace to Arrakis.",
                 "bubble_offset_x": 310.5,
                 "bubble_offset_y": 15.0,
-                "tail_deg": 47.997753127744105,
-                "tail_offset_x": 53.532779880443314,
-                "tail_offset_y": 59.44948677887812
+                "tail_deg": 47.98593548851245,
+                "tail_offset_x": 53.54504059748119,
+                "tail_offset_y": 59.43844401912025
             },
             {
                 "dialog": "House Atreides accepts!",
@@ -267,8 +267,9 @@ var pages = [
                 "dialog": "So it's done?",
                 "bubble_offset_x": 561.25,
                 "bubble_offset_y": 15.0,
-                "tail_offset_x": null,
-                "tail_offset_y": null
+                "tail_deg": 85.07641833264717,
+                "tail_offset_x": 6.866159154786104,
+                "tail_offset_y": 79.70480448794255
             },
             {
                 "dialog": "It's done.",
