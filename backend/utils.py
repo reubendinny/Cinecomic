@@ -3,6 +3,7 @@ import os
 from PIL import Image
 import cv2
 import numpy as np
+from pytube import YouTube
 
 # Dimensions of the entire page
 hT = 1100
@@ -171,3 +172,58 @@ def convert_to_css_pixel(x,y,crop_coord):
     x /= dpi_width
     y /= dpi_height
     return x,y
+
+def clear_folder(folder_path):
+    """Delete all contents of a folder but not the folder itself."""
+    for filename in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, filename)
+        try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except Exception as e:
+            print(f'Failed to delete {file_path}. Reason: {e}')
+
+def delete_other_folders(base_path, exclude_folder):
+    """Delete all folders within base_path except the exclude_folder."""
+    for folder_name in os.listdir(base_path):
+        folder_path = os.path.join(base_path, folder_name)
+        if os.path.isdir(folder_path) and folder_name != exclude_folder:
+            try:
+                shutil.rmtree(folder_path)
+            except Exception as e:
+                print(f'Failed to delete {folder_path}. Reason: {e}')
+
+def cleanup():
+    frames_path = 'frames'
+    final_folder_name = 'final'
+    final_folder_path = os.path.join(frames_path, final_folder_name)
+
+    # Clear the contents of the final folder
+    if os.path.exists(final_folder_path):
+        clear_folder(final_folder_path)
+        print("Deleting previous frames")
+    else:
+        print(f'The folder {final_folder_path} does not exist.')
+
+    # Delete all other folders in the frames folder
+    delete_other_folders(frames_path, final_folder_name)
+    print("Deleted previous sub folders")
+
+def download_video(link):
+    SAVE_PATH = "video/" 
+    try: 
+        yt = YouTube(link) 
+    except: 
+        print("Connection Error") 
+
+    # Get all streams and filter for mp4 files
+    d_video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
+
+    try: 
+        # downloading the video 
+        d_video.download(output_path=SAVE_PATH, filename="uploaded.mp4")
+        print('Video downloaded successfully!')
+    except: 
+        print("Some Error!")

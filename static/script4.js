@@ -2,6 +2,7 @@
 const carousel = document.querySelector('.carousel');
 const carouselItems = carousel.querySelectorAll('.carousel-item');
 const submissionResult = document.getElementById('submissionResult')
+const linkInput = document.getElementById('link-input')
 
 let currentItem = 0;
 
@@ -74,7 +75,9 @@ document.getElementById('link-input').addEventListener('input', function() {
 
 //5. Submit button
 function submitForm() {
+    // If file is selected
     if (selectedFile !== null && selectedLink === '') {
+        submissionResult.textContent = "Your comic is being created";
         var formdata = new FormData();
         formdata.append("file", selectedFile);
 
@@ -95,9 +98,34 @@ function submitForm() {
             alert(error);
           });
           
-    } else if (selectedLink !== '' && selectedFile === null) {
-        document.getElementById('submissionResult').textContent = Submitted;
-    } else {
+    } 
+    
+    // If link is entered
+    else if (selectedLink !== '' && selectedFile === null) {
+        submissionResult.textContent = "Your comic is being created";
+
+        var formdata = new FormData();
+        formdata.append("link", linkInput.value);
+
+        var requestOptions = {
+          method: "POST",
+          body: formdata,
+          redirect: "follow",
+        };
+
+        fetch("/handle_link", requestOptions)
+          .then((response) => response.text())
+          .then((result) => {
+            console.log(result);
+            submissionResult.textContent = result;
+          })
+          .catch((error) => {
+            console.log("error", error);
+            alert(error);
+          });
+    } 
+    
+    else {
         document.getElementById('submissionResult').textContent = 'Please select either a file or enter a link.';
     }
     // document.getElementById('submissionResult').textContent = 'Submitted';
