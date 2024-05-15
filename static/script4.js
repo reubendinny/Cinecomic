@@ -15,36 +15,13 @@ function changeImage() {
   });
   currentItem = (currentItem + 1) % carouselItems.length;
 }
-
 setInterval(changeImage, 3000);
 
 // 2. Box with title, description and (file uploader/link & submit button)
 const box = document.querySelector('.box');
-
 setTimeout(() => {
     box.classList.add('visible');
 }, 2000);
-
-//
-// Function to show video preview
-function showVideoPreview(url) {
-    const videoPreview = document.getElementById('video-preview');
-    videoPreview.src = url;
-    videoPreview.style.display = 'block';
-}
-
-// Function to hide video preview
-function hideVideoPreview() {
-    const videoPreview = document.getElementById('video-preview');
-    videoPreview.src = '';
-    videoPreview.style.display = 'none';
-}
-
-// document.getElementById('close-preview').addEventListener('click', function() {
-//     document.getElementById('video-preview').pause(); // Pause the video
-//     document.getElementById('video-preview').currentTime = 0; // Reset video to start
-//     document.getElementById('video-container').style.display = 'none'; // Hide video container
-// });
 
 
 var selectedFile = null;
@@ -57,14 +34,13 @@ function openFilePicker() {
     document.getElementById('fileInput').click();
 }
 
-// Function to handle file input change event
 document.getElementById('fileInput').addEventListener('change', function() {
     selectedFile = this.files[0];
     document.getElementById('fileName').textContent = 'Selected File: ' + selectedFile.name;
     hideLinkInput(); // Hide link input if file is selected
     showVideoPreview(URL.createObjectURL(selectedFile)); // Show video preview
-
 });
+
 // document.getElementById('fileInput').addEventListener('change', function() {
 //     selectedFile = this.files[0];
 //     document.getElementById('fileName').textContent = 'Selected File: ' + selectedFile.name;
@@ -78,7 +54,6 @@ function toggleLinkInput() {
         linkInputContainer.style.display = 'block';
     } else {
         linkInputContainer.style.display = 'none';
-
         document.getElementById('link-input').value = '';
         selectedLink = '';
     }
@@ -86,7 +61,6 @@ function toggleLinkInput() {
 
 function hideLinkInput() {
     document.getElementById('linkInputContainer').style.display = 'none';
-
     document.getElementById('link-input').value = '';
     selectedLink = '';
 }
@@ -101,11 +75,9 @@ document.getElementById('link-input').addEventListener('input', function() {
 //5. Submit button
 function submitForm() {
     if (selectedFile !== null && selectedLink === '') {
-        //all the data from the form is appended into formdata
         var formdata = new FormData();
         formdata.append("file", selectedFile);
 
-        //we are making a post request
         var requestOptions = {
           method: "POST",
           body: formdata,
@@ -130,6 +102,26 @@ function submitForm() {
     }
     // document.getElementById('submissionResult').textContent = 'Submitted';
 }
+
+
+//6. Video preview
+function showVideoPreview(url) {
+    const videoPreview = document.getElementById('video-preview');
+    videoPreview.src = url;
+    videoPreview.style.display = 'block';
+}
+
+function hideVideoPreview() {
+    const videoPreview = document.getElementById('video-preview');
+    videoPreview.src = '';
+    videoPreview.style.display = 'none';
+}
+
+// document.getElementById('close-preview').addEventListener('click', function() {
+//     document.getElementById('video-preview').pause(); // Pause the video
+//     document.getElementById('video-preview').currentTime = 0; // Reset video to start
+//     document.getElementById('video-container').style.display = 'none'; // Hide video container
+// });
 
 
 // //------------------

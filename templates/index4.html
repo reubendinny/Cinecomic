@@ -236,13 +236,13 @@
           <div class="button-container">
               <input type="file" id="fileInput" accept=".mp4" style="display: none;">
               <button onclick="openFilePicker()" class="icon-button"><img src="{{url_for('static', filename = 'images/upload.png')}}" alt="Upload Video"></button>
-              <button onclick="toggleLinkInput()" class="icon-button"><img src="{{url_for('static', filename = 'images/link.png')}}" alt="Enter Link"></button>
-              
+              <button onclick="toggleLinkInput()" class="icon-button"><img src="{{url_for('static', filename = 'images/link.png')}}" alt="Enter Link"></button>   
           </div>
           <p id="fileName"></p>
           <div id="linkInputContainer" style="display: none;">
               <input type="text" id="link-input" placeholder="Enter Link">
           </div>
+          
           <button onclick="submitForm()">Submit</button>
           <p id="submissionResult"></p>
       </div>
