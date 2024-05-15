@@ -1,6 +1,7 @@
 import os
 import shutil
 from pytube import YouTube 
+import webbrowser
 
 from flask import Flask, render_template,request
 from backend.subtitles.subs import get_subtitles
@@ -38,8 +39,10 @@ def upload_file():
         f.save("video/uploaded.mp4")
         cleanup()
         create_comic()
+        webbrowser.open('file:///'+os.getcwd()+'/' + 'output/page.html')
         return "Comic created Successfully"
     
+
 @app.route('/handle_link', methods=['GET', 'POST'])
 def handle_link():
     if request.method == 'POST':
@@ -48,5 +51,6 @@ def handle_link():
         download_video(link)
         cleanup()
         create_comic()
+        webbrowser.open('file:///'+os.getcwd()+'/' + 'output/page.html')
         return "Comic created Successfully"
     
