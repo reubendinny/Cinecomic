@@ -1,5 +1,5 @@
 import pickle
-from backend.subtitles.subs import get_subtitles
+# from backend.subtitles.subs import get_subtitles
 from backend.keyframes.keyframes import generate_keyframes, black_bar_crop
 from backend.panel_layout.layout_gen import generate_layout
 from backend.cartoonize.cartoonize import style_frames
@@ -11,7 +11,7 @@ import time
 start = time.time()
 
 video = 'video/Dune.mp4'
-get_subtitles(video)
+# get_subtitles(video)
 
 generate_keyframes(video)
 black_x, black_y, _, _ = black_bar_crop()
