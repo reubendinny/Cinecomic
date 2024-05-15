@@ -1,8 +1,5 @@
-import srt
-import whisper
 from transformers import pipeline
 
-model = whisper.load_model("base")
 
 sentiment_analysis = pipeline(
   "sentiment-analysis",

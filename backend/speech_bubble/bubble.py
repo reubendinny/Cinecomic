@@ -10,8 +10,11 @@ import threading
 
 def emotion_detection(subs,emotions):
     # Placeholder for actual emotion detection logic
-    detected_emotions = 'angry'
-    emotions.append(detected_emotions)
+    with open("test1.srt", "r") as file:
+        for sub in subs:
+            dialogue = sub.content
+            emotions.append(get_bubble_type(dialogue))
+
     
 
 def bubble_create(video, crop_coords, black_x, black_y):
@@ -61,7 +64,6 @@ def bubble_create(video, crop_coords, black_x, black_y):
 
         temp = bubble(bubble_x, bubble_y,lip_x,lip_y,sub.content)
         bubbles.append(temp)
-
 
     return bubbles
 
