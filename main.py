@@ -1,17 +1,25 @@
 import pickle
 # from backend.subtitles.subs import get_subtitles
-# from backend.keyframes.keyframes import generate_keyframes, black_bar_crop
-# from backend.panel_layout.layout_gen import generate_layout
+from backend.keyframes.keyframes import generate_keyframes, black_bar_crop
+from backend.panel_layout.layout_gen import generate_layout
 from backend.cartoonize.cartoonize import style_frames
 from backend.speech_bubble.bubble import bubble_create
 from backend.page_create import page_create,page_json
-import time
+
+import srt
+from backend.speech_bubble.bubble_shape import get_bubble_type
 
 
-start = time.time()
-
-video = 'video/Dune.mp4'
+video = 'video/harry.mp4'
 # get_subtitles(video)
+
+with open("test1.srt", "r") as file:
+  subs = list(srt.parse(file))
+for sub in subs:
+      start_time_seconds = sub.start.total_seconds()
+      end_time_seconds = sub.end.total_seconds()
+      dialogue = sub.content
+      get_bubble_type(dialogue)
 
 # generate_keyframes(video)
 # black_x, black_y, _, _ = black_bar_crop()
@@ -30,31 +38,27 @@ video = 'video/Dune.mp4'
 #     pickle.dump(panels, f)
 # ==============================================
 # Reading crop_coords and black_coords
-crop_coords=None
-black_coords=None
-page_templates=None
-with open('crop_coords.pkl', 'rb') as f:
-    crop_coords = pickle.load(f)
-with open('black_coords.pkl', 'rb') as f:
-    black_coords = pickle.load(f)
-with open('page_templates.pkl', 'rb') as f:
-    page_templates = pickle.load(f)
-with open('panels.pkl', 'rb') as f:
-    panels = pickle.load(f)
-black_x = black_coords[0]
-black_y = black_coords[1]
+# crop_coords=None
+# black_coords=None
+# page_templates=None
+# with open('crop_coords.pkl', 'rb') as f:
+#     crop_coords = pickle.load(f)
+# with open('black_coords.pkl', 'rb') as f:
+#     black_coords = pickle.load(f)
+# with open('page_templates.pkl', 'rb') as f:
+#     page_templates = pickle.load(f)
+# with open('panels.pkl', 'rb') as f:
+#     panels = pickle.load(f)
+# black_x = black_coords[0]
+# black_y = black_coords[1]
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-
+# 
     
-bubbles = bubble_create(video, crop_coords, black_x, black_y)
+# bubbles = bubble_create(video, crop_coords, black_x, black_y)
 
-pages  = page_create(page_templates,panels,bubbles)
+# pages  = page_create(page_templates,panels,bubbles)
 
-page_json(pages)
+# page_json(pages)
 
-style_frames()
-
-end = time.time()
-
-print(start-end)
+# style_frames()
