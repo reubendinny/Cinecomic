@@ -1,6 +1,8 @@
 // 1. Background image carousel
 const carousel = document.querySelector('.carousel');
 const carouselItems = carousel.querySelectorAll('.carousel-item');
+const submissionResult = document.getElementById('submissionResult')
+
 let currentItem = 0;
 
 function changeImage() {
@@ -61,6 +63,7 @@ document.getElementById('fileInput').addEventListener('change', function() {
     document.getElementById('fileName').textContent = 'Selected File: ' + selectedFile.name;
     hideLinkInput(); // Hide link input if file is selected
     showVideoPreview(URL.createObjectURL(selectedFile)); // Show video preview
+
 });
 // document.getElementById('fileInput').addEventListener('change', function() {
 //     selectedFile = this.files[0];
@@ -98,7 +101,28 @@ document.getElementById('link-input').addEventListener('input', function() {
 //5. Submit button
 function submitForm() {
     if (selectedFile !== null && selectedLink === '') {
-        document.getElementById('submissionResult').textContent = selectedFile.name;
+        //all the data from the form is appended into formdata
+        var formdata = new FormData();
+        formdata.append("file", selectedFile);
+
+        //we are making a post request
+        var requestOptions = {
+          method: "POST",
+          body: formdata,
+          redirect: "follow",
+        };
+
+        fetch("/uploader", requestOptions)
+          .then((response) => response.text())
+          .then((result) => {
+            console.log(result);
+            submissionResult.textContent = result;
+          })
+          .catch((error) => {
+            console.log("error", error);
+            alert(error);
+          });
+          
     } else if (selectedLink !== '' && selectedFile === null) {
         document.getElementById('submissionResult').textContent = Submitted;
     } else {
