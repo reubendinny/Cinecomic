@@ -19,7 +19,7 @@ for sub in subs:
       start_time_seconds = sub.start.total_seconds()
       end_time_seconds = sub.end.total_seconds()
       dialogue = sub.content
-get_bubble_type(dialogue)
+      get_bubble_type(dialogue)
 
 # generate_keyframes(video)
 # black_x, black_y, _, _ = black_bar_crop()
