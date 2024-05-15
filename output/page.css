@@ -4,11 +4,8 @@ body {
 }
 
 .button{
-    /* background: transparent;
-    border: none; */
-    position: relative;
-    size: 1000px;
-
+    display: flex;
+    justify-content: center;
 }
 
 
