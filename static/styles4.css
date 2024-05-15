@@ -59,10 +59,9 @@
   
 .box button {
     padding: 0.5rem 2rem;
-    margin: 1.2rem;
+    margin: 3rem;
     font-size: 1.2rem;
     border: none;
-    border-radius: 0.5rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
@@ -103,12 +102,23 @@
     background: none;
     padding: 0;
     margin-right: 10px; /* Adjust spacing between buttons */
+    border-radius: 0.5rem;
 }
 
 .icon-button img {
-    width: 80px; /* Adjust size as needed */
-    height: 80px; /* Adjust size as needed */
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
 }
+
+#link-input {
+  padding: 10px;
+  border-radius: 25px;
+  width: 250px;
+}
+
+/* ::placeholder {
+  padding-left: 10px;
+} */
 
 #video-container {
   width: 60%;
