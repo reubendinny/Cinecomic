@@ -61,7 +61,7 @@ def display_sentiment_results(sentiment_results, option):
   for sentiment, score in sentiment_results.items():
     bubble_shape = get_bubble_shape(sentiment)
     if option == "Sentiment Only":
-      sentiment_text += f"{bubble_shape}\n"
+      sentiment_text += f"{bubble_shape}"
     elif option == "Sentiment + Score":
       sentiment_text += f"{bubble_shape}: {score}\n"
   return sentiment_text
@@ -73,8 +73,9 @@ def inference(sub, sentiment_option):
   return sentiment_output
 
 def get_bubble_type(dialogue):
-    print(dialogue)
+    # print(dialogue)
     sentiment_option_choices = ["Sentiment Only", "Sentiment + Score"]
     default_sentiment_option = "Sentiment Only"
     sentiment_result = inference(dialogue, default_sentiment_option)
-    print("Sentiment Analysis Results:", sentiment_result)
+    # print("Sentiment Analysis Results:", sentiment_result)
+    return sentiment_result

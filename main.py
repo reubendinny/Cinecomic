@@ -53,4 +53,4 @@ pages  = page_create(page_templates,panels,bubbles)
 
 page_json(pages)
 
-style_frames()
+# style_frames()
