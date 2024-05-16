@@ -30,4 +30,5 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     border: 3px solid black;
+    position: relative;
 }
