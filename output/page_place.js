@@ -19,6 +19,12 @@ function placeDialogs(page) {
         bubble_temp.innerHTML = page['bubbles'][index]['dialog'];
 
         const dialog_temp =page['bubbles'][index]['dialog'];
+        const emotion =page['bubbles'][index]['emotion'];
+        console.log(emotion)
+
+        if(emotion == 'normal'){
+            bubble_temp.style.backgroundImage = `url("assets/forward-button.png")`
+        }
 
         bubble_temp.style.fontSize =dialog_temp.length
         bubble_temp.style.transform = `translate(${page['bubbles'][index]['bubble_offset_x']}px, ${page['bubbles'][index]['bubble_offset_y']}px)`
