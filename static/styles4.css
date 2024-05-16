@@ -110,10 +110,14 @@
     height: 50px; /* Adjust size as needed */
 }
 
+.submit-button {
+  border-radius: 25px;
+}
+
 #link-input {
   padding: 10px;
-  border-radius: 25px;
-  width: 250px;
+  /* border-radius: 25px; */
+  /* width: 250px; */
 }
 
 /* ::placeholder {

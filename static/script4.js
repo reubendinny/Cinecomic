@@ -121,7 +121,8 @@ function submitForm() {
           })
           .catch((error) => {
             console.log("error", error);
-            alert(error);
+            submissionResult.textContent = "An error has occured";
+            // alert(error);
           });
     } 
     
