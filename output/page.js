@@ -4,176 +4,181 @@ var pages = [
             {
                 "image": "frame001",
                 "row_span": 1,
-                "col_span": 2
+                "col_span": 1
             },
             {
                 "image": "frame002",
                 "row_span": 1,
-                "col_span": 2
+                "col_span": 3
             },
             {
                 "image": "frame003",
                 "row_span": 1,
-                "col_span": 3
-            },
-            {
-                "image": "frame004",
-                "row_span": 2,
                 "col_span": 1
             },
             {
-                "image": "frame005",
+                "image": "frame004",
                 "row_span": 1,
+                "col_span": 2
+            },
+            {
+                "image": "frame005",
+                "row_span": 2,
                 "col_span": 1
             },
             {
                 "image": "frame006",
                 "row_span": 1,
-                "col_span": 1
-            },
-            {
-                "image": "frame007",
-                "row_span": 1,
-                "col_span": 1
+                "col_span": 3
             }
         ],
         "bubbles": [
             {
                 "dialog": "When I call your name, you will come forth.",
-                "bubble_offset_x": 196.73017348203226,
+                "emotion": "normal",
+                "bubble_offset_x": 56.202485380116954,
                 "bubble_offset_y": 15.0,
-                "tail_deg": 59.78455096637556,
-                "tail_offset_x": 40.2602374701518,
-                "tail_offset_y": 69.13113103983606
+                "tail_deg": 60.869348204025776,
+                "tail_offset_x": 38.94422055149007,
+                "tail_offset_y": 69.88095366862775
             },
             {
                 "dialog": "I shall place the sorting hat on your head,",
-                "bubble_offset_x": 72.69052044609668,
+                "emotion": "normal",
+                "bubble_offset_x": 258.75,
                 "bubble_offset_y": 15.0,
-                "tail_deg": 32.11218399965509,
-                "tail_offset_x": 67.76071198702869,
-                "tail_offset_y": 42.526296699935514
+                "tail_deg": 31.15821336799956,
+                "tail_offset_x": 68.45934697239743,
+                "tail_offset_y": 41.39224338101162
             },
             {
                 "dialog": "and you will be sorted into your houses.",
-                "bubble_offset_x": 30.0,
+                "emotion": "normal",
+                "bubble_offset_x": 10.0,
                 "bubble_offset_y": 15.0,
-                "tail_deg": 20.96525477771631,
-                "tail_offset_x": 74.70380606314924,
-                "tail_offset_y": 28.624139457447228
+                "tail_deg": 54.11877482480329,
+                "tail_offset_x": 46.88855110256406,
+                "tail_offset_y": 64.81869927345225
             },
             {
                 "dialog": "Hermione Granger?",
+                "emotion": "normal",
+                "bubble_offset_x": 20.0,
+                "bubble_offset_y": 15.0,
+                "tail_offset_x": null,
+                "tail_offset_y": null
+            },
+            {
+                "dialog": "Oh, no. Okay, relax.",
+                "emotion": "normal",
                 "bubble_offset_x": 10.0,
                 "bubble_offset_y": 624.3333333333334,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             },
             {
-                "dialog": "Oh, no. Okay, relax.",
-                "bubble_offset_x": 10.0,
-                "bubble_offset_y": 257.6666666666667,
-                "tail_deg": -13.137195438095677,
-                "tail_offset_x": 77.90628991277124,
-                "tail_offset_y": -18.18268385105009
-            },
-            {
                 "dialog": "Mental, that one. I'm telling you.",
-                "bubble_offset_x": 10.0,
-                "bubble_offset_y": 257.6666666666667,
-                "tail_offset_x": null,
-                "tail_offset_y": null
-            },
-            {
-                "dialog": "Ah, right then.",
-                "bubble_offset_x": 10.0,
+                "emotion": "normal",
+                "bubble_offset_x": 561.25,
                 "bubble_offset_y": 15.0,
-                "tail_offset_x": null,
-                "tail_offset_y": null
+                "tail_deg": 88.27486718889904,
+                "tail_offset_x": 2.4083758762759606,
+                "tail_offset_y": 79.96374006784933
             }
         ]
     },
     {
         "panels": [
             {
-                "image": "frame008",
+                "image": "frame007",
                 "row_span": 1,
                 "col_span": 3
             },
             {
-                "image": "frame009",
+                "image": "frame008",
                 "row_span": 1,
                 "col_span": 1
             },
             {
-                "image": "frame010",
+                "image": "frame009",
                 "row_span": 2,
                 "col_span": 1
             },
             {
-                "image": "frame011",
+                "image": "frame010",
                 "row_span": 1,
                 "col_span": 3
             },
             {
-                "image": "frame012",
+                "image": "frame011",
                 "row_span": 1,
                 "col_span": 2
             },
             {
-                "image": "frame013",
+                "image": "frame012",
                 "row_span": 1,
                 "col_span": 1
             }
         ],
         "bubbles": [
             {
-                "dialog": "Right. Okay.",
-                "bubble_offset_x": 258.75,
-                "bubble_offset_y": 15.0,
+                "dialog": "Ah, right then.",
+                "emotion": "normal",
+                "bubble_offset_x": 30.0,
+                "bubble_offset_y": 257.6666666666667,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             },
             {
-                "dialog": "Gryffindor!",
+                "dialog": "Mmm, right.",
+                "emotion": "normal",
                 "bubble_offset_x": 10.0,
                 "bubble_offset_y": 15.0,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             },
             {
-                "dialog": "Draco Malfoy.",
+                "dialog": "Okay. Gryffindor!",
+                "emotion": "normal",
                 "bubble_offset_x": 10.0,
                 "bubble_offset_y": 30.0,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             },
             {
-                "dialog": "Slytherin!",
+                "dialog": "Draco Malfoy.",
+                "emotion": "normal",
                 "bubble_offset_x": 561.25,
                 "bubble_offset_y": 15.0,
-                "tail_offset_x": null,
-                "tail_offset_y": null
+                "tail_deg": 147.93493761625143,
+                "tail_offset_x": -67.79566385621207,
+                "tail_offset_y": 42.470554061555404
             },
             {
-                "dialog": "There's no witch or wizard who went bad who wasn't in Slytherin.",
-                "bubble_offset_x": 72.69052044609668,
+                "dialog": "Slytherin!",
+                "emotion": "normal",
+                "bubble_offset_x": 20.0,
                 "bubble_offset_y": 257.6666666666667,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             },
             {
-                "dialog": "Susan Bones.",
-                "bubble_offset_x": 56.202485380116954,
-                "bubble_offset_y": 15.0,
-                "tail_deg": 76.6501609465309,
-                "tail_offset_x": 18.47169400959167,
-                "tail_offset_y": 77.83827156621615
+                "dialog": "There's not a witch or wizard who went bad who wasn't in Slytherin.",
+                "emotion": "normal",
+                "bubble_offset_x": 10.0,
+                "bubble_offset_y": 257.6666666666667,
+                "tail_offset_x": null,
+                "tail_offset_y": null
             }
         ]
     },
     {
         "panels": [
+            {
+                "image": "frame013",
+                "row_span": 1,
+                "col_span": 1
+            },
             {
                 "image": "frame014",
                 "row_span": 1,
@@ -186,28 +191,32 @@ var pages = [
             },
             {
                 "image": "frame016",
-                "row_span": 2,
-                "col_span": 1
-            },
-            {
-                "image": "frame017",
-                "row_span": 1,
-                "col_span": 3
-            },
-            {
-                "image": "frame018",
                 "row_span": 1,
                 "col_span": 2
             },
             {
-                "image": "frame019",
-                "row_span": 1,
+                "image": "frame017",
+                "row_span": 2,
                 "col_span": 1
+            },
+            {
+                "image": "frame018",
+                "row_span": 1,
+                "col_span": 3
             }
         ],
         "bubbles": [
             {
+                "dialog": "Susan Bonds!",
+                "emotion": "jagged",
+                "bubble_offset_x": 10.0,
+                "bubble_offset_y": 257.6666666666667,
+                "tail_offset_x": null,
+                "tail_offset_y": null
+            },
+            {
                 "dialog": "Harry, what is it?",
+                "emotion": "normal",
                 "bubble_offset_x": 30.0,
                 "bubble_offset_y": 257.6666666666667,
                 "tail_deg": -0.6282315512906717,
@@ -215,47 +224,49 @@ var pages = [
                 "tail_offset_y": -0.8771591464945552
             },
             {
-                "dialog": "Nothing.",
-                "bubble_offset_x": 10.0,
+                "dialog": "Where shall I be? Nothing.",
+                "emotion": "normal",
+                "bubble_offset_x": 43.75,
                 "bubble_offset_y": 257.6666666666667,
-                "tail_deg": 26.309802192688565,
-                "tail_offset_x": 71.71284931259382,
-                "tail_offset_y": 35.457964457498306
+                "tail_deg": 30.201926854496936,
+                "tail_offset_x": 69.14063079413702,
+                "tail_offset_y": 40.24392094949039
             },
             {
-                "dialog": "Nothing. I'm fine.",
-                "bubble_offset_x": 43.75,
+                "dialog": "Nothing, I'm fine. Let's see.",
+                "emotion": "normal",
+                "bubble_offset_x": 129.375,
+                "bubble_offset_y": 15.0,
+                "tail_deg": 49.03543552468595,
+                "tail_offset_x": 52.447371271780824,
+                "tail_offset_y": 60.409214915275804
+            },
+            {
+                "dialog": "I know! Hufflepuff!",
+                "emotion": "normal",
+                "bubble_offset_x": 10.0,
                 "bubble_offset_y": 624.3333333333334,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             },
             {
-                "dialog": "I know.",
-                "bubble_offset_x": 30.0,
-                "bubble_offset_y": 210.34569597069597,
-                "tail_deg": 8.511485039811463,
-                "tail_offset_x": 79.11889718686528,
-                "tail_offset_y": 11.840612650291401
-            },
-            {
-                "dialog": "Hufflepuff!",
-                "bubble_offset_x": 20.0,
-                "bubble_offset_y": 103.59355638166048,
-                "tail_offset_x": null,
-                "tail_offset_y": null
-            },
-            {
-                "dialog": "Ronald...",
-                "bubble_offset_x": 43.75,
-                "bubble_offset_y": 15.0,
-                "tail_deg": 54.69995179141698,
-                "tail_offset_x": 46.228664886419686,
-                "tail_offset_y": 65.29096830970657
+                "dialog": "Ronald Weasley!",
+                "emotion": "normal",
+                "bubble_offset_x": 388.12500000000006,
+                "bubble_offset_y": 257.6666666666667,
+                "tail_deg": -31.47038195946259,
+                "tail_offset_x": 68.23281174554295,
+                "tail_offset_y": -41.76461901295518
             }
         ]
     },
     {
         "panels": [
+            {
+                "image": "frame019",
+                "row_span": 1,
+                "col_span": 1
+            },
             {
                 "image": "frame020",
                 "row_span": 1,
@@ -268,36 +279,24 @@ var pages = [
             },
             {
                 "image": "frame022",
-                "row_span": 2,
-                "col_span": 1
-            },
-            {
-                "image": "frame023",
-                "row_span": 1,
-                "col_span": 3
-            },
-            {
-                "image": "frame024",
                 "row_span": 1,
                 "col_span": 2
             },
             {
-                "image": "frame025",
-                "row_span": 1,
+                "image": "frame023",
+                "row_span": 2,
                 "col_span": 1
+            },
+            {
+                "image": "frame024",
+                "row_span": 1,
+                "col_span": 3
             }
         ],
         "bubbles": [
             {
-                "dialog": "Weasley!",
-                "bubble_offset_x": 258.75,
-                "bubble_offset_y": 15.0,
-                "tail_deg": 48.804597424269296,
-                "tail_offset_x": 52.690326726604425,
-                "tail_offset_y": 60.197420787303464
-            },
-            {
                 "dialog": "Ha! Another Weasley.",
+                "emotion": "normal",
                 "bubble_offset_x": 10.0,
                 "bubble_offset_y": 257.6666666666667,
                 "tail_offset_x": null,
@@ -305,20 +304,23 @@ var pages = [
             },
             {
                 "dialog": "I know just what to do with you.",
-                "bubble_offset_x": 10.0,
-                "bubble_offset_y": 624.3333333333334,
+                "emotion": "normal",
+                "bubble_offset_x": 561.25,
+                "bubble_offset_y": 257.6666666666667,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             },
             {
                 "dialog": "Gryffindor!",
-                "bubble_offset_x": 561.25,
+                "emotion": "normal",
+                "bubble_offset_x": 10.0,
                 "bubble_offset_y": 15.0,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             },
             {
                 "dialog": "Harry Potter?",
+                "emotion": "normal",
                 "bubble_offset_x": 302.5,
                 "bubble_offset_y": 15.0,
                 "tail_deg": 94.47780474092163,
@@ -326,31 +328,45 @@ var pages = [
                 "tail_offset_y": 79.75581219550433
             },
             {
-                "dialog": "Hmm. Difficult. Very difficult.",
+                "dialog": "Hmm, difficult. Very difficult.",
+                "emotion": "normal",
                 "bubble_offset_x": 10.0,
-                "bubble_offset_y": 257.6666666666667,
-                "tail_deg": 14.908880045550127,
-                "tail_offset_x": 77.30689725788255,
-                "tail_offset_y": 20.582605188828534
+                "bubble_offset_y": 624.3333333333334,
+                "tail_offset_x": null,
+                "tail_offset_y": null
+            },
+            {
+                "dialog": "Plenty of courage, I see.",
+                "emotion": "normal",
+                "bubble_offset_x": 30.0,
+                "bubble_offset_y": 210.34569597069597,
+                "tail_deg": 8.675396246596229,
+                "tail_offset_x": 79.084699964887,
+                "tail_offset_y": 12.066906457903922
             }
         ]
     },
     {
         "panels": [
             {
+                "image": "frame025",
+                "row_span": 1,
+                "col_span": 1
+            },
+            {
                 "image": "frame026",
                 "row_span": 1,
-                "col_span": 2
+                "col_span": 3
             },
             {
                 "image": "frame027",
                 "row_span": 1,
-                "col_span": 2
+                "col_span": 1
             },
             {
                 "image": "frame028",
                 "row_span": 1,
-                "col_span": 3
+                "col_span": 2
             },
             {
                 "image": "frame029",
@@ -360,69 +376,56 @@ var pages = [
             {
                 "image": "frame030",
                 "row_span": 1,
-                "col_span": 1
-            },
-            {
-                "image": "frame031",
-                "row_span": 1,
-                "col_span": 1
-            },
-            {
-                "image": "frame032",
-                "row_span": 1,
-                "col_span": 1
+                "col_span": 3
             }
         ],
         "bubbles": [
             {
-                "dialog": "Plenty of courage, I see. Not a bad mind either.",
-                "bubble_offset_x": 129.375,
+                "dialog": "Not a bad mind, either.",
+                "emotion": "normal",
+                "bubble_offset_x": 10.0,
                 "bubble_offset_y": 257.6666666666667,
-                "tail_deg": 7.518682051901296,
-                "tail_offset_x": 79.31217990940392,
-                "tail_offset_y": 10.467956726044708
+                "tail_deg": 17.02720733504793,
+                "tail_offset_x": 76.49326505843521,
+                "tail_offset_y": 23.42606242414577
             },
             {
-                "dialog": "There's talent, oh yes, and a thirst to prove yourself.",
-                "bubble_offset_x": 72.69052044609668,
+                "dialog": "There's talent, oh, yes, and a thirst to prove yourself.",
+                "emotion": "normal",
+                "bubble_offset_x": 561.25,
                 "bubble_offset_y": 15.0,
-                "tail_deg": 34.50911934800628,
-                "tail_offset_x": 65.9228821973598,
-                "tail_offset_y": 45.32299198853735
+                "tail_offset_x": null,
+                "tail_offset_y": null
             },
             {
                 "dialog": "But where to put you?",
-                "bubble_offset_x": 30.0,
-                "bubble_offset_y": 108.04945054945055,
-                "tail_deg": 40.48099236866089,
-                "tail_offset_x": 60.84971003060357,
-                "tail_offset_y": 51.935660091997136
+                "emotion": "normal",
+                "bubble_offset_x": 10.0,
+                "bubble_offset_y": 15.0,
+                "tail_offset_x": null,
+                "tail_offset_y": null
             },
             {
                 "dialog": "Not Slytherin. Not Slytherin.",
+                "emotion": "normal",
+                "bubble_offset_x": 129.375,
+                "bubble_offset_y": 15.0,
+                "tail_offset_x": null,
+                "tail_offset_y": null
+            },
+            {
+                "dialog": "Not Slytherin, eh?",
+                "emotion": "normal",
                 "bubble_offset_x": 10.0,
                 "bubble_offset_y": 624.3333333333334,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             },
             {
-                "dialog": "Not Slytherin, eh?",
-                "bubble_offset_x": 10.0,
-                "bubble_offset_y": 257.6666666666667,
-                "tail_offset_x": null,
-                "tail_offset_y": null
-            },
-            {
                 "dialog": "Are you sure? You could be great, you know.",
-                "bubble_offset_x": 10.0,
-                "bubble_offset_y": 15.0,
-                "tail_offset_x": null,
-                "tail_offset_y": null
-            },
-            {
-                "dialog": "It's all here in your head.",
-                "bubble_offset_x": 43.75,
-                "bubble_offset_y": 15.0,
+                "emotion": "normal",
+                "bubble_offset_x": 561.25,
+                "bubble_offset_y": 257.6666666666667,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             }
@@ -431,14 +434,24 @@ var pages = [
     {
         "panels": [
             {
+                "image": "frame031",
+                "row_span": 1,
+                "col_span": 3
+            },
+            {
+                "image": "frame032",
+                "row_span": 2,
+                "col_span": 1
+            },
+            {
                 "image": "frame033",
                 "row_span": 1,
-                "col_span": 1
+                "col_span": 2
             },
             {
                 "image": "frame034",
                 "row_span": 1,
-                "col_span": 3
+                "col_span": 1
             },
             {
                 "image": "frame035",
@@ -452,56 +465,64 @@ var pages = [
             },
             {
                 "image": "frame037",
-                "row_span": 2,
-                "col_span": 1
-            },
-            {
-                "image": "frame038",
                 "row_span": 1,
-                "col_span": 3
+                "col_span": 1
             }
         ],
         "bubbles": [
             {
+                "dialog": "It's all here in your head.",
+                "emotion": "normal",
+                "bubble_offset_x": 129.375,
+                "bubble_offset_y": 257.6666666666667,
+                "tail_offset_x": null,
+                "tail_offset_y": null
+            },
+            {
                 "dialog": "And Slytherin will help you on the way to greatness.",
+                "emotion": "normal",
+                "bubble_offset_x": 10.0,
+                "bubble_offset_y": 624.3333333333334,
+                "tail_offset_x": null,
+                "tail_offset_y": null
+            },
+            {
+                "dialog": "There's no doubt about that.",
+                "emotion": "normal",
+                "bubble_offset_x": 129.375,
+                "bubble_offset_y": 15.0,
+                "tail_offset_x": null,
+                "tail_offset_y": null
+            },
+            {
+                "dialog": "No? Well, if you're sure...",
+                "emotion": "normal",
                 "bubble_offset_x": 10.0,
                 "bubble_offset_y": 15.0,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             },
             {
-                "dialog": "There's no doubt about that. No?",
-                "bubble_offset_x": 258.75,
-                "bubble_offset_y": 15.0,
-                "tail_deg": 34.573726775874334,
-                "tail_offset_x": 65.87173353246585,
-                "tail_offset_y": 45.397298613770126
-            },
-            {
-                "dialog": "Well, if you're sure...",
+                "dialog": "Better be...",
+                "emotion": "normal",
                 "bubble_offset_x": 10.0,
-                "bubble_offset_y": 15.0,
+                "bubble_offset_y": 257.6666666666667,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             },
             {
-                "dialog": "better be...",
+                "dialog": "Gryffindor!",
+                "emotion": "normal",
                 "bubble_offset_x": 20.0,
                 "bubble_offset_y": 15.0,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             },
             {
-                "dialog": "Gryffindor!",
-                "bubble_offset_x": 10.0,
-                "bubble_offset_y": 30.0,
-                "tail_offset_x": null,
-                "tail_offset_y": null
-            },
-            {
-                "dialog": "Gryffindor!",
-                "bubble_offset_x": 561.25,
-                "bubble_offset_y": 162.07417582417582,
+                "dialog": "You",
+                "emotion": "normal",
+                "bubble_offset_x": 43.75,
+                "bubble_offset_y": 257.6666666666667,
                 "tail_offset_x": null,
                 "tail_offset_y": null
             }
