@@ -34,7 +34,9 @@ function placeDialogs(page) {
                 bubble_temp.style.backgroundRepeat = 'no-repeat';
                 bubble_temp.style.backgroundSize = 'cover';
                 bubble_temp.style.backgroundColor = 'transparent';
-                bubble_temp.style.height = '117.5px'; // Adjust height if necessary
+                bubble_temp.style.width = '300px'; // Adjust height if necessary
+                bubble_temp.style.height = '190px'; // Adjust height if necessary
+                bubble_temp.style.padding = '20px'
             }
 
             bubble_temp.style.fontSize = dialog_temp.length;
