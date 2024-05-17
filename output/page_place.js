@@ -15,7 +15,7 @@ function placeDialogs(page) {
 
         const dialog_temp = page['bubbles'][index]['dialog'];
 
-        if(dialog_temp != "<action-scene>"){
+        if(dialog_temp != "((action-scene))"){
 
             const wrapper = document.createElement('div');
             wrapper.style.position = 'relative'; // Wrapper to contain the bubble
