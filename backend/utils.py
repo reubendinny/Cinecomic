@@ -4,6 +4,7 @@ from PIL import Image
 import cv2
 import numpy as np
 from pytube import YouTube
+import re
 
 # Dimensions of the entire page
 hT = 1100
@@ -219,7 +220,7 @@ def download_video(link):
         print("Connection Error") 
 
     # Get all streams and filter for mp4 files
-    d_video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
+    d_video = yt.streams.get_by_resolution('720p')
 
     try: 
         # downloading the video 
@@ -227,3 +228,15 @@ def download_video(link):
         print('Video downloaded successfully!')
     except: 
         print("Some Error!")
+
+def convert_to_embed(url):
+    # Regular expression to capture the video ID from the YouTube URL
+    video_id_pattern = re.compile(r"(?:v=|\/)([0-9A-Za-z_-]{11}).*")
+    match = video_id_pattern.search(url)
+    
+    if not match:
+        return None  # Return None if no video ID is found
+    
+    video_id = match.group(1)
+    embed_url = f"https://www.youtube.com/embed/{video_id}"
+    return embed_url

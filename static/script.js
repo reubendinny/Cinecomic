@@ -63,11 +63,26 @@ function hideLinkInput() {
   selectedLink = "";
 }
 
+
+function convertToEmbed(url) {
+  // Regular expression to capture the video ID from the YouTube URL
+  const videoIdPattern = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;
+  const match = url.match(videoIdPattern);
+  
+  if (!match) {
+      return null;  // Return null if no video ID is found
+  }
+  
+  const videoId = match[1];
+  const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+  return embedUrl;
+}
+
 linkInput.addEventListener("input", function () {
   selectedLink = this.value;
   selectedFile = null;
   document.getElementById("fileName").textContent = "";
-  showIFramePreview(selectedLink);
+  showIFramePreview(convertToEmbed(selectedLink));
 });
 
 // 5. Submit button
