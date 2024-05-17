@@ -116,6 +116,7 @@ body, html {
 
 .submit-button {
   border-radius: 25px;
+  background-color: #e67800;
 }
 
 #link-input {
