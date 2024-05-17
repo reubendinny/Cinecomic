@@ -63,6 +63,10 @@ def get_lips(video, crop_coords, black_x, black_y):
         gray = cv2.cvtColor(keyframe,cv2.COLOR_BGR2GRAY)   # Convert image into grayscale
         face_rects = face_detector(gray,1)             # Detect face
         print("\nsub:",sub.index)
+        if sub.content == "((action-scene))":
+            print("skipping action scene")
+            lips[sub.index] = (-1,-1)
+            continue
 
         if len(face_rects) < 1:                 # No face detected
             print("No face detected: ",sub)

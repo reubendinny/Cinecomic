@@ -3,6 +3,12 @@ body {
     justify-content: center;
 }
 
+.button{
+    display: flex;
+    justify-content: center;
+}
+
+
 .wrapper {
     display: flex;
     height: 1100px;
@@ -22,6 +28,7 @@ body {
 .grid-item {
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     border: 3px solid black;
+    position: relative;
 }

@@ -76,13 +76,14 @@ class panel:
 
 class bubble:
 
-    def __init__(self,bubble_offset_x,bubble_offset_y,lip_x,lip_y,dialog):
+    def __init__(self,bubble_offset_x,bubble_offset_y,lip_x,lip_y,dialog,emotion):
 
         bubble_width=200
         bubble_height=94
         tail_centre_x=100
         tail_centre_y=47
         self.dialog = dialog
+        self.emotion = emotion
 
         self.bubble_offset_x = bubble_offset_x
         self.bubble_offset_y = bubble_offset_y

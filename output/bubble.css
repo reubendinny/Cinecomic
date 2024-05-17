@@ -2,14 +2,16 @@
     width: 200px;
     height: 94px;
     background-color: white;
-    position: relative;
     border-radius: 50%;
     font-size: 15;
     display: flex;
+    position: absolute; /* Ensure bubble does not affect grid item size */ 
     text-align: center;
     justify-content: center;
     align-items: center;
     z-index: 2;
+    box-sizing: border-box; /* Ensure padding is included in the bubble's total size */
+
 }
 
 .tail{
