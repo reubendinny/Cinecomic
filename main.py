@@ -5,8 +5,9 @@ from backend.panel_layout.layout_gen import generate_layout
 from backend.cartoonize.cartoonize import style_frames
 from backend.speech_bubble.bubble import bubble_create
 from backend.page_create import page_create,page_json
+from backend.utils import cleanup
 
-
+cleanup()
 video = 'video/harry.mp4'
 # get_subtitles(video)
 
