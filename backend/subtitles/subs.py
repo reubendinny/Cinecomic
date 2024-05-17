@@ -23,7 +23,7 @@ def process_srt(file_path, threshold_seconds):
                 index=0,  # Will be reindexed later
                 start=current_start,
                 end=segment_end,
-                content='<action-scene>'
+                content='((action-scene))'
             ))
             current_start = segment_end + timedelta(milliseconds=1)
         
@@ -33,7 +33,7 @@ def process_srt(file_path, threshold_seconds):
                 index=0,  # Will be reindexed later
                 start=current_start,
                 end=segment_end,
-                content='<action-scene>'
+                content='((action-scene))'
             ))
         
         return segments
