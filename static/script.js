@@ -5,6 +5,8 @@ const linkInput = document.getElementById("link-input");
 const filePicker = document.getElementById("fileInput");
 const videoPreview = document.getElementById("video-preview");
 const iFramePreview = document.getElementById("iframe-preview");
+const bgVideo = document.getElementById("bgVideo");
+
 var selectedFile = null;
 var selectedLink = "";
 var linkInputVisible = false;
@@ -51,9 +53,7 @@ function toggleLinkInput() {
   if (linkInputVisible) {
     linkInputContainer.style.display = "block";
   } else {
-    linkInputContainer.style.display = "none";
-    linkInput.value = "";
-    selectedLink = "";
+    hideLinkInput();
   }
 }
 
@@ -61,6 +61,7 @@ function hideLinkInput() {
   document.getElementById("linkInputContainer").style.display = "none";
   linkInput.value = "";
   selectedLink = "";
+  hideIFramePreview();
 }
 
 
@@ -146,20 +147,24 @@ function showVideoPreview(url) {
   videoPreview.src = url;
   videoPreview.style.display = "block";
   videoPreview.play();
+  bgVideo.pause()
 }
 
 function hideVideoPreview() {
   videoPreview.src = "";
   videoPreview.style.display = "none";
+  bgVideo.play()
 }
 
 function showIFramePreview(url) {
   hideVideoPreview();
   iFramePreview.src = url;
   iFramePreview.style.display = "block";
+  bgVideo.pause()
 }
 
 function hideIFramePreview() {
   iFramePreview.src = "";
   iFramePreview.style.display = "none";
+  bgVideo.play()
 }
