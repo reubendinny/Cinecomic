@@ -1,9 +1,19 @@
+@font-face {
+  font-family: 'adam_warren_proregular';
+  src: url('assets/adam-warren-font/adamwarrenpro-webfont.woff2') format('woff2'),
+       url('assets/adam-warren-font/adamwarrenpro-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 .bubble{
     width: 200px;
     height: 94px;
     background-color: white;
     border-radius: 50%;
-    font-size: 15;
+    font-family: 'adam_warren_proregular';
+    font-size: 1em;
     display: flex;
     position: absolute; /* Ensure bubble does not affect grid item size */ 
     text-align: center;
