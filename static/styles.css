@@ -152,6 +152,12 @@ body, html {
   z-index: 2;
 }
 
+#title{
+  font-family: "Bungee Spice", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 @keyframes fade {
   0% {
     opacity: 0;
