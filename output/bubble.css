@@ -10,6 +10,8 @@
     justify-content: center;
     align-items: center;
     z-index: 2;
+    box-sizing: border-box; /* Ensure padding is included in the bubble's total size */
+
 }
 
 .tail{

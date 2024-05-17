@@ -28,7 +28,7 @@ body {
 .grid-item {
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     border: 3px solid black;
     position: relative;
 }

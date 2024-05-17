@@ -35,8 +35,9 @@ function placeDialogs(page) {
                 bubble_temp.style.backgroundSize = 'cover';
                 bubble_temp.style.backgroundColor = 'transparent';
                 bubble_temp.style.width = '300px'; // Adjust height if necessary
-                bubble_temp.style.height = '190px'; // Adjust height if necessary
-                bubble_temp.style.padding = '20px'
+                bubble_temp.style.height = '194px'; // Adjust height if necessary
+                bubble_temp.style.padding = '70px'; // Adjust height if necessary
+
             }
 
             bubble_temp.style.fontSize = dialog_temp.length;
@@ -44,7 +45,7 @@ function placeDialogs(page) {
 
             const tail = document.createElement('div');
             tail.classList.add('tail');
-            if (page['bubbles'][index]['tail_offset_x'] == null) {
+            if (page['bubbles'][index]['tail_offset_x'] == null || emotion == 'jagged') {
                 tail.style.display = 'none';
             } else {
                 tail.style.transform = `translate(${page['bubbles'][index]['tail_offset_x']}px, ${page['bubbles'][index]['tail_offset_y']}px) rotate(${page['bubbles'][index]['tail_deg']}deg)`;
