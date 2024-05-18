@@ -57,7 +57,7 @@ def process_srt(file_path, threshold_seconds):
 
 def get_subtitles(file):
     subs_ai = SubsAI()
-    model = subs_ai.create_model('linto-ai/whisper-timestamped', {'model_type': 'medium'})
+    model = subs_ai.create_model('linto-ai/whisper-timestamped', {'model_type': 'small.en'})
     # model = subs_ai.create_model('openai/whisper', {'model_type': 'small'})
     # model = subs_ai.create_model('guillaumekln/faster-whisper', {'model_size_or_path': 'small.en'})
     subs = subs_ai.transcribe(file, model)
