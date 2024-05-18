@@ -209,6 +209,9 @@ def get_multi_speaker_lips(sub,video, keyframe_face_rects):
             return (-1,-1)
     except ValueError:
         return (-1,-1)
+    except ZeroDivisionError:
+        return (-1,-1)
+
     
 
     
