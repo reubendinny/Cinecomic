@@ -28,5 +28,15 @@ def extract_frames(input_video, output_path, start_time, end_time, frame_rate):
 
         current_frame += 1
 
+    # In case no frames were extracted, we take the first frame
+    if not frames:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, start_frame)
+        ret, frame = cap.read()
+        frame_name = f"{output_path}/frame_0.png"  # You can change the format to PNG, etc.
+        frame_filename = f"frame_0.png"
+        frame_path = os.path.join(output_path, frame_filename)
+        frames.append(frame_path)
+        cv2.imwrite(frame_name, frame)
+
     cap.release()
     return frames
