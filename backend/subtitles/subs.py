@@ -1,6 +1,9 @@
-from subsai import SubsAI
 import srt
 from datetime import timedelta
+import stable_whisper
+import ffmpeg
+import os
+
 
 def process_srt(file_path, threshold_seconds):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -54,16 +57,21 @@ def process_srt(file_path, threshold_seconds):
     with open('test1.srt', 'w', encoding='utf-8') as file:
         file.write(srt.compose(new_subtitles))
 
+def extract_audio(file):
+    extracted_audio = "audio.mp3"
+    stream = ffmpeg.input(file)
+    stream = ffmpeg.output(stream, extracted_audio)
+    ffmpeg.run(stream, overwrite_output=True)
+    return extracted_audio
 
 def get_subtitles(file):
-    subs_ai = SubsAI()
-    model = subs_ai.create_model('linto-ai/whisper-timestamped', {'model_type': 'small.en'})
-    # model = subs_ai.create_model('openai/whisper', {'model_type': 'small'})
-    # model = subs_ai.create_model('guillaumekln/faster-whisper', {'model_size_or_path': 'small.en'})
-    subs = subs_ai.transcribe(file, model)
-    subs.save('test1.srt')
+    extracted_audio = extract_audio(file)
+    model = stable_whisper.load_model('medium')
+    result = model.transcribe_minimal(extracted_audio)
+    result.to_srt_vtt('test1.srt',word_level=False)
     process_srt('test1.srt', 5)
-    return subs
+    if os.path.exists(extracted_audio):
+        os.remove(extracted_audio)
 
 if __name__ == '__main__':
     get_subtitles('video/joker.mp4')
