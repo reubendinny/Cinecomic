@@ -1,6 +1,10 @@
 body {
     display: flex;
     justify-content: center;
+    background-image: url('assets/bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
 }
 
 .button{
@@ -8,11 +12,20 @@ body {
     justify-content: center;
 }
 
+.button button{
+    background-color: rgba(0, 0, 0, 0.42);
+}
+
+.button button:hover {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 1px #000000,
+      0 0 2px #000000, 0 0 3px #000000, 0 0 3px #000000;
+  }
 
 .wrapper {
     display: flex;
     height: 1100px;
     width: 1035px;
+    background-color: black;
 }
 
 .grid-container {

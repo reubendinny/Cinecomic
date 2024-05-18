@@ -1,7 +1,6 @@
 import os
-import shutil
-from pytube import YouTube 
 import webbrowser
+import time
 
 from flask import Flask, render_template,request
 from backend.subtitles.subs import get_subtitles
@@ -20,6 +19,7 @@ def index():
 
 
 def create_comic():
+    start_time = time.time()
     video = 'video/uploaded.mp4'
     get_subtitles(video)
     generate_keyframes(video)
@@ -29,6 +29,7 @@ def create_comic():
     pages  = page_create(page_templates,panels,bubbles)
     page_json(pages)
     style_frames()
+    print("--- Execution time : %s minutes ---" % ((time.time() - start_time) / 60))
 
 @app.route('/uploader', methods=['GET', 'POST'])
 def upload_file():

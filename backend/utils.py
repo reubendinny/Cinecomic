@@ -3,7 +3,7 @@ import os
 from PIL import Image
 import cv2
 import numpy as np
-from pytube import YouTube
+import yt_dlp
 import re
 
 # Dimensions of the entire page
@@ -212,22 +212,14 @@ def cleanup():
     delete_other_folders(frames_path, final_folder_name)
     print("Deleted previous sub folders")
 
-def download_video(link):
-    SAVE_PATH = "video/" 
-    try: 
-        yt = YouTube(link) 
-    except: 
-        print("Connection Error") 
+def download_video(url):
+    ydl_opts = {
+        'outtmpl': f'video/uploaded.%(ext)s',
+        'format': f'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/best[ext=mp4][height<=1080]/best[height<=1080]'
+    }
 
-    # Get all streams and filter for mp4 files
-    d_video = yt.streams.get_by_resolution('720p')
-
-    try: 
-        # downloading the video 
-        d_video.download(output_path=SAVE_PATH, filename="uploaded.mp4")
-        print('Video downloaded successfully!')
-    except: 
-        print("Some Error!")
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
 
 def convert_to_embed(url):
     # Regular expression to capture the video ID from the YouTube URL
