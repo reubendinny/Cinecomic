@@ -95,7 +95,7 @@ def generate_keyframes(video):
         frames = []
         if not os.path.exists(f"frames/sub{sub.index}"):
             os.makedirs(f"frames/sub{sub.index}")
-        frames = extract_frames(video,os.path.join("frames",f"sub{sub.index}"),sub.start.total_seconds(),sub.end.total_seconds(),2)
+        frames = extract_frames(video,os.path.join("frames",f"sub{sub.index}"),sub.start.total_seconds(),sub.end.total_seconds(),3)
         features = _get_features(frames)
         highlight_scores = _get_probs(features)
 
