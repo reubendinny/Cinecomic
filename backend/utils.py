@@ -200,6 +200,10 @@ def cleanup():
     frames_path = 'frames'
     final_folder_name = 'final'
     final_folder_path = os.path.join(frames_path, final_folder_name)
+    uploaded_video_path = os.path.join('video', 'uploaded.mp4')
+
+    os.makedirs(final_folder_path, exist_ok=True) # If folders does not exist, create:
+    os.makedirs('video', exist_ok=True)
 
     # Clear the contents of the final folder
     if os.path.exists(final_folder_path):
@@ -210,9 +214,16 @@ def cleanup():
 
     # Delete all other folders in the frames folder
     delete_other_folders(frames_path, final_folder_name)
+
+    # Deleting the uploaded.mp4
+    if os.path.exists(uploaded_video_path):
+        os.remove(uploaded_video_path)
+        print(f"Previous video deleted successfully")
+        
     print("Deleted previous sub folders")
 
 def download_video(url):
+    print("Downloading video")
     ydl_opts = {
         'outtmpl': f'video/uploaded.%(ext)s',
         'format': f'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/best[ext=mp4][height<=1080]/best[height<=1080]'

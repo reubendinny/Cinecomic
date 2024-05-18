@@ -37,8 +37,8 @@ def upload_file():
         print(dict(request.form))  
         f = request.files['file']  #we got the file as file storage object from frontend
         print(type(f))
-        f.save("video/uploaded.mp4")
         cleanup()
+        f.save("video/uploaded.mp4")
         create_comic()
         webbrowser.open('file:///'+os.getcwd()+'/' + 'output/page.html')
         return "Comic created Successfully"
@@ -49,8 +49,8 @@ def handle_link():
     if request.method == 'POST':
         print(dict(request.form))  
         link = request.form['link']
-        download_video(link)
         cleanup()
+        download_video(link)
         create_comic()
         webbrowser.open('file:///'+os.getcwd()+'/' + 'output/page.html')
         return "Comic created Successfully"
