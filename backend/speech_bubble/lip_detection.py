@@ -25,7 +25,7 @@ def dist(p1, p2):
     dist = sqrt((p2_x - p1_x) ** 2 + (p2_y - p1_y) ** 2)
     return dist
 
-# Checks if 2 face rectangles have the same area using their top-right and bottom-left corners
+# Checks if 2 face rectangles have the same area using their top-left and bottom-right corners
 def similar_to_keyframe(face_rects, keyframe_face_rects):
     rect1_top_left = face_rects[0].tl_corner()
     rect1_bottom_right = face_rects[0].br_corner()
