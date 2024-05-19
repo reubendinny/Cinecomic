@@ -25,7 +25,7 @@ body {
     display: flex;
     height: 1100px;
     width: 1035px;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
 }
 
 .grid-container {
@@ -33,7 +33,7 @@ body {
     height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    border: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
     row-gap: 3px;
     column-gap: 3px;
 }
