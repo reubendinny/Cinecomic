@@ -31,6 +31,12 @@ Our project consists of the following core modules:
 - Install [dlib](https://github.com/z-mahmud22/Dlib_Windows_Python3.x)
 - All dependencies mentioned in `requirements.txt` to be installed. (`pip install -r requirements.txt`)
 
+## Running the project
+- If you are not using a GPU, head over to `backend/keyframes/keyframes.py` and set `gpu=False`(At exactly 2 locations)
+- You can head over to `backend/subtitles/subs.py` and change the Whisper model used. (Check supported models [here](https://github.com/openai/whisper))
+- Run the flask server: `python -m flask --app app run`
+- Open the localhost link on your browser (Eg:`http://127.0.0.1:5000`)
+
 
 ## Some more examples
 <img src="https://github.com/reubendinny/Cinecomic/assets/30729856/273277fb-fdb8-478d-ac14-8f5502e69ea9" width=50% height=50%>
