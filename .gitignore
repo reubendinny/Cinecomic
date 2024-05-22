@@ -10,3 +10,4 @@ page.js
 *.pkl
 output/page.js
 audio.mp3
+testing/*
