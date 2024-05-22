@@ -66,7 +66,7 @@ def extract_audio(file):
 
 def get_subtitles(file):
     extracted_audio = extract_audio(file)
-    model = stable_whisper.load_model('medium')
+    model = stable_whisper.load_model('small')
     result = model.transcribe_minimal(extracted_audio)
     result.to_srt_vtt('test1.srt',word_level=False)
     process_srt('test1.srt', 5)
@@ -75,6 +75,5 @@ def get_subtitles(file):
 
 if __name__ == '__main__':
     get_subtitles('video/joker.mp4')
-    process_srt('test1.srt', 5)
 
 
