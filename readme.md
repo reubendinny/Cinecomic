@@ -27,6 +27,8 @@ Our project consists of the following core modules:
 
 ## Pre-requisites
 - Python
+- Install [Pytorch](https://pytorch.org/get-started/locally/)
+- Install [dlib](https://github.com/z-mahmud22/Dlib_Windows_Python3.x)
 - All dependencies mentioned in `requirements.txt` to be installed. (`pip install -r requirements.txt`)
 
 
