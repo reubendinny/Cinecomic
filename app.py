@@ -55,3 +55,6 @@ def handle_link():
         webbrowser.open('file:///'+os.getcwd()+'/' + 'output/page.html')
         return "Comic created Successfully"
     
+if __name__ == "__main__":
+    app.run(debug=False)
+    
