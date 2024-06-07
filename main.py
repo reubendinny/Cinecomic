@@ -8,8 +8,8 @@ from backend.page_create import page_create,page_json
 from backend.utils import cleanup
 
 cleanup()
-video = 'video/harry.mp4'
-# get_subtitles(video)
+video = 'video/uploaded.mp4'
+get_subtitles(video)
 
 generate_keyframes(video)
 black_x, black_y, _, _ = black_bar_crop()
@@ -18,14 +18,14 @@ crop_coords, page_templates, panels = generate_layout()
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # Dumping crop_coords and black_coords
-with open('crop_coords.pkl', 'wb') as f:
-    pickle.dump(crop_coords, f)
-with open('black_coords.pkl', 'wb') as f:
-    pickle.dump((black_x,black_y), f)
-with open('page_templates.pkl', 'wb') as f:
-    pickle.dump(page_templates, f)
-with open('panels.pkl', 'wb') as f:
-    pickle.dump(panels, f)
+# with open('crop_coords.pkl', 'wb') as f:
+#     pickle.dump(crop_coords, f)
+# with open('black_coords.pkl', 'wb') as f:
+#     pickle.dump((black_x,black_y), f)
+# with open('page_templates.pkl', 'wb') as f:
+#     pickle.dump(page_templates, f)
+# with open('panels.pkl', 'wb') as f:
+#     pickle.dump(panels, f)
 # ==============================================
 # Reading crop_coords and black_coords
 # crop_coords=None
@@ -43,7 +43,6 @@ with open('panels.pkl', 'wb') as f:
 # black_y = black_coords[1]
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-# 
     
 bubbles = bubble_create(video, crop_coords, black_x, black_y)
 
@@ -51,4 +50,4 @@ pages  = page_create(page_templates,panels,bubbles)
 
 page_json(pages)
 
-# style_frames()
+style_frames()

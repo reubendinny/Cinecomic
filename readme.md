@@ -1,9 +1,8 @@
 # Cinecomic
 Cinecomic is an automated movie-to-comic generator. Input a video and it generates a comic book for the same complete with a comic style and dialogue bubbles
 
-<p align="center">
-    <img src="https://i.postimg.cc/KcB9QpKq/harry-final.jpg" width=60% height=60%>
-</p>
+https://github.com/reubendinny/Cinecomic/assets/30729856/6b40279c-26de-4eb3-b0fa-7de1f5605d0e
+
 
 ## Methodology
 Our project consists of the following core modules:
@@ -28,12 +27,21 @@ Our project consists of the following core modules:
 
 ## Pre-requisites
 - Python
+- Install [Pytorch](https://pytorch.org/get-started/locally/)
+- Install [dlib](https://github.com/z-mahmud22/Dlib_Windows_Python3.x)
 - All dependencies mentioned in `requirements.txt` to be installed. (`pip install -r requirements.txt`)
+
+## Running the project
+- If you are not using a GPU, head over to `backend/keyframes/keyframes.py` and set `gpu=False`(At exactly 2 locations)
+- You can head over to `backend/subtitles/subs.py` and change the Whisper model used. (Check supported models [here](https://github.com/openai/whisper))
+- Run the flask server: `python -m flask --app app run`
+- Open the localhost link on your browser (Eg:`http://127.0.0.1:5000`)
 
 
 ## Some more examples
-<img src="https://i.postimg.cc/qMr1Fcyk/joker2.jpg" width=50% height=50%>
+<img src="https://github.com/reubendinny/Cinecomic/assets/30729856/273277fb-fdb8-478d-ac14-8f5502e69ea9" width=50% height=50%>
 
 </br>
-<img src="https://i.postimg.cc/qMG1Htx2/narnia.jpg" width=50% height=50%>
+</br>
+<img src="https://github.com/reubendinny/Cinecomic/assets/30729856/23eff922-caa1-42fc-a836-c1c8a8ed13aa" width=50% height=50%>
 
