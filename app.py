@@ -22,6 +22,7 @@ def create_comic():
     start_time = time.time()
     video = 'video/uploaded.mp4'
     get_subtitles(video)
+    time.sleep(3)
     generate_keyframes(video)
     black_x, black_y, _, _ = black_bar_crop()
     crop_coords, page_templates, panels = generate_layout()
