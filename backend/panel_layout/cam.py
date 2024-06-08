@@ -49,6 +49,18 @@ def get_coordinates(img_path):
 
     CAM_data.append({'x_': x_, 'y_': y_, 'ten_map': ten_map})
 
+    max = -1
+    center_x = -1
+    center_y = -1
+
+    # Max ROI point
+    for i in range(0, ten_map.shape[0]):
+        for j in range(0,ten_map.shape[1]):
+          if ten_map[i][j] > max:
+            center_x = i
+            center_y = j
+            max = ten_map[i][j]
+
     top,bottom,left,right = -1,-1,-1,-1
     threshold = 0.2
 
@@ -100,6 +112,10 @@ def get_coordinates(img_path):
     bottom = bottom * y_
     left = left * x_
     right = right * x_
+    center_x = center_x * y_
+    center_y = center_y * x_
     left,right,top,bottom
 
-    return left, right, top, bottom
+    print("BB values lrtbxy: ", left, right, top, bottom, center_x, center_y)
+
+    return left, right, top, bottom, center_x, center_y
