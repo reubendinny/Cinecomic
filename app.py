@@ -10,6 +10,7 @@ from backend.cartoonize.cartoonize import style_frames
 from backend.speech_bubble.bubble import bubble_create
 from backend.page_create import page_create,page_json
 from backend.utils import cleanup, download_video
+from backend.utils import copy_template
 
 app = Flask(__name__)
 
@@ -41,6 +42,7 @@ def upload_file():
         cleanup()
         f.save("video/uploaded.mp4")
         create_comic()
+        copy_template()
         webbrowser.open('file:///'+os.getcwd()+'/' + 'output/page.html')
         return "Comic created Successfully"
     
@@ -53,6 +55,9 @@ def handle_link():
         cleanup()
         download_video(link)
         create_comic()
+        copy_template()
         webbrowser.open('file:///'+os.getcwd()+'/' + 'output/page.html')
         return "Comic created Successfully"
     
+
+

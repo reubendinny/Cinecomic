@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-image: url('assets/bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+}
+
+.button button{
+    background-color: rgba(0, 0, 0, 0.42);
+}
+
+.button button:hover {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 1px #000000,
+      0 0 2px #000000, 0 0 3px #000000, 0 0 3px #000000;
+  }
+
+.wrapper {
+    display: flex;
+    height: 1100px;
+    width: 1035px;
+    background-color: rgb(255, 255, 255);
+}
+
+.grid-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 3px solid rgb(255, 255, 255);
+    row-gap: 3px;
+    column-gap: 3px;
+}
+
+.grid-item {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 3px solid black;
+    position: relative;
+}

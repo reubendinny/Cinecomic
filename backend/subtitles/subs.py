@@ -3,7 +3,11 @@ from datetime import timedelta
 import stable_whisper
 import ffmpeg
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+WHISPER_MODEL = os.getenv("WHISPER_MODEL")
 
 def process_srt(file_path, threshold_seconds):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -66,7 +70,7 @@ def extract_audio(file):
 
 def get_subtitles(file):
     extracted_audio = extract_audio(file)
-    model = stable_whisper.load_model('small')
+    model = stable_whisper.load_model(WHISPER_MODEL)
     result = model.transcribe_minimal(extracted_audio)
     result.to_srt_vtt('test1.srt',word_level=False)
     process_srt('test1.srt', 5)

@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 import yt_dlp
 import re
-
+from pathlib import Path
 # Dimensions of the entire page
 hT = 1100
 wT = 1035
@@ -243,3 +243,28 @@ def convert_to_embed(url):
     video_id = match.group(1)
     embed_url = f"https://www.youtube.com/embed/{video_id}"
     return embed_url
+
+
+def copy_template():
+
+   src_path = Path('output_template')
+   dest_path = Path('output')
+
+   if not src_path.is_dir():
+       print("Source folder does not exist.")
+       return
+
+
+   if not dest_path.exists():
+       dest_path.mkdir(parents=True)
+
+   # Copy contents of src_folder to dest_folder, overwriting if necessary
+
+   for item in src_path.iterdir():
+
+       s = src_path / item.name
+       d = dest_path / item.name
+       if s.is_dir():
+           shutil.copytree(s, d, dirs_exist_ok=True)
+       else:
+           shutil.copy2(s, d)  # copy2 preserves metadata

@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'adam_warren_proregular';
+  src: url('assets/adam-warren-font/adamwarrenpro-webfont.woff2') format('woff2'),
+       url('assets/adam-warren-font/adamwarrenpro-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+.bubble{
+    width: 200px;
+    height: 94px;
+    background-color: white;
+    border-radius: 50%;
+    font-family: 'adam_warren_proregular';
+    font-size: 1em;
+    display: flex;
+    position: absolute; /* Ensure bubble does not affect grid item size */ 
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    box-sizing: border-box; /* Ensure padding is included in the bubble's total size */
+
+}
+
+.tail{
+  width: 0;
+  height: 0;
+  border-top: 2vh solid transparent;
+  border-bottom: 2vh solid transparent;
+  border-left: 10vh solid rgb(255, 255, 255);
+  position: absolute;
+  transform: translate(0px, 0px) rotate(0deg); 
+  z-index: -1;
+}
+
