@@ -38,6 +38,15 @@ Our project consists of the following core modules:
 - Run the flask server: `python -m flask --app app run`
 - Open the localhost link on your browser (Eg:`http://127.0.0.1:5000`)
 
+## Running with docker
+#### You can run this project using docker with the following commands:
+- ```
+  docker pull reubendinny/cinecomic
+  docker run --name cinecomic -d -p5000:5000 -e WHISPER_MODEL=small cinecomic
+  ```
+- Copy the frames folder and the output folder to a common folder
+- Open the `page.html` file in the output folder to view the comic
+
 
 ## Some more examples
 <img src="https://github.com/reubendinny/Cinecomic/assets/30729856/273277fb-fdb8-478d-ac14-8f5502e69ea9" width=50% height=50%>
